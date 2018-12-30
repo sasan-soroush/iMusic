@@ -33,7 +33,7 @@
 		B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C721D8A71400D53711 /* D-DINExp.otf */; };
 		B241B6D021D8A71500D53711 /* D-DIN.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C821D8A71400D53711 /* D-DIN.otf */; };
 		B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */; };
-		B241B6D421D8AC7900D53711 /* LabelTypeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */; };
+		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,7 @@
 		B241B6C721D8A71400D53711 /* D-DINExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINExp.otf"; sourceTree = "<group>"; };
 		B241B6C821D8A71400D53711 /* D-DIN.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DIN.otf"; sourceTree = "<group>"; };
 		B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed-Bold.otf"; sourceTree = "<group>"; };
-		B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTypeTwo.swift; sourceTree = "<group>"; };
+		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +198,7 @@
 		B241B69F21D7927A00D53711 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */,
+				B241B6D321D8AC7900D53711 /* CustomLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
-				B241B6D421D8AC7900D53711 /* LabelTypeTwo.swift in Sources */,
+				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
 				B241B69621D791D800D53711 /* Helper.swift in Sources */,
 				B241B6B321D7AE8200D53711 /* ESTabBarItemContainer.swift in Sources */,

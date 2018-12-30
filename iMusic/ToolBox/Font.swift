@@ -20,5 +20,12 @@ class Font  {
         return font!
     }
     
+    static func AvenirTextRegular(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "AvenirNext-Regular", size: size)
+        return font!
+    }
+    
+    
+    
 }
 

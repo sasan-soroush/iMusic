@@ -14,7 +14,6 @@ class BaseViewControllerTypeOne : UIViewController {
         super.viewDidLoad()
         
         setupView()
-        Helper.shared.getFontsList()
         
     }
     
@@ -24,7 +23,7 @@ class BaseViewControllerTypeOne : UIViewController {
     }
     
     let logo : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 35))
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 30))
         label.text = "iMusic"
         return label
     }()
@@ -33,9 +32,10 @@ class BaseViewControllerTypeOne : UIViewController {
     private func setupView() {
         self.view.backgroundColor = UIColor.init(rgb: 0x202123)
         self.view.setGradientBackgroundColor(firstColor: UIColor.init(rgb: 0x266762), secondColor: UIColor.clear)
-        
+        let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
         self.view.addSubview(logo)
-        logo.frame = CGRect(x: view.frame.width/5*2, y: 20, width: view.frame.width/5, height: view.frame.height/12)
+        
+        logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/8)
     }
     
 }

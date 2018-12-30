@@ -16,7 +16,7 @@ class CustomLabel : UILabel {
         adjustsFontForContentSizeCategory = true
         textAlignment = .center
         textColor = .white
-        minimumScaleFactor = 0.5
+        minimumScaleFactor = 0.2
     }
     
     required init?(coder aDecoder: NSCoder) {

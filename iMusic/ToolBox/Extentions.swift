@@ -26,9 +26,9 @@ extension UIColor {
     
     struct MyTheme {
         
-        static var backgroundColor : UIColor  { return UIColor(rgb: 0xF8E9A1)}
-        static var themeRedColor : UIColor  { return UIColor(rgb: 0xF76C6C)}
-        static var themeBlueColor : UIColor  { return UIColor(rgb: 0xA8D0E6)}
+        static var backgroundColor : UIColor  { return UIColor(rgb: 0x202123)}
+        static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
+        static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
         
         
     }
