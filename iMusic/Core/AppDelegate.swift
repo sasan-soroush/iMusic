@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         tabBarController.delegate = self
         tabBarController.title = "Irregularity"
         tabBarController.tabBar.shadowImage = UIImage(named: "transparent")
-        tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Tabbar_bg")
+        tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "tabbar_bg_dark")
         tabBarController.shouldHijackHandler = {
             tabbarController, viewController, index in
             if index == 2 {
@@ -59,18 +59,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         let v5 = SignUpViewController()
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
-        v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Find", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))
-        v3.tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig"))
-        v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Favor", image: UIImage(named: "favor"), selectedImage: UIImage(named: "favor_1"))
+        v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Playlist", image: #imageLiteral(resourceName: "playlist"), selectedImage: #imageLiteral(resourceName: "playlist_1"))
+        v3.tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: #imageLiteral(resourceName: "download"), selectedImage: #imageLiteral(resourceName: "download"))
+        v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "News", image: #imageLiteral(resourceName: "news"), selectedImage: #imageLiteral(resourceName: "news_1"))
         v5.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Me", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
         
         tabBarController.viewControllers = [v1, v2, v3, v4, v5]
         
-        let navigationController = UINavigationController(rootViewController: tabBarController)
+        let navigationController_signedIn = UINavigationController(rootViewController: tabBarController)
         tabBarController.title = "Example"
         
+        let navigationController_signedOut = UINavigationController(rootViewController: SignUpViewController())
         
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = navigationController_signedOut
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

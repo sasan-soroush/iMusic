@@ -19,4 +19,13 @@ class Helper  {
         let startingPointInYAxis = middlePoint - heightOfAmountTF/2
         return startingPointInYAxis
     }
+    
+    func getFontsList() {
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("--------------------------------------\n--------------------------------------")
+            print("Family: \(family) Font names: \(names)")
+            print("--------------------------------------\n--------------------------------------")
+        }
+    }
 }

@@ -27,6 +27,14 @@
 		B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6B621D7AEE000D53711 /* ExampleIrregularityContentView.swift */; };
 		B241B6BA21D7AFF600D53711 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B241B6B921D7AFF600D53711 /* pop.framework */; };
 		B241B6BE21D7B08A00D53711 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B241B6B921D7AFF600D53711 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C321D8A71200D53711 /* D-DINCondensed.otf */; };
+		B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C421D8A71300D53711 /* D-DIN-Bold.otf */; };
+		B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C521D8A71300D53711 /* D-DINExp-Bold.otf */; };
+		B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C721D8A71400D53711 /* D-DINExp.otf */; };
+		B241B6D021D8A71500D53711 /* D-DIN.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C821D8A71400D53711 /* D-DIN.otf */; };
+		B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */; };
+		B241B6D421D8AC7900D53711 /* LabelTypeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */; };
+		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +73,14 @@
 		B241B6B521D7AEE000D53711 /* ExampleBouncesContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBouncesContentView.swift; sourceTree = "<group>"; };
 		B241B6B621D7AEE000D53711 /* ExampleIrregularityContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityContentView.swift; sourceTree = "<group>"; };
 		B241B6B921D7AFF600D53711 /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = pop.framework; sourceTree = "<group>"; };
+		B241B6C321D8A71200D53711 /* D-DINCondensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed.otf"; sourceTree = "<group>"; };
+		B241B6C421D8A71300D53711 /* D-DIN-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DIN-Bold.otf"; sourceTree = "<group>"; };
+		B241B6C521D8A71300D53711 /* D-DINExp-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINExp-Bold.otf"; sourceTree = "<group>"; };
+		B241B6C721D8A71400D53711 /* D-DINExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINExp.otf"; sourceTree = "<group>"; };
+		B241B6C821D8A71400D53711 /* D-DIN.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DIN.otf"; sourceTree = "<group>"; };
+		B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed-Bold.otf"; sourceTree = "<group>"; };
+		B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTypeTwo.swift; sourceTree = "<group>"; };
+		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +155,7 @@
 			children = (
 				B241B69321D791D100D53711 /* Extentions.swift */,
 				B241B69521D791D800D53711 /* Helper.swift */,
+				B241B6D521D8B00800D53711 /* Font.swift */,
 			);
 			path = ToolBox;
 			sourceTree = "<group>";
@@ -161,6 +178,7 @@
 		B241B69D21D7925600D53711 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B241B6D221D8A72500D53711 /* Font */,
 				B241B67F21D78F8000D53711 /* AppDelegate.swift */,
 				B241B68621D78F8300D53711 /* Assets.xcassets */,
 				B241B68821D78F8300D53711 /* LaunchScreen.storyboard */,
@@ -180,6 +198,7 @@
 		B241B69F21D7927A00D53711 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B241B6D321D8AC7900D53711 /* LabelTypeTwo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +243,19 @@
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B241B6D221D8A72500D53711 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B241B6C421D8A71300D53711 /* D-DIN-Bold.otf */,
+				B241B6C821D8A71400D53711 /* D-DIN.otf */,
+				B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */,
+				B241B6C321D8A71200D53711 /* D-DINCondensed.otf */,
+				B241B6C521D8A71300D53711 /* D-DINExp-Bold.otf */,
+				B241B6C721D8A71400D53711 /* D-DINExp.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,9 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B241B6AB21D7AE8200D53711 /* LICENSE in Resources */,
+				B241B6D021D8A71500D53711 /* D-DIN.otf in Resources */,
 				B241B68A21D78F8300D53711 /* LaunchScreen.storyboard in Resources */,
 				B241B6AC21D7AE8200D53711 /* README.md in Resources */,
+				B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */,
+				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
+				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
+				B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */,
+				B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,9 +345,11 @@
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
+				B241B6D421D8AC7900D53711 /* LabelTypeTwo.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
 				B241B69621D791D800D53711 /* Helper.swift in Sources */,
 				B241B6B321D7AE8200D53711 /* ESTabBarItemContainer.swift in Sources */,
+				B241B6D621D8B00800D53711 /* Font.swift in Sources */,
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B241B69221D791B400D53711 /* BaseViewController.swift in Sources */,

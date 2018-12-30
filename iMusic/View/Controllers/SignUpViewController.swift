@@ -8,12 +8,20 @@
 
 import UIKit
 
-class SignUpViewController : BaseViewControllerTypeOne {
-
+extension SignUpViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+}
+
+class SignUpViewController : BaseViewControllerTypeOne {
+    
+    
 
 }
+
+
 
