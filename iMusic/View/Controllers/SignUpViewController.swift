@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-extension SignUpViewController {
+extension SignUpViewController : GIDSignInUIDelegate {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    
+    @objc private func googleButtonTapped() {
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+    }
 }
+
 
 class SignUpViewController : BaseViewControllerTypeOne {
     
@@ -41,15 +49,15 @@ class SignUpViewController : BaseViewControllerTypeOne {
         let textFieldSize = phoneNumberTextField.sizeThatFits(CGSize(width: view.frame.width, height: 80))
         phoneNumberTextField.frame = CGRect(x: view.frame.width/5, y: phoneLoginGuide.frame.maxY+regularHeight/2 - textFieldSize.height/2, width: view.frame.width/5*3, height: textFieldSize.height)
         line.frame = CGRect(x: phoneNumberTextField.frame.minX - 10, y: phoneNumberTextField.frame.maxY + 10, width: phoneNumberTextField.frame.width+20, height: 0.5)
-        dividerLine.frame = CGRect(x: 0, y: line.frame.maxY + regularHeight, width: view.frame.width, height: 2)
+        dividerLine.frame = CGRect(x: 0, y: line.frame.maxY + regularHeight, width: view.frame.width, height: 1)
         
         let orLabelSize = orLabel.sizeThatFits(CGSize(width: 80, height: 50))
         orLabel.frame = CGRect(x: view.frame.width/2 - 20, y: dividerLine.frame.minY - orLabelSize.height/2, width: 40, height: 30)
         
-        googleLoginGuide.frame = CGRect(x: 30, y: dividerLine.frame.maxY, width: view.frame.width - 60, height: regularHeight*2)
+        googleLoginGuide.frame = CGRect(x: 30, y: dividerLine.frame.maxY-15, width: view.frame.width - 60, height: regularHeight*2)
         let googleButtonWidth = regularHeight/1.2
-        googleButton.frame = CGRect(x: view.frame.width/2 - googleButtonWidth/2, y: googleLoginGuide.frame.maxY-googleButtonWidth/2, width: googleButtonWidth, height: googleButtonWidth)
-        googleButton.layer.cornerRadius = googleButtonWidth/2
+        googleButton.frame = CGRect(x: view.frame.width/3, y: googleLoginGuide.frame.maxY-googleButtonWidth/4-5, width: view.frame.width/3, height: googleButtonWidth/2+10)
+        googleButton.layer.cornerRadius = googleButtonWidth/4+5
         
     }
     
@@ -59,11 +67,13 @@ class SignUpViewController : BaseViewControllerTypeOne {
         return label
     }()
     
+    static let fontSize : CGFloat = 21
     let phoneLoginGuide : CustomLabel = {
-        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: 20) )
+        
+        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: fontSize) )
         let LabelString = "Please enter your phone number"
-        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: 20)]
-        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: 20)]
+        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: fontSize)]
+        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: fontSize)]
         let attributedSentence = NSMutableAttributedString(string: LabelString, attributes: regularAttributes)
         attributedSentence.setAttributes(largeAttributes, range: NSRange(location: 18, length: 12))
         label.attributedText = attributedSentence
@@ -71,10 +81,11 @@ class SignUpViewController : BaseViewControllerTypeOne {
     }()
     
     let googleLoginGuide : CustomLabel = {
-        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: 20) )
+        
+        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: fontSize) )
         let LabelString = "Sign in with your google account"
-        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: 20)]
-        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: 20)]
+        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: fontSize)]
+        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: fontSize)]
         let attributedSentence = NSMutableAttributedString(string: LabelString, attributes: regularAttributes)
         attributedSentence.setAttributes(largeAttributes, range: NSRange(location: 18, length: 14))
         label.attributedText = attributedSentence
@@ -90,6 +101,8 @@ class SignUpViewController : BaseViewControllerTypeOne {
         field.tintColor = UIColor.MyTheme.themeBlueColor
         field.keyboardType = .numberPad
         field.keyboardAppearance = .dark
+//        field.layer.borderColor = UIColor.darkGray.cgColor
+//        field.layer.borderWidth = 0.5
         return field
     }()
     
@@ -101,7 +114,7 @@ class SignUpViewController : BaseViewControllerTypeOne {
     
     let dividerLine : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.MyTheme.themeGreenColor
         return view
     }()
     
@@ -117,9 +130,9 @@ class SignUpViewController : BaseViewControllerTypeOne {
         button.setGradientBackgroundColor(firstColor: UIColor.MyTheme.themeBlueColor, secondColor: UIColor.MyTheme.themeGreenColor)
         button.backgroundColor = UIColor.MyTheme.themeGreenColor
         button.setImage(#imageLiteral(resourceName: "google-plus"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(googleButtonTapped), for: UIControlEvents.touchUpInside)
         return button
     }()
-    
     
 }
 

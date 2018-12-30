@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
 		B241B68721D78F8300D53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B241B68621D78F8300D53711 /* Assets.xcassets */; };
@@ -35,6 +36,9 @@
 		B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */; };
 		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
+		B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */; };
+		B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */; };
+		B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FFE9E621D9070500FE0C0F /* credentials.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B241B68121D78F8000D53711 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,10 @@
 		B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed-Bold.otf"; sourceTree = "<group>"; };
 		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTabBar.swift; sourceTree = "<group>"; };
+		B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateGoogleSignIn.swift; sourceTree = "<group>"; };
+		B2FFE9E621D9070500FE0C0F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +99,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				B241B6BA21D7AFF600D53711 /* pop.framework in Frameworks */,
+				01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068C82448ACA1FDDEA3FE08A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */,
+				F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3AD6AD20BBDB4E31341D165E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B241B67321D78F8000D53711 = {
 			isa = PBXGroup;
 			children = (
 				B241B6B921D7AFF600D53711 /* pop.framework */,
 				B241B67E21D78F8000D53711 /* iMusic */,
 				B241B67D21D78F8000D53711 /* Products */,
+				068C82448ACA1FDDEA3FE08A /* Pods */,
+				3AD6AD20BBDB4E31341D165E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +153,7 @@
 				B241B69821D791E000D53711 /* View */,
 				B241B69721D791DB00D53711 /* Model */,
 				B241B68B21D78F8300D53711 /* Info.plist */,
+				B2FFE9E621D9070500FE0C0F /* credentials.plist */,
 			);
 			path = iMusic;
 			sourceTree = "<group>";
@@ -180,6 +211,8 @@
 			children = (
 				B241B6D221D8A72500D53711 /* Font */,
 				B241B67F21D78F8000D53711 /* AppDelegate.swift */,
+				B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */,
+				B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */,
 				B241B68621D78F8300D53711 /* Assets.xcassets */,
 				B241B68821D78F8300D53711 /* LaunchScreen.storyboard */,
 			);
@@ -265,10 +298,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B241B68E21D78F8300D53711 /* Build configuration list for PBXNativeTarget "iMusic" */;
 			buildPhases = (
+				7CD57FDD8572B25F14B3A4C1 /* [CP] Check Pods Manifest.lock */,
 				B241B67821D78F8000D53711 /* Sources */,
 				B241B67921D78F8000D53711 /* Frameworks */,
 				B241B67A21D78F8000D53711 /* Resources */,
 				B241B6BF21D7B08A00D53711 /* Embed Frameworks */,
+				8CD40B0113FD06F08F2C99BA /* [CP] Embed Pods Frameworks */,
+				91AC49A487B691DA51A7C737 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,6 +358,7 @@
 				B241B68A21D78F8300D53711 /* LaunchScreen.storyboard in Resources */,
 				B241B6AC21D7AE8200D53711 /* README.md in Resources */,
 				B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */,
+				B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */,
 				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
@@ -331,6 +368,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CD57FDD8572B25F14B3A4C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CD40B0113FD06F08F2C99BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91AC49A487B691DA51A7C737 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B241B67821D78F8000D53711 /* Sources */ = {
@@ -342,6 +438,7 @@
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
+				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
@@ -352,6 +449,7 @@
 				B241B6D621D8B00800D53711 /* Font.swift in Sources */,
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
+				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
 				B241B69221D791B400D53711 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +584,7 @@
 		};
 		B241B68F21D78F8300D53711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -500,7 +599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.friedapp.iMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,6 +608,7 @@
 		};
 		B241B69021D78F8300D53711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,7 +623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.friedapp.iMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

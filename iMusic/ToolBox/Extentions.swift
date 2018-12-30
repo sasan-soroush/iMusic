@@ -63,7 +63,7 @@ extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
-    func setGradientBackgroundColor(firstColor : UIColor , secondColor : UIColor) {
+    func setGradientBackgroundColor(firstColor : UIColor , secondColor : UIColor , startPoint : CGPoint = CGPoint(x: 0.27, y: 0.0), endPoint : CGPoint = CGPoint(x: 0.35, y: 0.7)) {
         
         let gradiendLayer = CAGradientLayer()
         gradiendLayer.frame = bounds
