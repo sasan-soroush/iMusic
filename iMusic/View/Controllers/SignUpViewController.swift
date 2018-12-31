@@ -11,11 +11,11 @@ import GoogleSignIn
 
 extension SignUpViewController : GIDSignInUIDelegate {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        addKeyboardNotifiactions()
         
     }
     
@@ -27,6 +27,47 @@ extension SignUpViewController : GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
     }
+}
+
+
+extension SignUpViewController {
+    
+    private func addKeyboardNotifiactions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+       
+        //hide the views
+        UIView.animate(withDuration: 0.1, animations: {
+            self.dividerLine.alpha = 0
+            self.googleLoginGuide.alpha = 0
+            self.googleButton.alpha = 0
+        }) { (_) in
+            UIView.animate(withDuration: 0.7, animations: {
+                self.orLabel.alpha = 0
+                self.line.frame = CGRect(x:self.view.frame.width/3, y: self.phoneNumberTextField.frame.maxY + 10, width: self.view.frame.width/3, height: 0.5)
+                self.line.backgroundColor = UIColor.MyTheme.themeGreenColor
+            })
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.orLabel.alpha = 1
+            self.line.frame = CGRect(x:self.phoneLoginGuide.frame.minX, y: self.phoneNumberTextField.frame.maxY + 10, width: self.phoneLoginGuide.frame.width, height: 0.5)
+            self.line.backgroundColor = UIColor.lightGray
+        }) { (_) in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.dividerLine.alpha = 1
+                self.googleLoginGuide.alpha = 1
+                self.googleButton.alpha = 1
+            })
+        }
+    }
+    
 }
 
 extension SignUpViewController : UITextFieldDelegate {
@@ -45,6 +86,12 @@ extension SignUpViewController : UITextFieldDelegate {
 }
 
 class SignUpViewController : BaseViewControllerTypeOne {
+    
+    
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     private func setupView() {
         
@@ -70,16 +117,22 @@ class SignUpViewController : BaseViewControllerTypeOne {
         line.frame = CGRect(x: phoneLoginGuide.frame.minX, y: phoneNumberTextField.frame.maxY + 10, width: phoneLoginGuide.frame.width, height: 0.5)
         dividerLine.frame = CGRect(x: 0, y: line.frame.maxY + regularHeight, width: view.frame.width, height: 1)
         
-        let orLabelSize = orLabel.sizeThatFits(CGSize(width: 80, height: 50))
-        orLabel.frame = CGRect(x: view.frame.width/2 - 20, y: dividerLine.frame.minY - orLabelSize.height/2, width: 40, height: 30)
+        orLabel.frame = CGRect(x: view.frame.width/2 - 20, y: dividerLine.frame.minY - 20, width: 40, height: 40)
+        
+        orLabel.layer.cornerRadius = 20
+        orLabel.clipsToBounds = true
         
         let googleLoginSize = googleLoginGuide.sizeThatFits(CGSize(width: view.frame.width, height: 50))
         googleLoginGuide.frame = CGRect(x: 30, y: dividerLine.frame.maxY + regularHeight - googleLoginSize.height/2, width: view.frame.width - 60, height: googleLoginSize.height)
-//        let googleButtonWidth = regularHeight/1.2
         
         let googleButton_y = Helper.shared.getMiddleYAxisPoint(up_y: googleLoginGuide.frame.maxY, down_y: view.frame.height, height: view.frame.width/5)
         googleButton.frame = CGRect(x:view.frame.width/5*2, y: googleButton_y, width:view.frame.width/5, height: view.frame.width/5)
        
+        setupGoogleButton()
+        
+    }
+    
+    private func setupGoogleButton() {
         googleButton.setGradientBackgroundColor(firstColor: UIColor.MyTheme.themeBlueColor, secondColor: UIColor.MyTheme.themeGreenColor)
         googleButton.layer.cornerRadius = view.frame.width/10
         googleButton.clipsToBounds = true
@@ -88,11 +141,10 @@ class SignUpViewController : BaseViewControllerTypeOne {
         googleImage.contentMode = UIViewContentMode.scaleAspectFit
         googleButton.addSubview(googleImage)
         googleImage.frame = CGRect(x: googleButton.frame.width/2 - 15, y: googleButton.frame.height/2 - 15, width: 30, height: 30)
-        
     }
     
     let welocomeLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.AvenirTextUltraLight(size: 35))
+        let label = CustomLabel(customFont: Font.AvenirTextUltraLight(size: 38))
         label.text = "Welcome"
         return label
     }()
@@ -100,7 +152,6 @@ class SignUpViewController : BaseViewControllerTypeOne {
     static let fontSize : CGFloat = 20
     
     let phoneLoginGuide : CustomLabel = {
-        
         let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: fontSize) )
         let LabelString = "Please enter your phone number"
         let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: fontSize)]
