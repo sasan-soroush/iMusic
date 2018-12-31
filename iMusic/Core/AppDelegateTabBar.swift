@@ -13,20 +13,20 @@ extension AppDelegate{
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         //        window?.rootViewController = UINavigationController(rootViewController: SignUpViewController())
-        let tabBarController = ESTabBarController()
-        tabBarController.delegate = self
-        tabBarController.title = "Irregularity"
-        tabBarController.tabBar.shadowImage = UIImage(named: "transparent")
-        tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "tabbar_bg_dark")
-        tabBarController.shouldHijackHandler = {
+        mainTabBarController = ESTabBarController()
+        mainTabBarController.delegate = self
+        mainTabBarController.title = "Irregularity"
+        mainTabBarController.tabBar.shadowImage = UIImage(named: "transparent")
+        mainTabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "tabbar_bg_dark")
+        mainTabBarController.shouldHijackHandler = {
             tabbarController, viewController, index in
             if index == 2 {
                 return true
             }
             return false
         }
-        tabBarController.didHijackHandler = {
-            [weak tabBarController] tabbarController, viewController, index in
+        mainTabBarController.didHijackHandler = {
+            [weak mainTabBarController] tabbarController, viewController, index in
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -36,15 +36,16 @@ extension AppDelegate{
                 alertController.addAction(selectFromAlbumAction)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 alertController.addAction(cancelAction)
-                tabBarController?.present(alertController, animated: true, completion: nil)
+                mainTabBarController?.present(alertController, animated: true, completion: nil)
             }
+            
         }
         
-        let v1 = UIViewController()
-        let v2 = UIViewController()
-        let v3 = UIViewController()
-        let v4 = UIViewController()
-        let v5 = UIViewController()
+        let v1 = HomeViewController()
+        let v2 = HomeViewController()
+        let v3 = HomeViewController()
+        let v4 = HomeViewController()
+        let v5 = HomeViewController()
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Playlist", image: #imageLiteral(resourceName: "playlist"), selectedImage: #imageLiteral(resourceName: "playlist_1"))
@@ -52,10 +53,10 @@ extension AppDelegate{
         v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "News", image: #imageLiteral(resourceName: "news"), selectedImage: #imageLiteral(resourceName: "news_1"))
         v5.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Me", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
         
-        tabBarController.viewControllers = [v1, v2, v3, v4, v5]
+        mainTabBarController.viewControllers = [v1, v2, v3, v4, v5]
         
-        let navigationController_signedIn = UINavigationController(rootViewController: tabBarController)
-        tabBarController.title = "Example"
+        let navigationController_signedIn = UINavigationController(rootViewController: mainTabBarController)
+        mainTabBarController.title = "Example"
         
         let navigationController_signedOut = UINavigationController(rootViewController: SignUpViewController())
         

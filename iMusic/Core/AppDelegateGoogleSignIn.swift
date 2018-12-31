@@ -11,22 +11,31 @@ import GoogleSignIn
 extension AppDelegate : GIDSignInDelegate{
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        let userId = user.userID                  // For client-side use only!
-        let idToken = user.authentication.idToken // Safe to send to the server
-        let fullName = user.profile.name
-        let givenName = user.profile.givenName
-        let familyName = user.profile.familyName
-        let email = user.profile.email
-        print(userId)
-        print(idToken)
-        print(fullName)
-        print(givenName)
-        print(familyName)
-        print(email)
+
+        if error != nil {
+            print(error.localizedDescription)
+        } else {
+            print("successfull")
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            print(userId)
+            print(idToken)
+            print(fullName)
+            print(givenName)
+            print(familyName)
+            print(email)
+            UIApplication.topViewController()?.present(mainTabBarController, animated: true, completion: nil)
+
+        }
     }
     
     
     func setupGoogleSignIn() {
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = "1097840637672-mn9gc39tcu4rhampacr4me1epolirb84.apps.googleusercontent.com"
     }
     

@@ -39,6 +39,7 @@
 		B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */; };
 		B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */; };
 		B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FFE9E621D9070500FE0C0F /* credentials.plist */; };
+		B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +91,7 @@
 		B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTabBar.swift; sourceTree = "<group>"; };
 		B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateGoogleSignIn.swift; sourceTree = "<group>"; };
 		B2FFE9E621D9070500FE0C0F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +226,7 @@
 			children = (
 				B241B69121D791B400D53711 /* BaseViewController.swift */,
 				B241B68121D78F8000D53711 /* SignUpViewController.swift */,
+				B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			files = (
 				B241B69421D791D100D53711 /* Extentions.swift in Sources */,
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
+				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
