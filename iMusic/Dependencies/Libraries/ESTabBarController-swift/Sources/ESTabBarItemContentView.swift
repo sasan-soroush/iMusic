@@ -116,7 +116,7 @@ open class ESTabBarItemContentView: UIView {
         let titleLabel = UILabel.init(frame: CGRect.zero)
         titleLabel.backgroundColor = .clear
         titleLabel.textColor = .clear
-        titleLabel.font = UIFont.systemFont(ofSize: 10.0)
+        titleLabel.font = Font.IranYekanLight(size: 10)
         titleLabel.textAlignment = .center
         return titleLabel
     }()
