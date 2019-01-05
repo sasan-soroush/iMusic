@@ -36,6 +36,13 @@
 		B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */; };
 		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
+		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
+		B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2585021E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf */; };
+		B2A2585421E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2585121E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf */; };
+		B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */; };
+		B2A2585821E0B3C100CF3738 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585721E0B3C100CF3738 /* API.swift */; };
+		B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */; };
+		B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585B21E0B3DA00CF3738 /* Music.swift */; };
 		B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */; };
 		B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */; };
 		B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FFE9E621D9070500FE0C0F /* credentials.plist */; };
@@ -88,6 +95,13 @@
 		B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed-Bold.otf"; sourceTree = "<group>"; };
 		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
+		B2A2585021E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanLightMobile(FaNum).ttf"; sourceTree = "<group>"; };
+		B2A2585121E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanMobileBold(FaNum).ttf"; sourceTree = "<group>"; };
+		B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B2A2585721E0B3C100CF3738 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		B2A2585B21E0B3DA00CF3738 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		B2FFE9E221D9042B00FE0C0F /* AppDelegateTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTabBar.swift; sourceTree = "<group>"; };
 		B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateGoogleSignIn.swift; sourceTree = "<group>"; };
 		B2FFE9E621D9070500FE0C0F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -163,6 +177,7 @@
 		B241B69721D791DB00D53711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2A2585B21E0B3DA00CF3738 /* Music.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +194,7 @@
 		B241B69921D791E400D53711 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +220,7 @@
 		B241B69C21D7924E00D53711 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B2A2585721E0B3C100CF3738 /* API.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -235,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				B241B6D321D8AC7900D53711 /* CustomLabel.swift */,
+				B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +308,9 @@
 				B241B6C321D8A71200D53711 /* D-DINCondensed.otf */,
 				B241B6C521D8A71300D53711 /* D-DINExp-Bold.otf */,
 				B241B6C721D8A71400D53711 /* D-DINExp.otf */,
+				B2A2585021E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf */,
+				B2A2585121E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf */,
+				B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -361,10 +382,13 @@
 				B241B68A21D78F8300D53711 /* LaunchScreen.storyboard in Resources */,
 				B241B6AC21D7AE8200D53711 /* README.md in Resources */,
 				B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */,
+				B2A2585421E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf in Resources */,
 				B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */,
 				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
+				B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
+				B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */,
 				B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */,
 				B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */,
 			);
@@ -440,20 +464,24 @@
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
 				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
+				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
+				B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
 				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
+				B2A2585821E0B3C100CF3738 /* API.swift in Sources */,
 				B241B69621D791D800D53711 /* Helper.swift in Sources */,
 				B241B6B321D7AE8200D53711 /* ESTabBarItemContainer.swift in Sources */,
 				B241B6D621D8B00800D53711 /* Font.swift in Sources */,
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
+				B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */,
 				B241B69221D791B400D53711 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

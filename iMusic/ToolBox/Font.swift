@@ -25,7 +25,21 @@ class Font  {
         return font!
     }
     
+    static func IranYekanRegular(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "IRANYekanMobileFaNum", size: size)
+        return font!
+    }
     
+    static func IranYekanBold(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "IRANYekanMobileFaNum-Bold", size: size)
+        return font!
+    }
+    
+    static func IranYekanLight(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "IRANYekanMobileFaNum-Light", size: size)
+        return font!
+    }
+
     
 }
 

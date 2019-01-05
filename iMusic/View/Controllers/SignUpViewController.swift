@@ -95,7 +95,7 @@ class SignUpViewController : BaseViewControllerTypeOne {
     
     private func setupView() {
         
-        let regularHeight = view.frame.height/8
+        let regularHeight = view.frame.height/9
         view.addSubview(welocomeLabel)
         view.addSubview(phoneLoginGuide)
         view.addSubview(phoneNumberTextField)
@@ -104,6 +104,7 @@ class SignUpViewController : BaseViewControllerTypeOne {
         view.addSubview(orLabel)
         view.addSubview(googleLoginGuide)
         view.addSubview(googleButton)
+        view.addSubview(mobileButton)
         
         phoneNumberTextField.delegate = self
         
@@ -114,25 +115,32 @@ class SignUpViewController : BaseViewControllerTypeOne {
         
         let textFieldSize = phoneNumberTextField.sizeThatFits(CGSize(width: view.frame.width, height: 80))
         phoneNumberTextField.frame = CGRect(x: view.frame.width/5, y: phoneLoginGuide.frame.maxY+regularHeight/2 - textFieldSize.height/2, width: view.frame.width/5*3, height: textFieldSize.height)
-        line.frame = CGRect(x: phoneLoginGuide.frame.minX, y: phoneNumberTextField.frame.maxY + 10, width: phoneLoginGuide.frame.width, height: 0.5)
-        dividerLine.frame = CGRect(x: 0, y: line.frame.maxY + regularHeight, width: view.frame.width, height: 1)
+        line.frame = CGRect(x: phoneLoginGuide.frame.minX, y: phoneNumberTextField.frame.maxY + 5, width: phoneLoginGuide.frame.width, height: 0.5)
+        dividerLine.frame = CGRect(x: 10, y: view.frame.height/4*2.85, width: view.frame.width-20, height: 3)
+        let mobileButton_y = Helper.shared.getMiddleYAxisPoint(up_y: line.frame.maxY, down_y: dividerLine.frame.minY, height: regularHeight/2*1.5)
+        mobileButton.frame = CGRect(x: view.frame.width/4, y: mobileButton_y, width: view.frame.width/2, height: regularHeight/2*1.5)
         
         orLabel.frame = CGRect(x: view.frame.width/2 - 20, y: dividerLine.frame.minY - 20, width: 40, height: 40)
         
         orLabel.layer.cornerRadius = 20
         orLabel.clipsToBounds = true
         
-        let googleLoginSize = googleLoginGuide.sizeThatFits(CGSize(width: view.frame.width, height: 50))
-        googleLoginGuide.frame = CGRect(x: 30, y: dividerLine.frame.maxY + regularHeight - googleLoginSize.height/2, width: view.frame.width - 60, height: googleLoginSize.height)
+        googleButton.frame = CGRect(x:view.frame.width/5*2, y: view.frame.height - view.frame.width/5 - 20, width:view.frame.width/5, height: view.frame.width/5)
         
-        let googleButton_y = Helper.shared.getMiddleYAxisPoint(up_y: googleLoginGuide.frame.maxY, down_y: view.frame.height, height: view.frame.width/5)
-        googleButton.frame = CGRect(x:view.frame.width/5*2, y: googleButton_y, width:view.frame.width/5, height: view.frame.width/5)
+        let googleLoginSize = googleLoginGuide.sizeThatFits(CGSize(width: view.frame.width, height: 50))
+        let googleLoginGuide_y = Helper.shared.getMiddleYAxisPoint(up_y: dividerLine.frame.maxY, down_y: googleButton.frame.minY, height: googleLoginSize.height)
+        
+        googleLoginGuide.frame = CGRect(x: 30, y: googleLoginGuide_y, width: view.frame.width - 60, height: googleLoginSize.height)
+        
+        
        
-        setupGoogleButton()
+        setupButtonsUI()
         
     }
     
-    private func setupGoogleButton() {
+    private func setupButtonsUI() {
+        
+        //Google button
         googleButton.setGradientBackgroundColor(firstColor: UIColor.MyTheme.themeBlueColor, secondColor: UIColor.MyTheme.themeGreenColor)
         googleButton.layer.cornerRadius = view.frame.width/10
         googleButton.clipsToBounds = true
@@ -141,56 +149,41 @@ class SignUpViewController : BaseViewControllerTypeOne {
         googleImage.contentMode = UIViewContentMode.scaleAspectFit
         googleButton.addSubview(googleImage)
         googleImage.frame = CGRect(x: googleButton.frame.width/2 - 15, y: googleButton.frame.height/2 - 15, width: 30, height: 30)
+        
+        //Mobile button
+        mobileButton.setGradientBackgroundColor(firstColor: UIColor.MyTheme.themeBlueColor, secondColor: UIColor.MyTheme.themeGreenColor)
+        mobileButton.layer.cornerRadius = mobileButton.frame.height/2
+        mobileButton.clipsToBounds = true
+        mobileButton.setTitle("ورود با شماره موبایل", for: UIControlState.normal)
+        mobileButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        mobileButton.titleLabel?.font = Font.IranYekanRegular(size: 18)
     }
     
     let welocomeLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.AvenirTextUltraLight(size: 38))
-        label.text = "Welcome"
+        let label = CustomLabel(customFont: Font.IranYekanLight(size: 38))
+        label.text = "خوش آمدید"
         return label
     }()
     
     static let fontSize : CGFloat = 20
     
     let phoneLoginGuide : CustomLabel = {
-        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: fontSize) )
-        let LabelString = "Please enter your phone number"
-        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: fontSize)]
-        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: fontSize)]
-        let attributedSentence = NSMutableAttributedString(string: LabelString, attributes: regularAttributes)
-        attributedSentence.setAttributes(largeAttributes, range: NSRange(location: 18, length: 12))
-        label.attributedText = attributedSentence
+        let label = CustomLabel(customFont:Font.IranYekanLight(size: fontSize))
+        let LabelString = "لطفا شماره موبایل خود را وارد کنید"
+        label.text = LabelString
         return label
     }()
     
     let googleLoginGuide : CustomLabel = {
         
-        let label = CustomLabel(customFont:Font.AvenirTextUltraLight(size: fontSize) )
-        let LabelString = "Sign in with your google account"
-        let regularAttributes = [NSAttributedStringKey.font: Font.AvenirTextUltraLight(size: fontSize)]
-        let largeAttributes = [NSAttributedStringKey.font: Font.AvenirTextRegular(size: fontSize)]
-        let attributedSentence = NSMutableAttributedString(string: LabelString, attributes: regularAttributes)
-        attributedSentence.setAttributes(largeAttributes, range: NSRange(location: 18, length: 14))
-        label.attributedText = attributedSentence
+        let label = CustomLabel(customFont:Font.IranYekanLight(size: fontSize))
+        let LabelString = "با اکانت گوگل خود وارد شوید"
+        label.text = LabelString
         return label
     }()
     
-    //6037 7016 5428 7074 naser soroush
-    //09355343690
-    
-    //6393 4610 3831 3579
-    //3232
-    
-    let phoneNumberTextField : UITextField = {
-        let field = UITextField()
-        field.textColor = .white
-        let placeHolder = "09123456789"
-        field.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-        field.textAlignment = .center
-        field.tintColor = UIColor.MyTheme.themeBlueColor
-        field.keyboardType = .numberPad
-        field.keyboardAppearance = .dark
-//        field.layer.borderColor = UIColor.darkGray.cgColor
-//        field.layer.borderWidth = 0.5
+    let phoneNumberTextField : CustomTextField = {
+        let field = CustomTextField(placeHolder: "۰۹۱۲۰۰۰۰۰۰۰")
         return field
     }()
     
@@ -203,15 +196,21 @@ class SignUpViewController : BaseViewControllerTypeOne {
     let dividerLine : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.MyTheme.themeGreenColor
+        view.layer.cornerRadius = 5
         return view
     }()
     
     let orLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.AvenirTextUltraLight(size: 20))
+        let label = CustomLabel(customFont: Font.IranYekanRegular(size: 20))
         label.backgroundColor = UIColor.MyTheme.backgroundColor
         label.textColor = .white
-        label.text = "OR"
+        label.text = "یا"
         return label
+    }()
+    
+    let mobileButton : UIButton = {
+        let button = UIButton()
+        return button
     }()
     
     let googleButton : UIButton = {
