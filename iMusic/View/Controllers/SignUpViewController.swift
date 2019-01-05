@@ -38,34 +38,32 @@ extension SignUpViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-       
-        //hide the views
-        UIView.animate(withDuration: 0.1, animations: {
-            self.dividerLine.alpha = 0
-            self.googleLoginGuide.alpha = 0
-            self.googleButton.alpha = 0
-        }) { (_) in
-            UIView.animate(withDuration: 0.7, animations: {
-                self.orLabel.alpha = 0
-                self.line.frame = CGRect(x:self.view.frame.width/3, y: self.phoneNumberTextField.frame.maxY + 10, width: self.view.frame.width/3, height: 0.5)
-                self.line.backgroundColor = UIColor.MyTheme.themeGreenColor
-            })
-        }
-        
+       self.keyboardShowAnimations()
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
+        self.keyboardHideAnimations()
+    }
+    
+    private func keyboardShowAnimations() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.dividerLine.alpha = 0
+            self.googleLoginGuide.alpha = 0
+            self.googleButton.alpha = 0
+            self.orLabel.alpha = 0
+            self.line.frame = CGRect(x:self.view.frame.width/3, y: self.phoneNumberTextField.frame.maxY + 5, width: self.view.frame.width/3, height: 0.5)
+            self.line.backgroundColor = UIColor.MyTheme.themeGreenColor
+        })
+    }
+    private func keyboardHideAnimations() {
         UIView.animate(withDuration: 0.3, animations: {
             self.orLabel.alpha = 1
-            self.line.frame = CGRect(x:self.phoneLoginGuide.frame.minX, y: self.phoneNumberTextField.frame.maxY + 10, width: self.phoneLoginGuide.frame.width, height: 0.5)
-            self.line.backgroundColor = UIColor.lightGray
-        }) { (_) in
-            UIView.animate(withDuration: 0.2, animations: {
-                self.dividerLine.alpha = 1
-                self.googleLoginGuide.alpha = 1
-                self.googleButton.alpha = 1
-            })
-        }
+            self.line.frame = CGRect(x:self.phoneLoginGuide.frame.minX, y: self.phoneNumberTextField.frame.maxY + 5, width: self.phoneLoginGuide.frame.width, height: 0.5)
+            self.line.backgroundColor = UIColor.white
+            self.dividerLine.alpha = 1
+            self.googleLoginGuide.alpha = 1
+            self.googleButton.alpha = 1
+        })
     }
     
 }
@@ -105,6 +103,8 @@ class SignUpViewController : BaseViewControllerTypeOne {
         view.addSubview(googleLoginGuide)
         view.addSubview(googleButton)
         view.addSubview(mobileButton)
+        view.addSubview(sideViewLeft)
+        view.addSubview(sideViewRight)
         
         phoneNumberTextField.delegate = self
         
@@ -125,14 +125,18 @@ class SignUpViewController : BaseViewControllerTypeOne {
         orLabel.layer.cornerRadius = 20
         orLabel.clipsToBounds = true
         
-        googleButton.frame = CGRect(x:view.frame.width/5*2, y: view.frame.height - view.frame.width/5 - 20, width:view.frame.width/5, height: view.frame.width/5)
+        googleButton.frame = CGRect(x:view.frame.width/5*2, y: view.frame.height - view.frame.width/5 - 30, width:view.frame.width/5, height: view.frame.width/5)
         
         let googleLoginSize = googleLoginGuide.sizeThatFits(CGSize(width: view.frame.width, height: 50))
-        let googleLoginGuide_y = Helper.shared.getMiddleYAxisPoint(up_y: dividerLine.frame.maxY, down_y: googleButton.frame.minY, height: googleLoginSize.height)
+        let googleLoginGuide_y = Helper.shared.getMiddleYAxisPoint(up_y: dividerLine.frame.maxY, down_y: googleButton.frame.minY+10, height: googleLoginSize.height)
         
         googleLoginGuide.frame = CGRect(x: 30, y: googleLoginGuide_y, width: view.frame.width - 60, height: googleLoginSize.height)
         
-        
+        let sideViewSize = view.frame.width/15
+        sideViewLeft.frame = CGRect(x:-sideViewSize/2 , y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
+        sideViewRight.frame = CGRect(x: view.frame.width - sideViewSize/2, y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
+        sideViewLeft.rotate(angle: 45)
+        sideViewRight.rotate(angle: 45)
        
         setupButtonsUI()
         
@@ -160,7 +164,7 @@ class SignUpViewController : BaseViewControllerTypeOne {
     }
     
     let welocomeLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.IranYekanLight(size: 38))
+        let label = CustomLabel(customFont: Font.IranYekanLight(size: 36))
         label.text = "خوش آمدید"
         return label
     }()
@@ -189,7 +193,7 @@ class SignUpViewController : BaseViewControllerTypeOne {
     
     let line : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.white
         return view
     }()
     
@@ -219,8 +223,17 @@ class SignUpViewController : BaseViewControllerTypeOne {
         return button
     }()
     
-    
-    
+    let sideViewLeft : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.MyTheme.themeGreenColor
+        return view
+    }()
+
+    let sideViewRight : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.MyTheme.themeGreenColor
+        return view
+    }()
 }
 
 
