@@ -15,7 +15,7 @@ extension SignUpViewController : GIDSignInUIDelegate {
         super.viewDidLoad()
         
         setupView()
-        welocomeLabel.startTypewritingAnimation()
+        writeWelcome()
         addKeyboardNotifiactions()
         
     }
@@ -90,6 +90,13 @@ class SignUpViewController : BaseViewControllerTypeOne {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func writeWelcome() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+            self.welocomeLabel.startTypewritingAnimation()
+            self.welocomeLabel.typingTimeInterval = 2
+        }
     }
     
     private func setupView() {
