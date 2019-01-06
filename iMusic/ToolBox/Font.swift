@@ -39,6 +39,11 @@ class Font  {
         let font = UIFont.init(name: "IRANYekanMobileFaNum-Light", size: size)
         return font!
     }
+    
+    static func BKoodak(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "BKoodakBold", size: size)
+        return font!
+    }
 
     
 }

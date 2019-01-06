@@ -15,6 +15,7 @@ extension SignUpViewController : GIDSignInUIDelegate {
         super.viewDidLoad()
         
         setupView()
+        welocomeLabel.startTypewritingAnimation()
         addKeyboardNotifiactions()
         
     }
@@ -163,8 +164,8 @@ class SignUpViewController : BaseViewControllerTypeOne {
         mobileButton.titleLabel?.font = Font.IranYekanRegular(size: 18)
     }
     
-    let welocomeLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.IranYekanLight(size: 36))
+    let welocomeLabel : CustomTyperLabel = {
+        let label = CustomTyperLabel(customFont: Font.IranYekanBold(size: 35))
         label.text = "خوش آمدید"
         return label
     }()
