@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewControllerTypeOne : UIViewController {
+class BaseViewControllerNormal: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,8 @@ class BaseViewControllerTypeOne : UIViewController {
     
     
     private func setupView() {
-        self.view.backgroundColor = UIColor.init(rgb: 0x202123)
-        self.view.setGradientBackgroundColor(firstColor: UIColor.init(rgb: 0x266762), secondColor: UIColor.clear)
+        self.view.backgroundColor = UIColor.MyTheme.backgroundColor
+        self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor, secondColor: UIColor.clear)
         let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
         self.view.addSubview(logo)
         

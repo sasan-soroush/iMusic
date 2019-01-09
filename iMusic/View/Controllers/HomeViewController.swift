@@ -19,6 +19,6 @@ extension HomeViewController {
 
 
 
-class HomeViewController : BaseViewControllerTypeOne {
+class HomeViewController : BaseViewControllerNormal {
     
 }

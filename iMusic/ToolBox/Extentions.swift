@@ -29,6 +29,7 @@ extension UIColor {
         static var backgroundColor : UIColor  { return UIColor(rgb: 0x202123)}
         static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
         static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
+        static var gradientForBGColor : UIColor  { return UIColor.init(rgb: 0x266762)}
         
         
     }

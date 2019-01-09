@@ -84,7 +84,7 @@ extension SignUpViewController : UITextFieldDelegate {
     }
 }
 
-class SignUpViewController : BaseViewControllerTypeOne {
+class SignUpViewController : BaseViewControllerNormal {
     
     
     
