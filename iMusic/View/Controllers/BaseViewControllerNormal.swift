@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewControllerNormal : UIViewController {
+extension BaseViewControllerNormal {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,9 @@ class BaseViewControllerNormal : UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    let logo : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 30))
-        label.text = "iMusic"
-        return label
-    }()
-    
+}
+
+class BaseViewControllerNormal : UIViewController {
     
     private func setupView() {
         self.view.backgroundColor = UIColor.MyTheme.backgroundColor
@@ -37,6 +34,12 @@ class BaseViewControllerNormal : UIViewController {
         
         logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/8)
     }
+    
+    let logo : CustomLabel = {
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 30))
+        label.text = "iMusic"
+        return label
+    }()
     
 }
 
