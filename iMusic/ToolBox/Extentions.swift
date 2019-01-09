@@ -30,12 +30,25 @@ extension UIColor {
         static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
         static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
         static var gradientForBGColor : UIColor  { return UIColor.init(rgb: 0x266762)}
+        static var textFieldBG : UIColor  { return UIColor.init(rgb: 0x1E2628)}
+        static var textFieldTextColor : UIColor  { return UIColor.init(rgb: 0xE3E3E3)}
         
         
     }
 }
 
-
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+}
 
 
 extension UITextContentType {
