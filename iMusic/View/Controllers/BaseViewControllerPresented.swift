@@ -37,10 +37,25 @@ class BaseViewControllerPresented: UIViewController {
         return view
     }()
     
+    let topView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.MyTheme.gradientForBGColor
+        view.layer.cornerRadius = 1.5
+        return view
+    }()
+    
     private func setupView() {
         self.view.backgroundColor = UIColor.clear
         self.view.addSubview(presentedView)
+        self.view.addSubview(topView)
+        
         presentedView.frame = CGRect(x: 0, y: 25, width: view.frame.width, height: view.frame.height)
+        
+        let topViewHeight : CGFloat = 3
+        let topView_y = Helper.shared.getMiddleYAxisPoint(up_y: 25, down_y: 20 + view.frame.height/16 - 15, height: topViewHeight)
+            
+        topView.frame = CGRect(x: view.frame.width/5*2-5, y: topView_y, width: view.frame.width/5+10, height: topViewHeight)
+        
         self.presentedView.setGradientBackgroundColor(firstColor: UIColor.clear , secondColor: UIColor.MyTheme.gradientForBGColor)
         
         let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
