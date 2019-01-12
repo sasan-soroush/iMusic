@@ -37,6 +37,7 @@
 		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
 		B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E521E9FF4200192393 /* BaseViewController.swift */; };
+		B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */; };
 		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
 		B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2585021E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf */; };
 		B2A2585421E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2585121E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf */; };
@@ -102,6 +103,7 @@
 		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		B29AA2E521E9FF4200192393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
 		B2A2585021E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanLightMobile(FaNum).ttf"; sourceTree = "<group>"; };
 		B2A2585121E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanMobileBold(FaNum).ttf"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				B2FBB38821E1FBA500778B81 /* CustomViews */,
+				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
+				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
 				B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */,
 				B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */,

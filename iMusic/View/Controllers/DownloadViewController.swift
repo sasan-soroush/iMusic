@@ -17,26 +17,38 @@ extension DownloadViewController {
     }
 }
 
+extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
+        cell.line.frame = CGRect(x: 0, y: cell.frame.height - 0.5, width: cell.frame.width, height: 0.5)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return searchResultTableView.frame.height/5.5
+    }
+}
+
 extension DownloadViewController {
     
     private func addKeyboardNotifiactions() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-//    sahab pardaz
     @objc func keyboardWillShow(notification: NSNotification) {
-        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
             self.searchBar.frame.origin.y -= keyboardSize.height
-            
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        
         self.searchBar.frame.origin.y = view.frame.height - 50
-        
     }
     
 }
@@ -60,9 +72,24 @@ class DownloadViewController : BaseViewControllerPresented {
     private func setupView() {
         
         view.addSubview(searchBar)
+        view.addSubview(searchResultTableView)
+        
         searchBar.delegate = self
         searchBar.frame = CGRect(x: 10, y: view.frame.height - 50, width: view.frame.width - 20, height: 40)
         searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 8, vertical: 0)
+        
+        searchResultTableView.delegate = self
+        searchResultTableView.dataSource = self
+        searchResultTableView.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.id)
+        searchResultTableView.separatorStyle = .none
+        
+        searchResultTableView.frame = CGRect(x: 10, y: logo.frame.maxY , width: view.frame.width-20, height: searchBar.frame.minY - logo.frame.maxY - 10)
+        
+        setupSearchBar()
+        
+    }
+    
+    private func setupSearchBar() {
         
         let cancelButtonAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: UIColor.white]
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
@@ -81,8 +108,6 @@ class DownloadViewController : BaseViewControllerPresented {
         if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInsideSearchBar.textColor = UIColor.MyTheme.textFieldTextColor
         }
-        
-        
     }
     
     //MARK:- UI Properties
@@ -94,6 +119,25 @@ class DownloadViewController : BaseViewControllerPresented {
         return bar
     }()
     
+    let searchResultTableView : UITableView = {
+        let view = UITableView(frame: .zero, style: UITableViewStyle.plain)
+        view.backgroundColor = .clear
+        return view
+    }()
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
