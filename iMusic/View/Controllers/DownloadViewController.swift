@@ -12,10 +12,30 @@ extension DownloadViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+        addKeyboardNotifiactions()
         
     }
 }
+
+extension DownloadViewController {
+    
+    private func addKeyboardNotifiactions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.searchBar.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.searchBar.frame.origin.y = view.frame.height - 50
+    }
+    
+}
+
 
 class DownloadViewController : BaseViewControllerPresented {
     

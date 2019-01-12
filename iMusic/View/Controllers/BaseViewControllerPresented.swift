@@ -56,7 +56,7 @@ extension BaseViewControllerPresented {
     }
 }
 
-class BaseViewControllerPresented: UIViewController {
+class BaseViewControllerPresented: BaseViewController {
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
@@ -73,18 +73,9 @@ class BaseViewControllerPresented: UIViewController {
         topView.frame = CGRect(x: view.frame.width/5*2-5, y: topView_y, width: view.frame.width/5+10, height: topViewHeight)
         
         self.presentedView.setGradientBackgroundColor(firstColor: UIColor.clear , secondColor: UIColor.MyTheme.gradientForBGColor)
-        
-        let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
-        self.view.addSubview(logo)
-        
-        logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/8)
+        self.view.bringSubview(toFront: logo)
     }
     
-    let logo : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 30))
-        label.text = "iMusic"
-        return label
-    }()
     
     let presentedView : UIView = {
         let view = UIView()

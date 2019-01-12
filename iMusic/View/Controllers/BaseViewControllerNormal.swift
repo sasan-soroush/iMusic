@@ -24,23 +24,12 @@ extension BaseViewControllerNormal {
     
 }
 
-class BaseViewControllerNormal : UIViewController {
+class BaseViewControllerNormal : BaseViewController {
     
     private func setupView() {
-        self.view.backgroundColor = UIColor.MyTheme.backgroundColor
         self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor, secondColor: UIColor.clear)
-        let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
-        self.view.addSubview(logo)
-        
-        logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/8)
+        self.view.bringSubview(toFront: logo)
     }
-    
-    let logo : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 30))
-        label.text = "iMusic"
-        return label
-    }()
-    
 }
 
 
