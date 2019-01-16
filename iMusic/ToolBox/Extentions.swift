@@ -63,6 +63,14 @@ extension UITextContentType {
     public static let unspecified = UITextContentType("unspecified")
 }
 
+extension String {
+    func getUrlEncoded() -> String {
+        let encodedURL = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return encodedURL ?? ""
+    }
+    
+}
+
 extension UIView {
     
     func dropSolidShadow( view : UIView , radius : CGFloat ) {

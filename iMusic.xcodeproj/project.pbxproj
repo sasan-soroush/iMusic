@@ -50,6 +50,7 @@
 		B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */; };
 		B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EC21EF75F700E32554 /* Const.swift */; };
 		B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EE21EF764700E32554 /* Urls.swift */; };
+		B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */; };
 		B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */; };
 		B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38321E1F8F600778B81 /* GhostTyper.swift */; };
 		B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */; };
@@ -119,6 +120,7 @@
 		B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B2C5B6EC21EF75F700E32554 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2C5B6EE21EF764700E32554 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B Koodak Bold_0.ttf"; sourceTree = "<group>"; };
 		B2FBB38321E1F8F600778B81 /* GhostTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostTyper.swift; sourceTree = "<group>"; };
 		B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTyperLabel.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				B241B6D321D8AC7900D53711 /* CustomLabel.swift */,
 				B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */,
 				B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */,
+				B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
+				B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */,
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,

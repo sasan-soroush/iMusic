@@ -15,7 +15,9 @@ class Urls {
     static let base = Consts.shared.baseUrl
     
     static func getSearch(text : String) -> String {
-        return base + "search?query=\(text)&limit=10"
+        let url = base + "search?query=\(text)&limit=10"
+        let urlEncoded = url.getUrlEncoded()
+        return urlEncoded
     }
     
 }

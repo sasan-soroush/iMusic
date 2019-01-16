@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultTableViewCell : UITableViewCell {
+    
+    var searchResult : SearchResult?{
+        didSet {
+            guard let result = searchResult else {return}
+            musicArtist.text = result.artistName
+            musicName.text = result.title
+            musicImage.sd_setImage(with: URL(string: result.cover) , placeholderImage: nil, options: SDWebImageOptions.progressiveDownload, completed: nil)
+        }
+    }
     
     static let id = "SearchBarTableViewCell"
     
@@ -16,11 +26,34 @@ class SearchResultTableViewCell : UITableViewCell {
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: SearchResultTableViewCell.id)
         backgroundColor = .clear
         addSubview(line)
+        addSubview(musicImage)
+        addSubview(musicName)
+        addSubview(musicArtist)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    let musicArtist : CustomLabel = {
+        let label = CustomLabel(customFont: Font.DINCondensed(size : 20))
+        label.textColor = UIColor.lightGray
+        label.textAlignment = .left
+        return label
+    }()
+    
+    let musicName : CustomLabel = {
+        let label = CustomLabel(customFont: Font.DINCondensed(size : 22))
+        label.textAlignment = .left
+        return label
+    }()
+    
+    let musicImage : CustomImageView = {
+        let image = CustomImageView()
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        image.layer.cornerRadius = 5
+        return image
+    }()
     
     let line : UIView = {
         let view = UIView()

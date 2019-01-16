@@ -27,8 +27,7 @@ class API {
         
         let url = Urls.getSearch(text: text)
         
-        
-        Alamofire.request(url,method:.get, encoding: JSONEncoding.default )
+        Alamofire.request(url,method:.get, encoding: JSONEncoding.default  )
             .validate()
             .responseJSON { response in
                 

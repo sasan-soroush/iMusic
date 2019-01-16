@@ -9,6 +9,7 @@
 import UIKit
 
 extension DownloadViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -22,13 +23,21 @@ extension DownloadViewController {
 extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
+        
         cell.line.frame = CGRect(x: 0, y: cell.frame.height - 0.5, width: cell.frame.width, height: 0.5)
+        cell.musicImage.frame = CGRect(x: 0, y: 5, width: cell.frame.height-10, height: cell.frame.height-10)
+        cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: 0, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2)
+        cell.musicArtist.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: cell.frame.height/2, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2)
+        
         cell.selectionStyle = .none
+        
+        cell.searchResult = self.searchResults[indexPath.row]
+        
         return cell
     }
     
@@ -45,7 +54,7 @@ extension DownloadViewController {
     }
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.searchBar.frame.origin.y -= keyboardSize.height
+            self.searchBar.frame.origin.y = view.frame.height - 50 - keyboardSize.height
             self.searchResultTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
         }
     }
@@ -72,10 +81,15 @@ extension DownloadViewController : UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        API.search(text: searchBar.text!) { (success, searchResultArray) in
-            for result in searchResultArray {
-                print(result.artistName)
-            }
+        
+        guard let text = searchBar.text else {
+            Helper.shared.alert(self, title: "", body: "مشکلی با متن وارد شده وجود دارد.")
+            return
+        }
+        
+        API.search(text: text) { (success, searchResultArray) in
+            self.searchResults = searchResultArray
+            self.searchResultTableView.reloadData()
         }
     }
     
@@ -85,6 +99,8 @@ extension DownloadViewController : UISearchBarDelegate {
 }
 
 class DownloadViewController : BaseViewControllerPresented {
+    
+    private var searchResults : [SearchResult] = []
     
     private func setupView() {
         
