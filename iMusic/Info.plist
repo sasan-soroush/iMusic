@@ -34,6 +34,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>D-DINCondensed-Bold.otf</string>
+		<string>D-DINCondensed.otf</string>
 		<string>IRANYekanLightMobile(FaNum).ttf</string>
 		<string>IRANYekanMobileBold(FaNum).ttf</string>
 		<string>IRANYekanRegularMobile(FaNum).ttf</string>

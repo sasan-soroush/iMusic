@@ -15,6 +15,11 @@ class Font  {
         return font!
     }
     
+    static func DINCondensedRegular(size  : CGFloat) -> UIFont {
+        let font = UIFont.init(name: "D-DINCondensed", size: size)
+        return font!
+    }
+    
     static func AvenirTextUltraLight(size  : CGFloat) -> UIFont {
         let font = UIFont.init(name: "AvenirNext-UltraLight", size: size)
         return font!

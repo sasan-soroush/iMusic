@@ -36,14 +36,14 @@ class SearchResultTableViewCell : UITableViewCell {
     }
     
     let musicArtist : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size : 20))
+        let label = CustomLabel(customFont: Font.DINCondensedRegular(size : 19))
         label.textColor = UIColor.lightGray
         label.textAlignment = .left
         return label
     }()
     
     let musicName : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size : 22))
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 21))
         label.textAlignment = .left
         return label
     }()
@@ -52,6 +52,7 @@ class SearchResultTableViewCell : UITableViewCell {
         let image = CustomImageView()
         image.contentMode = UIViewContentMode.scaleAspectFit
         image.layer.cornerRadius = 5
+        image.clipsToBounds = true
         return image
     }()
     
