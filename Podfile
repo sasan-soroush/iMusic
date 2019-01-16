@@ -8,4 +8,7 @@ target 'iMusic' do
   # Pods for iMusic
 
 	pod 'GoogleSignIn'
+    pod 'Alamofire'
+    pod 'SwiftyJSON', '~> 4.2'
+    pod 'SDWebImage'
 end

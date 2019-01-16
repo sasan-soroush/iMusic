@@ -15,6 +15,8 @@ extension DownloadViewController {
         addKeyboardNotifiactions()
         
     }
+    
+    
 }
 
 extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
@@ -56,6 +58,7 @@ extension DownloadViewController {
 }
 
 extension DownloadViewController : UISearchBarDelegate {
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
@@ -66,6 +69,18 @@ extension DownloadViewController : UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        API.search(text: searchBar.text!) { (success, searchResultArray) in
+            for result in searchResultArray {
+                print(result.artistName)
+            }
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //TODO:- search after 1 second delay
     }
 }
 

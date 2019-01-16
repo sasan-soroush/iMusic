@@ -47,6 +47,9 @@
 		B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585B21E0B3DA00CF3738 /* Music.swift */; };
 		B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */; };
 		B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB512221E5E1BF00A35D36 /* BaseViewControllerPresented.swift */; };
+		B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */; };
+		B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EC21EF75F700E32554 /* Const.swift */; };
+		B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EE21EF764700E32554 /* Urls.swift */; };
 		B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */; };
 		B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38321E1F8F600778B81 /* GhostTyper.swift */; };
 		B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */; };
@@ -113,6 +116,9 @@
 		B2A2585B21E0B3DA00CF3738 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		B2BB512221E5E1BF00A35D36 /* BaseViewControllerPresented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerPresented.swift; sourceTree = "<group>"; };
+		B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		B2C5B6EC21EF75F700E32554 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B2C5B6EE21EF764700E32554 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B Koodak Bold_0.ttf"; sourceTree = "<group>"; };
 		B2FBB38321E1F8F600778B81 /* GhostTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostTyper.swift; sourceTree = "<group>"; };
 		B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTyperLabel.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A2585B21E0B3DA00CF3738 /* Music.swift */,
+				B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +226,8 @@
 				B241B69321D791D100D53711 /* Extentions.swift */,
 				B241B69521D791D800D53711 /* Helper.swift */,
 				B241B6D521D8B00800D53711 /* Font.swift */,
+				B2C5B6EC21EF75F700E32554 /* Const.swift */,
+				B2C5B6EE21EF764700E32554 /* Urls.swift */,
 			);
 			path = ToolBox;
 			sourceTree = "<group>";
@@ -460,13 +469,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,12 +517,14 @@
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
 				B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */,
 				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
+				B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
 				B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */,
+				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
@@ -520,6 +537,7 @@
 				B241B6D621D8B00800D53711 /* Font.swift in Sources */,
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
+				B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
 				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
