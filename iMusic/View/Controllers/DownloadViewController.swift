@@ -17,7 +17,6 @@ extension DownloadViewController {
         
     }
     
-    
 }
 
 extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
@@ -27,6 +26,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
         
         setupCell(cell, indexPath)
@@ -36,11 +36,15 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return view.frame.height/8
+        
     }
     
     fileprivate func setupCell(_ cell: SearchResultTableViewCell, _ indexPath: IndexPath) {
+        
         let paddingForTexts : CGFloat = 10
+        
         cell.line.frame = CGRect(x: 0, y: cell.frame.height - 0.5, width: cell.frame.width, height: 0.5)
         cell.musicImage.frame = CGRect(x: 0, y: 5, width: cell.frame.height-10, height: cell.frame.height-10)
         cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: paddingForTexts, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
@@ -50,9 +54,11 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         API.download(id: self.searchResults[indexPath.row].id) { (success, bars) in
-            print(success)
+            
         }
+        
     }
 }
 

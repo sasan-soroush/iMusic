@@ -29,9 +29,6 @@ class API {
         let url = Urls.search(text: text)
         let header = helper.getHeader()
         
-        print(url)
-        print(header)
-        
         Alamofire.request( url , method:.get , encoding: JSONEncoding.default , headers : header).validate()
             .responseJSON { response in
                 
@@ -58,14 +55,13 @@ class API {
     //MARK:- download
     static func download(id : Int , completion : @escaping searchResultHandler ) {
         
-//        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         let url = Urls.download
         let header = helper.getHeader()
+        
         let params : [String : Any] = [
             "id"  :  id,
             "ext" : "mp3"
         ]
-        
 
         let fileUrl = self.getSaveFileUrl(fileName: "music\(id)")
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
@@ -80,7 +76,7 @@ class API {
             headers: header,
             to: destination).downloadProgress(closure: { (progress) in
                 //progress closure
-                print(progress)
+                print(progress.fractionCompleted*100)
             }).response(completionHandler: { (DefaultDownloadResponse) in
                 //here you able to access the DefaultDownloadResponse
                 //result closure

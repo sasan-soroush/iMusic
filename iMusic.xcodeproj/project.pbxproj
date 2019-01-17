@@ -63,6 +63,7 @@
 		E26A408621F064C400E71D39 /* MZDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408321F064C400E71D39 /* MZDownloadManager.swift */; };
 		E26A408821F086B200E71D39 /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E26A408721F086B100E71D39 /* example.mp3 */; };
 		E26A408A21F08C5C00E71D39 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408921F08C5C00E71D39 /* Player.swift */; };
+		E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408B21F09BF300E71D39 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,6 +139,7 @@
 		E26A408321F064C400E71D39 /* MZDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadManager.swift; sourceTree = "<group>"; };
 		E26A408721F086B100E71D39 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
 		E26A408921F08C5C00E71D39 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E26A408B21F09BF300E71D39 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,6 +339,7 @@
 				E26A408021F064AC00E71D39 /* MZDownloadManager */,
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
+				E26A408B21F09BF300E71D39 /* ProgressBar.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
+				E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */,
 				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
 				B2A2585821E0B3C100CF3738 /* API.swift in Sources */,
