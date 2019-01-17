@@ -14,11 +14,13 @@ class Urls {
     
     static let base = Consts.shared.baseUrl
     
-    static func getSearch(text : String) -> String {
+    static func search(text : String) -> String {
         let url = base + "search?query=\(text)&limit=10"
         let urlEncoded = url.getUrlEncoded()
         print(urlEncoded)
         return urlEncoded
     }
+    
+    static let download = "\(base)download"
     
 }

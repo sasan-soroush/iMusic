@@ -12,7 +12,6 @@ extension HomeViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Helper.shared.getFontsList()
     }
 
 }

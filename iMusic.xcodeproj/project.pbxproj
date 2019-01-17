@@ -58,6 +58,11 @@
 		B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */; };
 		B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FFE9E621D9070500FE0C0F /* credentials.plist */; };
 		B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */; };
+		E26A408421F064C400E71D39 /* MZUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408121F064C400E71D39 /* MZUtility.swift */; };
+		E26A408521F064C400E71D39 /* MZDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408221F064C400E71D39 /* MZDownloadModel.swift */; };
+		E26A408621F064C400E71D39 /* MZDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408321F064C400E71D39 /* MZDownloadManager.swift */; };
+		E26A408821F086B200E71D39 /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E26A408721F086B100E71D39 /* example.mp3 */; };
+		E26A408A21F08C5C00E71D39 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408921F08C5C00E71D39 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,6 +133,11 @@
 		B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateGoogleSignIn.swift; sourceTree = "<group>"; };
 		B2FFE9E621D9070500FE0C0F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E26A408121F064C400E71D39 /* MZUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZUtility.swift; sourceTree = "<group>"; };
+		E26A408221F064C400E71D39 /* MZDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadModel.swift; sourceTree = "<group>"; };
+		E26A408321F064C400E71D39 /* MZDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadManager.swift; sourceTree = "<group>"; };
+		E26A408721F086B100E71D39 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
+		E26A408921F08C5C00E71D39 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +193,7 @@
 		B241B67E21D78F8000D53711 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
+				E26A408721F086B100E71D39 /* example.mp3 */,
 				B241B69D21D7925600D53711 /* Core */,
 				B241B69C21D7924E00D53711 /* Service */,
 				B241B69B21D7924600D53711 /* Dependencies */,
@@ -230,6 +241,7 @@
 				B241B6D521D8B00800D53711 /* Font.swift */,
 				B2C5B6EC21EF75F700E32554 /* Const.swift */,
 				B2C5B6EE21EF764700E32554 /* Urls.swift */,
+				E26A408921F08C5C00E71D39 /* Player.swift */,
 			);
 			path = ToolBox;
 			sourceTree = "<group>";
@@ -322,6 +334,7 @@
 		B241B6BB21D7B00400D53711 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E26A408021F064AC00E71D39 /* MZDownloadManager */,
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
 			);
@@ -362,6 +375,16 @@
 				B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E26A408021F064AC00E71D39 /* MZDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				E26A408321F064C400E71D39 /* MZDownloadManager.swift */,
+				E26A408221F064C400E71D39 /* MZDownloadModel.swift */,
+				E26A408121F064C400E71D39 /* MZUtility.swift */,
+			);
+			path = MZDownloadManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +454,7 @@
 				B241B68A21D78F8300D53711 /* LaunchScreen.storyboard in Resources */,
 				B241B6AC21D7AE8200D53711 /* README.md in Resources */,
 				B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */,
+				E26A408821F086B200E71D39 /* example.mp3 in Resources */,
 				B2A2585421E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf in Resources */,
 				B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */,
 				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
@@ -519,13 +543,16 @@
 				B241B69421D791D100D53711 /* Extentions.swift in Sources */,
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
 				B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */,
+				E26A408421F064C400E71D39 /* MZUtility.swift in Sources */,
 				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
+				E26A408521F064C400E71D39 /* MZDownloadModel.swift in Sources */,
 				B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
 				B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */,
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
+				E26A408621F064C400E71D39 /* MZDownloadManager.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
 				B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
@@ -549,6 +576,7 @@
 				B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */,
 				B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */,
 				B241B69221D791B400D53711 /* BaseViewControllerNormal.swift in Sources */,
+				E26A408A21F08C5C00E71D39 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

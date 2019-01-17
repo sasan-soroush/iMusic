@@ -48,6 +48,12 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
         cell.selectionStyle = .none
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        API.download(id: self.searchResults[indexPath.row].id) { (success, bars) in
+            print(success)
+        }
+    }
 }
 
 extension DownloadViewController {
