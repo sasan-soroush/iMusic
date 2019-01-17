@@ -26,9 +26,12 @@ class API {
     static func search(text : String , completion : @escaping searchResultHandler ) {
         
         let url = Urls.getSearch(text: text)
+        let header = helper.getHeader()
         
-        Alamofire.request(url,method:.get, encoding: JSONEncoding.default  )
-            .validate()
+        print(url)
+        print(header)
+        
+        Alamofire.request( url , method:.get , encoding: JSONEncoding.default , headers : header).validate()
             .responseJSON { response in
                 
                 if(response.result.isSuccess){
@@ -40,7 +43,6 @@ class API {
                         completion(true , searchResults)
                     } catch {
                         completion(false , [])
-                        print(error.localizedDescription)
                     }
                     
                 } else {

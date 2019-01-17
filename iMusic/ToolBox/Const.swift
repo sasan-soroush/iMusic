@@ -12,6 +12,6 @@ class Consts {
     
     static let shared = Consts()
     
-    let baseUrl = "http://144.76.178.92:2998/"
+    let baseUrl = "http://api.imoozik.ir/"
     
 }

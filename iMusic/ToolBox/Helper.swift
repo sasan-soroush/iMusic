@@ -13,7 +13,7 @@ import Alamofire
 class Helper  {
     
     static let shared = Helper()
-    
+    //MARK:- get middle y axis
     func getMiddleYAxisPoint(up_y : CGFloat , down_y : CGFloat , height : CGFloat) -> CGFloat {
         let distance = down_y - up_y
         let middlePoint = up_y + distance/2
@@ -21,7 +21,7 @@ class Helper  {
         let startingPointInYAxis = middlePoint - heightOfAmountTF/2
         return startingPointInYAxis
     }
-    
+    //MARK:- get font list
     func getFontsList() {
         for family in UIFont.familyNames.sorted() {
             let names = UIFont.fontNames(forFamilyName: family)
@@ -30,7 +30,7 @@ class Helper  {
             print("--------------------------------------\n--------------------------------------")
         }
     }
-    
+    //MARK:- handle server errors
     func handleError(response : DataResponse<Any> ) {
         
         let generalErrorMessage = "Something went wrong! Please check try again later !"
@@ -59,7 +59,7 @@ class Helper  {
             break
         }
     }
-    
+    //MARK:- show alert without option
     func alert(_ controller:UIViewController, title:String, body:String){
         
         let alertController = UIAlertController(title: title, message:body, preferredStyle: UIAlertControllerStyle.alert)
@@ -67,5 +67,15 @@ class Helper  {
         controller.present(alertController, animated: true, completion: nil)
         
         //        controller.view.hideToastActivity()
+    }
+    
+    //MARK:- get header for api requests
+    
+    func getHeader () -> [String : String] {
+       
+        let header : [String : String] = [
+            "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzNmODFlNTFjMmJmMjQxMTZmY2M1ZWYiLCJpYXQiOjE1NDc2NjU4OTMsImV4cCI6MTU3OTIwMTg5M30.eV6J0G0tWhDEdU96MDG0Jq0Sl3hQugRQ81lsTV-dSzg"
+        ]
+        return header
     }
 }
