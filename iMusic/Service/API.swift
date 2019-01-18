@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
 class API {
     
     static let helper = Helper.shared
@@ -53,7 +52,7 @@ class API {
     }
     
     //MARK:- download
-    static func download(id : Int , completion : @escaping searchResultHandler ) {
+    static func download(id : Int ,cell : SearchResultTableViewCell , completion : @escaping searchResultHandler ) {
         
         let url = Urls.download
         let header = helper.getHeader()
@@ -77,11 +76,17 @@ class API {
             to: destination).downloadProgress(closure: { (progress) in
                 //progress closure
                 print(progress.fractionCompleted*100)
+                cell.musicArtist.text = String(progress.fractionCompleted)
             }).response(completionHandler: { (DefaultDownloadResponse) in
                 //here you able to access the DefaultDownloadResponse
                 //result closure
-                let filePath = DefaultDownloadResponse.destinationURL
-                Player.playAudio(url: filePath!)
+                
+                if let filePath = DefaultDownloadResponse.destinationURL {
+                    Player.playAudio(url: filePath)
+                } else {
+                    helper.alert(UIApplication.topViewController() ?? DownloadViewController(), title: "", body: "Download failed.")
+                }
+                
             })
         
     }

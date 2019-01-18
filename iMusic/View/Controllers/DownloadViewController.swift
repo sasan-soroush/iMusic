@@ -55,7 +55,9 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        API.download(id: self.searchResults[indexPath.row].id) { (success, bars) in
+        let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
+        let id = self.searchResults[indexPath.row].id
+        API.download(id: id, cell: cell) { (success, bars) in
             
         }
         
