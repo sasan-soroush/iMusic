@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
+    convenience init(red: Int, green: Int, blue: Int ) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -22,6 +22,11 @@ extension UIColor {
             green: (rgb >> 8) & 0xFF,
             blue: rgb & 0xFF
         )
+    }
+    
+    
+    static func makeRgb(red: CGFloat, green: CGFloat, blue: CGFloat ,alpha : CGFloat) -> UIColor {
+        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }
     
     struct MyTheme {
@@ -149,7 +154,6 @@ extension UIApplication {
 }
 
 extension UIViewController {
-    
     
     
     func topMostViewController() -> UIViewController {

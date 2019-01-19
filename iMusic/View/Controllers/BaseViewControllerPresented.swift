@@ -13,7 +13,7 @@ extension BaseViewControllerPresented {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
+        setupView2()
         addPan()
         
     }
@@ -60,7 +60,25 @@ class BaseViewControllerPresented: BaseViewController {
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
+    private func setupView2() {
+        self.view.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = CGRect(x: 0, y: 25, width: view.frame.width, height: view.frame.height)
+        blurredEffectView.layer.cornerRadius = 10
+        blurredEffectView.clipsToBounds = true
+        view.addSubview(blurredEffectView)
+        view.addSubview(topView)
+        
+        let topViewHeight : CGFloat = 3
+        let topView_y = Helper.shared.getMiddleYAxisPoint(up_y: 25, down_y: 20 + view.frame.height/16 - 15, height: topViewHeight)
+        
+        topView.frame = CGRect(x: view.frame.width/5*2-5, y: topView_y, width: view.frame.width/5+10, height: topViewHeight)
+        self.view.bringSubview(toFront: logo)
+    }
+    
     private func setupView() {
+        
         self.view.backgroundColor = UIColor.clear
         self.view.addSubview(presentedView)
         self.view.addSubview(topView)
@@ -74,8 +92,8 @@ class BaseViewControllerPresented: BaseViewController {
         
         self.presentedView.setGradientBackgroundColor(firstColor: UIColor.clear , secondColor: UIColor.MyTheme.gradientForBGColor)
         self.view.bringSubview(toFront: logo)
+        
     }
-    
     
     let presentedView : UIView = {
         let view = UIView()

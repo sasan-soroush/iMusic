@@ -163,6 +163,8 @@ class DownloadViewController : BaseViewControllerPresented {
     
     //MARK:- UI Properties
     
+    
+    
     let searchBar : UISearchBar = {
         let bar = UISearchBar()
         bar.clipsToBounds = true

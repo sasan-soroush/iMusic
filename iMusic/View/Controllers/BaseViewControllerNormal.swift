@@ -27,7 +27,7 @@ extension BaseViewControllerNormal {
 class BaseViewControllerNormal : BaseViewController {
     
     private func setupView() {
-        self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor, secondColor: UIColor.clear)
+        self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor, secondColor: UIColor.makeRgb(red: 0, green: 0, blue: 0, alpha: 0.5))
         self.view.bringSubview(toFront: logo)
     }
 }
