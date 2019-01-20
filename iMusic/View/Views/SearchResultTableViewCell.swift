@@ -67,6 +67,9 @@ class SearchResultTableViewCell : UITableViewCell {
     let waitingBar : HorizontalProgressbar = {
         let bar = HorizontalProgressbar()
         bar.progressTintColor = .white
+        bar.hideWhenStopped = true
+        bar.progressTintColor = UIColor.MyTheme.themeBlueColor
+        bar.loadingStyle = HorizontalProgressbar.ProgressType.indetermine
         return bar
     }()
     

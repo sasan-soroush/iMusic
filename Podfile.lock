@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.8.0)
+  - AudioKit (4.3):
+    - AudioKit/UI (= 4.3)
+  - AudioKit/UI (4.3)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -20,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AudioKit (~> 4.3.0)
   - GoogleSignIn
   - SDWebImage
   - SwiftyJSON (~> 4.2)
@@ -27,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AudioKit
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
@@ -35,12 +40,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AudioKit: 95bd2427c1afa7954d71b0c6195a09b87b7448bc
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: bb42cc3602f4562e9067f5b29d4118b94b33fa16
+PODFILE CHECKSUM: 6df16a29d9a063e519af66012a925921ccb36eef
 
 COCOAPODS: 1.5.3
