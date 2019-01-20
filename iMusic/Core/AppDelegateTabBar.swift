@@ -29,20 +29,22 @@ extension AppDelegate{
             [weak mainTabBarController] tabbarController, viewController, index in
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                
                 let downloadVC = DownloadViewController()
-                downloadVC.modalPresentationStyle = .overCurrentContext
-                mainTabBarController?.present(downloadVC, animated: true, completion: {
+                let presentedNav = UINavigationController(rootViewController: downloadVC)
+                presentedNav.modalPresentationStyle = .overCurrentContext
+                
+                mainTabBarController?.present(presentedNav, animated: true, completion: {
                     downloadVC.searchBar.becomeFirstResponder()
                 })
             }
-            
         }
         
-        let v1 = HomeViewController()
-        let v2 = HomeViewController()
-        let v3 = HomeViewController()
-        let v4 = HomeViewController()
-        let v5 = HomeViewController()
+        let v1 = UINavigationController(rootViewController: HomeViewController())
+        let v2 = UINavigationController(rootViewController: HomeViewController())
+        let v3 = UINavigationController(rootViewController: HomeViewController())
+        let v4 = UINavigationController(rootViewController: HomeViewController())
+        let v5 = UINavigationController(rootViewController: HomeViewController()) 
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "خانه", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "پلی لیست", image: #imageLiteral(resourceName: "playlist"), selectedImage: #imageLiteral(resourceName: "playlist_1"))
@@ -53,7 +55,7 @@ extension AppDelegate{
         mainTabBarController.viewControllers = [v1, v2, v3, v4, v5]
         
         let navigationController_signedIn = UINavigationController(rootViewController: mainTabBarController)
-        mainTabBarController.title = "Example"
+        
         
         let navigationController_signedOut = UINavigationController(rootViewController: SignUpViewController())
         

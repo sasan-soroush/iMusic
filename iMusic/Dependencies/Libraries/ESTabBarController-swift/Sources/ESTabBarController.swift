@@ -32,7 +32,13 @@ public typealias ESTabBarControllerDidHijackHandler = ((_ tabBarController: UITa
 
 open class ESTabBarController: UITabBarController, ESTabBarDelegate {
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     /// 打印异常
+    
     open static func printError(_ description: String) {
         #if DEBUG
             print("ERROR: ESTabBarController catch an error '\(description)' \n")
@@ -88,14 +94,17 @@ open class ESTabBarController: UITabBarController, ESTabBarDelegate {
     /// Customize set tabBar use KVC.
     open override func viewDidLoad() {
         super.viewDidLoad()
-        let tabBar = { () -> ESTabBar in 
+        
+        let tabBar = { () -> ESTabBar in
             let tabBar = ESTabBar()
             tabBar.delegate = self
             tabBar.customDelegate = self
             tabBar.tabBarController = self
             return tabBar
         }()
+        
         self.setValue(tabBar, forKey: "tabBar")
+        
     }
 
     // MARK: UITabBar delegate

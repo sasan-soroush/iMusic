@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 extension DownloadViewController {
     
     
@@ -60,7 +60,32 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
         let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
         let id = self.searchResults[indexPath.row].id
-        API.download(id: id, cell: cell) { (success, bars) in
+        
+        cell.waitingBar.startAnimating()
+        API.download(id: id, progHandler : { (progress) in
+            
+            cell.waitingBar.stopAnimating()
+            cell.loadingBar.isHidden = false
+            cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: cell.frame.width/100 * (progress), height: 3)
+            
+        }) { (success, filePath) in
+            
+            if success {
+                cell.waitingBar.stopAnimating()
+                cell.loadingBar.isHidden = true
+                
+                if filePath != nil {
+                    let urlPath = Bundle.main.url(forResource: "Alan Walker - 01 - Different World Feat Corsak", withExtension: "mp3")
+                    let itm = AVAsset(url: filePath!)
+                    let item =  AVPlayerItem(asset: itm)
+                    let playerVC = PandoraPlayer.configure(withAVItem: item)
+                    self.navigationController?.present(playerVC, animated: true, completion: nil)
+                }
+                
+                
+            } else {
+                Helper.shared.alert(UIApplication.topViewController() ?? DownloadViewController(), title: "", body: "Download failed.")
+            }
             
         }
         

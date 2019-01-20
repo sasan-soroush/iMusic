@@ -13,13 +13,14 @@ import SwiftyJSON
 class API {
     
     static let helper = Helper.shared
-
+    
     typealias stringHandler  = (Bool , String) -> ()
     typealias normalHandler  = (Bool) -> ()
     typealias imageHandler  = (Bool , UIImage?) -> ()
     typealias searchResultHandler  = (Bool , [SearchResult]) -> ()
     typealias completionHadnler = () -> ()
-    
+    typealias urlHandler = (Bool , URL?) -> ()
+    typealias progressHandler = (CGFloat) -> ()
     
     //MARK:- methods -- Get
     //MARK:- search
@@ -33,7 +34,7 @@ class API {
                 
                 if(response.result.isSuccess){
                     
-//                    print(JSON(response.result.value!))
+                    //                    print(JSON(response.result.value!))
                     guard let data = response.data else {return}
                     do {
                         let searchResults = try JSONDecoder().decode([SearchResult].self, from: data)
@@ -52,9 +53,8 @@ class API {
     }
     
     //MARK:- download
-    static func download(id : Int ,cell : SearchResultTableViewCell , completion : @escaping searchResultHandler ) {
+    static func download(id : Int , progHandler : @escaping progressHandler, completion : @escaping urlHandler ) {
         
-        cell.waitingBar.startAnimating()
         
         let url = Urls.download
         let header = helper.getHeader()
@@ -63,7 +63,7 @@ class API {
             "id"  :  id,
             "ext" : "mp3"
         ]
-
+        
         let fileUrl = self.getSaveFileUrl(fileName: "music\(id)")
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
@@ -75,19 +75,24 @@ class API {
             parameters: params,
             headers: header,
             to: destination).downloadProgress(closure: { (progress) in
+                                
+                let prog = CGFloat(progress.fractionCompleted*100)
+                progHandler(prog)
                 
-                let prog : CGFloat = CGFloat(progress.fractionCompleted*100)
-                cell.waitingBar.stopAnimating()
-                cell.loadingBar.isHidden = false
-                cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: cell.frame.width/100 * (prog), height: 3)
             }).response(completionHandler: { (DefaultDownloadResponse) in
                 
-                cell.waitingBar.stopAnimating()
-                cell.loadingBar.isHidden = true
+                
                 if let filePath = DefaultDownloadResponse.destinationURL {
-                    Player.playAudio(url: filePath)
+                    
+                    completion(true , filePath)
+                    
+                    
+                    
+//                    Player.playAudio(url: filePath)
+                    
                 } else {
-                    helper.alert(UIApplication.topViewController() ?? DownloadViewController(), title: "", body: "Download failed.")
+                    completion(false,nil)
+                    
                 }
                 
             })

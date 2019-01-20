@@ -76,6 +76,7 @@
 		B2C5B77E21F4923000E32554 /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76321F4923000E32554 /* PandoraPlayer.storyboard */; };
 		B2C5B77F21F4923000E32554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76521F4923000E32554 /* Assets.xcassets */; };
 		B2C5B78021F4923000E32554 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76721F4923000E32554 /* Info.plist */; };
+		B2C5B78221F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */; };
 		B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */; };
 		B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38321E1F8F600778B81 /* GhostTyper.swift */; };
 		B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */; };
@@ -177,6 +178,7 @@
 		B2C5B76521F4923000E32554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2C5B76621F4923000E32554 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B2C5B76721F4923000E32554 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alan Walker - 01 - Different World Feat Corsak.mp3"; sourceTree = "<group>"; };
 		B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B Koodak Bold_0.ttf"; sourceTree = "<group>"; };
 		B2FBB38321E1F8F600778B81 /* GhostTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostTyper.swift; sourceTree = "<group>"; };
 		B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTyperLabel.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		B241B67E21D78F8000D53711 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
+				B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */,
 				B241B69D21D7925600D53711 /* Core */,
 				B241B69C21D7924E00D53711 /* Service */,
 				B241B69B21D7924600D53711 /* Dependencies */,
@@ -677,6 +680,7 @@
 				B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */,
 				B2C5B77321F4923000E32554 /* WaveVisualizer.xib in Resources */,
 				B2C5B77121F4923000E32554 /* RoundedPictureCollectionViewCell.xib in Resources */,
+				B2C5B78221F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 in Resources */,
 				B2C5B77C21F4923000E32554 /* PlayerSlider.xib in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B2C5B77E21F4923000E32554 /* PandoraPlayer.storyboard in Resources */,
