@@ -29,6 +29,8 @@ class SearchResultTableViewCell : UITableViewCell {
         addSubview(musicImage)
         addSubview(musicName)
         addSubview(musicArtist)
+        addSubview(loadingBar)
+        addSubview(waitingBar)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,6 +61,19 @@ class SearchResultTableViewCell : UITableViewCell {
     let line : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.darkGray
+        return view
+    }()
+    
+    let waitingBar : HorizontalProgressbar = {
+        let bar = HorizontalProgressbar()
+        bar.progressTintColor = .white
+        return bar
+    }()
+    
+    let loadingBar : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.isHidden = true
         return view
     }()
 }

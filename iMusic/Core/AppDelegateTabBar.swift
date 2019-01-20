@@ -17,7 +17,7 @@ extension AppDelegate{
         mainTabBarController.delegate = self
         mainTabBarController.title = "Irregularity"
         mainTabBarController.tabBar.shadowImage = UIImage(named: "transparent")
-        mainTabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Group 16")
+        mainTabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "tab bar")
         mainTabBarController.shouldHijackHandler = {
             tabbarController, viewController, index in
             if index == 2 {
@@ -31,7 +31,9 @@ extension AppDelegate{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let downloadVC = DownloadViewController()
                 downloadVC.modalPresentationStyle = .overCurrentContext
-                mainTabBarController?.present(downloadVC, animated: true, completion: {})
+                mainTabBarController?.present(downloadVC, animated: true, completion: {
+                    downloadVC.searchBar.becomeFirstResponder()
+                })
             }
             
         }

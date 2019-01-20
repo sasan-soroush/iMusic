@@ -54,6 +54,8 @@ class API {
     //MARK:- download
     static func download(id : Int ,cell : SearchResultTableViewCell , completion : @escaping searchResultHandler ) {
         
+        cell.waitingBar.startAnimating()
+        
         let url = Urls.download
         let header = helper.getHeader()
         
@@ -71,16 +73,17 @@ class API {
             url,
             method: .post,
             parameters: params,
-//            encoding: JSONEncoding.default,
             headers: header,
             to: destination).downloadProgress(closure: { (progress) in
-                //progress closure
-                print(progress.fractionCompleted*100)
-                cell.musicArtist.text = String(progress.fractionCompleted)
-            }).response(completionHandler: { (DefaultDownloadResponse) in
-                //here you able to access the DefaultDownloadResponse
-                //result closure
                 
+                let prog : CGFloat = CGFloat(progress.fractionCompleted*100)
+                cell.waitingBar.stopAnimating()
+                cell.loadingBar.isHidden = false
+                cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: cell.frame.width/100 * (prog), height: 3)
+            }).response(completionHandler: { (DefaultDownloadResponse) in
+                
+                cell.waitingBar.stopAnimating()
+                cell.loadingBar.isHidden = true
                 if let filePath = DefaultDownloadResponse.destinationURL {
                     Player.playAudio(url: filePath)
                 } else {

@@ -49,7 +49,8 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         cell.musicImage.frame = CGRect(x: 0, y: 5, width: cell.frame.height-10, height: cell.frame.height-10)
         cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: paddingForTexts, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
         cell.musicArtist.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: cell.frame.height/2, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
-        
+        cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: 0, height: 3)
+        cell.waitingBar.frame = CGRect(x: 0, y: cell.frame.height-2, width: cell.frame.width, height: 2)
         cell.selectionStyle = .none
     }
     
@@ -65,6 +66,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 extension DownloadViewController {
+    
     
     private func addKeyboardNotifiactions() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
