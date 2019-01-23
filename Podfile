@@ -13,4 +13,6 @@ target 'iMusic' do
     pod 'SDWebImage'
 #    pod 'PandoraPlayer'
     pod 'AudioKit', '~> 4.3.0'
+    pod 'ID3TagEditor', '~> 2.0'
+    pod 'OutcastID3', '~> 0.5'
 end

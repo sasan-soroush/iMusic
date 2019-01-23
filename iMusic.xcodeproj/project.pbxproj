@@ -76,7 +76,7 @@
 		B2C5B77E21F4923000E32554 /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76321F4923000E32554 /* PandoraPlayer.storyboard */; };
 		B2C5B77F21F4923000E32554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76521F4923000E32554 /* Assets.xcassets */; };
 		B2C5B78021F4923000E32554 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B76721F4923000E32554 /* Info.plist */; };
-		B2C5B78221F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */; };
+		B2C5B78221F49A7200E32554 /* Alan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B78121F49A7200E32554 /* Alan.mp3 */; };
 		B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */; };
 		B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38321E1F8F600778B81 /* GhostTyper.swift */; };
 		B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */; };
@@ -84,9 +84,6 @@
 		B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */; };
 		B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FFE9E621D9070500FE0C0F /* credentials.plist */; };
 		B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */; };
-		E26A408421F064C400E71D39 /* MZUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408121F064C400E71D39 /* MZUtility.swift */; };
-		E26A408521F064C400E71D39 /* MZDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408221F064C400E71D39 /* MZDownloadModel.swift */; };
-		E26A408621F064C400E71D39 /* MZDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408321F064C400E71D39 /* MZDownloadManager.swift */; };
 		E26A408A21F08C5C00E71D39 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408921F08C5C00E71D39 /* Player.swift */; };
 		E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408B21F09BF300E71D39 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
@@ -178,7 +175,7 @@
 		B2C5B76521F4923000E32554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2C5B76621F4923000E32554 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B2C5B76721F4923000E32554 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alan Walker - 01 - Different World Feat Corsak.mp3"; sourceTree = "<group>"; };
+		B2C5B78121F49A7200E32554 /* Alan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alan.mp3; sourceTree = "<group>"; };
 		B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B Koodak Bold_0.ttf"; sourceTree = "<group>"; };
 		B2FBB38321E1F8F600778B81 /* GhostTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostTyper.swift; sourceTree = "<group>"; };
 		B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTyperLabel.swift; sourceTree = "<group>"; };
@@ -186,9 +183,6 @@
 		B2FFE9E421D9052800FE0C0F /* AppDelegateGoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateGoogleSignIn.swift; sourceTree = "<group>"; };
 		B2FFE9E621D9070500FE0C0F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		E26A408121F064C400E71D39 /* MZUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZUtility.swift; sourceTree = "<group>"; };
-		E26A408221F064C400E71D39 /* MZDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadModel.swift; sourceTree = "<group>"; };
-		E26A408321F064C400E71D39 /* MZDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZDownloadManager.swift; sourceTree = "<group>"; };
 		E26A408921F08C5C00E71D39 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E26A408B21F09BF300E71D39 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,7 +240,7 @@
 		B241B67E21D78F8000D53711 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
-				B2C5B78121F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 */,
+				B2C5B78121F49A7200E32554 /* Alan.mp3 */,
 				B241B69D21D7925600D53711 /* Core */,
 				B241B69C21D7924E00D53711 /* Service */,
 				B241B69B21D7924600D53711 /* Dependencies */,
@@ -302,7 +296,6 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				B2C5B73C21F4923000E32554 /* Player */,
 				B241B6BB21D7B00400D53711 /* Libraries */,
 			);
 			path = Dependencies;
@@ -388,7 +381,7 @@
 		B241B6BB21D7B00400D53711 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E26A408021F064AC00E71D39 /* MZDownloadManager */,
+				B2C5B73C21F4923000E32554 /* Player */,
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
 				E26A408B21F09BF300E71D39 /* ProgressBar.swift */,
@@ -593,16 +586,6 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		E26A408021F064AC00E71D39 /* MZDownloadManager */ = {
-			isa = PBXGroup;
-			children = (
-				E26A408321F064C400E71D39 /* MZDownloadManager.swift */,
-				E26A408221F064C400E71D39 /* MZDownloadModel.swift */,
-				E26A408121F064C400E71D39 /* MZUtility.swift */,
-			);
-			path = MZDownloadManager;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -680,7 +663,7 @@
 				B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */,
 				B2C5B77321F4923000E32554 /* WaveVisualizer.xib in Resources */,
 				B2C5B77121F4923000E32554 /* RoundedPictureCollectionViewCell.xib in Resources */,
-				B2C5B78221F49A7200E32554 /* Alan Walker - 01 - Different World Feat Corsak.mp3 in Resources */,
+				B2C5B78221F49A7200E32554 /* Alan.mp3 in Resources */,
 				B2C5B77C21F4923000E32554 /* PlayerSlider.xib in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B2C5B77E21F4923000E32554 /* PandoraPlayer.storyboard in Resources */,
@@ -723,6 +706,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ID3TagEditor/ID3TagEditor.framework",
+				"${BUILT_PRODUCTS_DIR}/OutcastID3/OutcastID3.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -731,6 +716,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ID3TagEditor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OutcastID3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -773,16 +760,13 @@
 				B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */,
 				B2C5B76821F4923000E32554 /* UIImageColors.swift in Sources */,
 				B2C5B77D21F4923000E32554 /* VisualisationHelper.swift in Sources */,
-				E26A408421F064C400E71D39 /* MZUtility.swift in Sources */,
 				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
-				E26A408521F064C400E71D39 /* MZDownloadModel.swift in Sources */,
 				B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
 				B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */,
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
-				E26A408621F064C400E71D39 /* MZDownloadManager.swift in Sources */,
 				B2C5B77921F4923000E32554 /* PlayerSongList.swift in Sources */,
 				B2C5B77621F4923000E32554 /* PlayerControls.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
@@ -977,6 +961,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1001,6 +986,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

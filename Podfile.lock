@@ -16,6 +16,8 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
   - GTMSessionFetcher/Core (1.2.1)
+  - ID3TagEditor (2.1.0)
+  - OutcastID3 (0.5.0)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -25,6 +27,8 @@ DEPENDENCIES:
   - Alamofire
   - AudioKit (~> 4.3.0)
   - GoogleSignIn
+  - ID3TagEditor (~> 2.0)
+  - OutcastID3 (~> 0.5)
   - SDWebImage
   - SwiftyJSON (~> 4.2)
 
@@ -35,6 +39,8 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - ID3TagEditor
+    - OutcastID3
     - SDWebImage
     - SwiftyJSON
 
@@ -44,9 +50,11 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  ID3TagEditor: ed2759f633841400a4375885e51694344d431780
+  OutcastID3: 19b9a72cf3050d521be77518409c436969fb2fc3
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 6df16a29d9a063e519af66012a925921ccb36eef
+PODFILE CHECKSUM: f57b48bf9f6ff3577d384b9c88f5f23556462222
 
 COCOAPODS: 1.5.3

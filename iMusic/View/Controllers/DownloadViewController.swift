@@ -8,17 +8,65 @@
 
 import UIKit
 import AVFoundation
+import ID3TagEditor
+import MediaPlayer
+import OutcastID3
+
 extension DownloadViewController {
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         addKeyboardNotifiactions()
-        
+        testtest()
     }
     
+}
+
+extension  DownloadViewController {
+    
+    func readTest(url: URL) throws {
+        
+        print(url.lastPathComponent)
+        
+        let x = try OutcastID3.MP3File(localUrl: url)
+        
+        let tag = try x.readID3Tag()
+        self.outputTag(tag: tag.tag)
+    }
+    
+    func outputTag(tag: OutcastID3.ID3Tag) {
+        for frame in tag.frames {
+            switch frame {
+            case let s as OutcastID3.Frame.StringFrame:
+                print("\(s.type.description): \(s.str)")
+                
+            case let u as OutcastID3.Frame.UrlFrame:
+                print("\(u.type.description): \(u.urlString)")
+                
+            case let comment as OutcastID3.Frame.CommentFrame:
+                print("COMMENT: \(comment)")
+                
+            case let transcription as OutcastID3.Frame.TranscriptionFrame:
+                print("TRANSCRIPTION: \(transcription)")
+                
+            case let picture as OutcastID3.Frame.PictureFrame:
+                print("PICTURE: \(picture)")
+                
+            case let f as OutcastID3.Frame.ChapterFrame:
+                print("CHAPTER: \(f)")
+                
+            case let toc as OutcastID3.Frame.TableOfContentsFrame:
+                print("TOC: \(toc)")
+                
+            case let rawFrame as OutcastID3.Frame.RawFrame:
+                print("Unrecognised frame: \(String(describing: rawFrame.frameIdentifier))")
+                
+            default:
+                break
+            }
+        }
+    }
 }
 
 extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
@@ -58,7 +106,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
+        /*let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
         let id = self.searchResults[indexPath.row].id
         
         cell.waitingBar.startAnimating()
@@ -75,11 +123,9 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
                 cell.loadingBar.isHidden = true
                 
                 if filePath != nil {
-                    let urlPath = Bundle.main.url(forResource: "Alan Walker - 01 - Different World Feat Corsak", withExtension: "mp3")
-                    let itm = AVAsset(url: filePath!)
-                    let item =  AVPlayerItem(asset: itm)
-                    let playerVC = PandoraPlayer.configure(withAVItem: item)
-                    self.navigationController?.present(playerVC, animated: true, completion: nil)
+                    
+//                    let playerVC = PandoraPlayer.configure(withAVItem: item)
+//                    self.navigationController?.present(playerVC, animated: true, completion: nil)
                 }
                 
                 
@@ -87,9 +133,88 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
                 Helper.shared.alert(UIApplication.topViewController() ?? DownloadViewController(), title: "", body: "Download failed.")
             }
             
+        }*/
+        
+    }
+    
+    
+    private func testtest() {
+        let frames: [OutcastID3TagFrame] = [
+            OutcastID3.Frame.StringFrame(type: .title, encoding: .utf8, str: "kos gholombe"),
+            OutcastID3.Frame.StringFrame(type: .albumTitle, encoding: .utf8, str: "sasan soroush"),
+            //try! OutcastID3.Frame.PictureFrame(encoding: String.Encoding.utf8, mimeType: "image/jpeg", pictureType: .coverFront, pictureDescription: "picture", picture: OutcastID3.Frame.PictureFrame.Picture(from : #imageLiteral(resourceName: "default_background") as! Decoder))
+            //OutcastID3.Frame.PictureFrame(encoding: String.Encoding.utf8, mimeType: "image/jpeg", pictureType: OutcastID3.Frame.PictureFrame.PictureType.coverFront, pictureDescription: "picture", picture: OutcastID3.Frame.PictureFrame.Picture(from: ) )
+        ]
+        
+        let tag = OutcastID3.ID3Tag(
+            version: .v2_4,
+            frames: frames
+        )
+        
+        let inputUrl = Bundle.main.url(forResource: "Alan", withExtension: "mp3")!
+        
+        
+        do {
+            try readTest(url: inputUrl)
+            let mp3File = try OutcastID3.MP3File(localUrl: inputUrl)
+
+            let fileName = "Test"
+            let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt.mp3")
+
+
+            try mp3File.writeID3Tag(tag: tag, outputUrl: fileURL)
+            let asset = AVAsset(url: fileURL)
+            let item = AVPlayerItem(asset: asset)
+            let playerVC = PandoraPlayer.configure(withAVItem: item)
+            self.navigationController?.present(playerVC, animated: true, completion: nil)
+        } catch let err {
+            print(err)
         }
         
     }
+    
+    
+    
+    
+    
+//    private func addTagTo(musicUrl : URL?) {
+//
+//        let urlPath = Bundle.main.url(forResource: "Alan", withExtension: "mp3")
+//
+//        let imageData: Data = UIImagePNGRepresentation(#imageLiteral(resourceName: "default_background"))!
+//        do {
+//            let id3Tag = ID3Tag(
+//                version: .version3,
+//                artist: "an example artist",
+//                albumArtist: "an example album artist",
+//                album: "an example album",
+//                title: "an example title",
+//                recordingDateTime: RecordingDateTime(date: RecordingDate(day: 1, month: 10, year: 2019),
+//                                                     time: RecordingTime(hour: 14, minute: 30)),
+//                genre: Genre(genre: .ClassicRock, description: "Rock & Roll"),
+//                attachedPictures: [AttachedPicture(picture: imageData, type: .FrontCover, format: .Jpeg)],
+//                trackPosition: TrackPositionInSet(position: 2, totalTracks: 9)
+//            )
+//
+//            try ID3TagEditor().write(tag: id3Tag, to: "<valid path to the mp3 file that will be overwritten>")
+//            try ID3TagEditor().write(tag: id3Tag,
+//            to: "<valid path to the mp3 file>",
+//            andSaveTo: "<new path where you want to save the mp3>")
+//            let newMp3: Data = try id3TagEditor.write(tag: id3Tag, mp3: <valid mp3 file passed as Data>)
+//
+//        } catch {
+//            print(error)
+//        }
+//
+//    }
+    
+    
+    
+    
+    
+    
+    
 }
 
 extension DownloadViewController {
@@ -150,6 +275,7 @@ class DownloadViewController : BaseViewControllerPresented {
     private var searchResults : [SearchResult] = []
     
     private func setupView() {
+        
         
         view.addSubview(searchBar)
         view.addSubview(searchResultTableView)
