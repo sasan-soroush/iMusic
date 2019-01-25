@@ -86,4 +86,14 @@ class Helper  {
         let path = bundle.path(forResource: name, ofType: fileType)!;
         return path;
     }
+    
+    //MARK:- save file url
+    
+    func getSaveFileUrl(fileName: String) -> URL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let nameUrl = URL(string: fileName)
+        let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)
+        NSLog(fileURL.absoluteString)
+        return fileURL;
+    }
 }

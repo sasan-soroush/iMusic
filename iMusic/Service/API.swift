@@ -66,7 +66,7 @@ class API {
             "ext" : "mp3"
         ]
         
-        let fileUrl = self.getSaveFileUrl(fileName: "music\(id)")
+        let fileUrl = Helper.shared.getSaveFileUrl(fileName: "music\(id)")
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
         }
