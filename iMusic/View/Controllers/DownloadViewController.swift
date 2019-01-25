@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import OutcastID3
+import ID3TagEditor
 
 extension DownloadViewController {
     
@@ -17,6 +18,7 @@ extension DownloadViewController {
         super.viewDidLoad()
         setupView()
         addKeyboardNotifiactions()
+        tag()
     }
     
 }
@@ -89,6 +91,12 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        downloadSong(tableView, indexPath)
+        
+    }
+    
     fileprivate func setupCell(_ cell: SearchResultTableViewCell, _ indexPath: IndexPath) {
         
         let paddingForTexts : CGFloat = 10
@@ -102,13 +110,6 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         cell.selectionStyle = .none
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        downloadSong(tableView, indexPath)
-        
-    }
-    
-    
     
     
 }
@@ -117,11 +118,39 @@ extension DownloadViewController {
     
     //MARK:- add tag
     
+    private func tag() {
+        do {
+            let id3Tag = ID3Tag(
+                version: .version3,
+                artist: "Sasan",
+                albumArtist: "an example album artist",
+                album: "album",
+                title: "title",
+                recordingDateTime: nil,
+                genre: nil,
+                attachedPictures: [AttachedPicture(picture: UIImagePNGRepresentation(#imageLiteral(resourceName: "news_1"))!, type: .FrontCover, format: .Jpeg)],
+                trackPosition: nil
+            )
+            let id3TagEditor = ID3TagEditor()
+            
+            try id3TagEditor.write(tag: id3Tag, to: Helper.shared.pathFor(name: "Alan", fileType: "mp3"))
+            let utt = Bundle.main.url(forResource: "Alan", withExtension: "mp3")!
+            let asset = AVAsset(url: utt)
+            let item = AVPlayerItem(asset: asset)
+            let playerVC = PandoraPlayer.configure(withAVItem: item)
+            self.navigationController?.present(playerVC, animated: true, completion: nil)
+            
+        } catch {
+            print(error)
+        }    
+    }
+    
     private func addTagToFileOn(url : URL) {
         
         let frames: [OutcastID3TagFrame] = [
             OutcastID3.Frame.StringFrame(type: .title, encoding: .utf8, str: "kos gholombe"),
             OutcastID3.Frame.StringFrame(type: .albumTitle, encoding: .utf8, str: "sasan soroush")
+//            OutcastID3.Frame.PictureFrame(encoding: String.Encoding.utf8, mimeType: "", pictureType: .coverFront, pictureDescription: "picture", picture: pic)
         ]
         
         let tag = OutcastID3.ID3Tag(

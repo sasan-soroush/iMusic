@@ -78,4 +78,12 @@ class Helper  {
         ]
         return header
     }
+    
+    //MARK:- path finder
+    
+    func pathFor(name: String, fileType: String) -> String {
+        let bundle = Bundle(for: type(of: self));
+        let path = bundle.path(forResource: name, ofType: fileType)!;
+        return path;
+    }
 }

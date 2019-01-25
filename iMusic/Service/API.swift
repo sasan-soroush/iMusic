@@ -34,10 +34,12 @@ class API {
                 
                 if(response.result.isSuccess){
                     
-                    //                    print(JSON(response.result.value!))
                     guard let data = response.data else {return}
+                    
                     do {
-                        let searchResults = try JSONDecoder().decode([SearchResult].self, from: data)
+                        let searchResults = try
+                            JSONDecoder().decode([SearchResult].self, from: data)
+                        
                         completion(true , searchResults)
                     } catch {
                         completion(false , [])
