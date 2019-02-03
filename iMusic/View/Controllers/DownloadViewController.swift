@@ -18,7 +18,13 @@ extension DownloadViewController {
         super.viewDidLoad()
         setupView()
         addKeyboardNotifiactions()
-        testtest()
+        
+        let url = Bundle.main.url(forResource: "Numb", withExtension: "mp3")!
+        let asset = AVAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+        let playerVC = PandoraPlayer.configure(withAVItem: item)
+        self.navigationController?.present(playerVC, animated: true, completion: nil)
+        
     }
     
 }
@@ -106,7 +112,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        /*let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! SearchResultTableViewCell
         let id = self.searchResults[indexPath.row].id
         
         cell.waitingBar.startAnimating()
@@ -123,9 +129,10 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
                 cell.loadingBar.isHidden = true
                 
                 if filePath != nil {
-                    
-//                    let playerVC = PandoraPlayer.configure(withAVItem: item)
-//                    self.navigationController?.present(playerVC, animated: true, completion: nil)
+                    print(filePath!)
+                    let item = AVPlayerItem(url: filePath!)
+                    let playerVC = PandoraPlayer.configure(withAVItem: item)
+                    self.navigationController?.present(playerVC, animated: true, completion: nil)
                 }
                 
                 
@@ -133,7 +140,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
                 Helper.shared.alert(UIApplication.topViewController() ?? DownloadViewController(), title: "", body: "Download failed.")
             }
             
-        }*/
+        }
         
     }
     
