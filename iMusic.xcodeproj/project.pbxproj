@@ -34,6 +34,7 @@
 		B22C3CF722072811003BBFD1 /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22C3CDC22072811003BBFD1 /* PandoraPlayer.storyboard */; };
 		B22C3CF822072811003BBFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22C3CDE22072811003BBFD1 /* Assets.xcassets */; };
 		B22C3CF922072811003BBFD1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22C3CE022072811003BBFD1 /* Info.plist */; };
+		B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
 		B241B68721D78F8300D53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B241B68621D78F8300D53711 /* Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		B22C3CDE22072811003BBFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B22C3CDF22072811003BBFD1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B22C3CE022072811003BBFD1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B241B68121D78F8000D53711 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +384,22 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		B22C3D0222075343003BBFD1 /* TableViewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
+			);
+			path = TableViewsCell;
+			sourceTree = "<group>";
+		};
+		B22C3D0322075357003BBFD1 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		B241B67321D78F8000D53711 = {
 			isa = PBXGroup;
 			children = (
@@ -503,8 +521,9 @@
 		B241B69F21D7927A00D53711 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B22C3D0322075357003BBFD1 /* CollectionViewCell */,
+				B22C3D0222075343003BBFD1 /* TableViewsCell */,
 				B2FBB38821E1FBA500778B81 /* CustomViews */,
-				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -781,6 +800,7 @@
 				E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */,
 				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
 				B22C3CE522072811003BBFD1 /* Song.swift in Sources */,
+				B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
 				B22C3CE422072811003BBFD1 /* MetaData.swift in Sources */,
 				B22C3CED22072811003BBFD1 /* WaveVisualizer.swift in Sources */,
 				B22C3CF422072811003BBFD1 /* PlayerSlider.swift in Sources */,
