@@ -34,10 +34,12 @@ class API {
                 
                 if(response.result.isSuccess){
                     
-                    //                    print(JSON(response.result.value!))
                     guard let data = response.data else {return}
+                    
                     do {
-                        let searchResults = try JSONDecoder().decode([SearchResult].self, from: data)
+                        let searchResults = try
+                            JSONDecoder().decode([SearchResult].self, from: data)
+                        
                         completion(true , searchResults)
                     } catch {
                         completion(false , [])
@@ -64,7 +66,11 @@ class API {
             "ext" : "mp3"
         ]
         
+<<<<<<< HEAD
         let fileUrl = self.getSaveFileUrl(fileName: "music\(id).mp3")
+=======
+        let fileUrl = Helper.shared.getSaveFileUrl(fileName: "music\(id)")
+>>>>>>> a2ff3c555a3144b8a1ca841f7229ee48410c040f
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
         }

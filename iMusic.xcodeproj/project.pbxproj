@@ -958,6 +958,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iMusic/Libraries",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -983,6 +984,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iMusic/Libraries",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
