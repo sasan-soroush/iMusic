@@ -42,6 +42,12 @@ extension UIColor {
     }
 }
 
+extension Date {
+    func currentTimeMillis() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+}
+
 extension NSAttributedString {
     convenience init(text: String, aligment: NSTextAlignment) {
         let paragraphStyle = NSMutableParagraphStyle()

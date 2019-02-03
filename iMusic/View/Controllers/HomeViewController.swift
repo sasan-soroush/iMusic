@@ -8,6 +8,10 @@
 
 import UIKit
 import AVFoundation
+
+
+
+
 extension HomeViewController {
 
     override func viewDidLoad() {
@@ -16,9 +20,26 @@ extension HomeViewController {
         setupView()
         
     }
-
+    
+    private func getRecentMusics() {
+        
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            for url in fileURLs {
+                print(url.absoluteString)
+            }
+            
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+        
+    }
     
 }
+
+
 
 
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -42,16 +63,14 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         recentlyPlayedCV.delegate = self
         recentlyPlayedCV.dataSource = self
         recentlyPlayedCV.register(RecentlyPlayedCollectionViewCell.self, forCellWithReuseIdentifier: RecentlyPlayedCollectionViewCell.id)
-        
-        
     }
-    
 }
 
+
+
+
+
 extension HomeViewController {
-    
-    //MARK:- View related methods
-    
     private func setupView() {
         
         setupCV()
@@ -60,8 +79,10 @@ extension HomeViewController {
         recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height/5)
         
     }
-    
 }
+
+
+
 
 class HomeViewController : BaseViewControllerNormal {
     
@@ -76,5 +97,9 @@ class HomeViewController : BaseViewControllerNormal {
     }()
     
 }
+
+
+
+
 
 

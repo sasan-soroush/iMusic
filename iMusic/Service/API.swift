@@ -55,11 +55,12 @@ class API {
     }
     
     //MARK:- download
-    static func download(id : Int , progHandler : @escaping progressHandler, completion : @escaping urlHandler ) {
+    static func download(downloadItem : SearchResult, progHandler : @escaping progressHandler, completion : @escaping urlHandler ) {
         
         
         let url = Urls.download
         let header = helper.getHeader()
+        let id = downloadItem.id
         
         let params : [String : Any] = [
             "id"  :  id,
@@ -86,6 +87,11 @@ class API {
                 
                 
                 if let filePath = DefaultDownloadResponse.destinationURL {
+                    
+                    //TODO:- maybe date needs some work
+                    
+                    let downloadedMusic = MusicTrack(track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis())
+                    
                     
                     completion(true , filePath)
                     

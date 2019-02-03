@@ -71,7 +71,7 @@
 		B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */; };
 		B2A2585821E0B3C100CF3738 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585721E0B3C100CF3738 /* API.swift */; };
 		B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */; };
-		B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585B21E0B3DA00CF3738 /* Music.swift */; };
+		B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585B21E0B3DA00CF3738 /* MusicTrack.swift */; };
 		B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */; };
 		B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB512221E5E1BF00A35D36 /* BaseViewControllerPresented.swift */; };
 		B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */; };
@@ -172,7 +172,7 @@
 		B2A2585521E0B1FB00CF3738 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B2A2585721E0B3C100CF3738 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
-		B2A2585B21E0B3DA00CF3738 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		B2A2585B21E0B3DA00CF3738 /* MusicTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrack.swift; sourceTree = "<group>"; };
 		B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		B2BB512221E5E1BF00A35D36 /* BaseViewControllerPresented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerPresented.swift; sourceTree = "<group>"; };
 		B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -440,7 +440,7 @@
 		B241B69721D791DB00D53711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B2A2585B21E0B3DA00CF3738 /* Music.swift */,
+				B2A2585B21E0B3DA00CF3738 /* MusicTrack.swift */,
 				B2C5B6EA21EF6FE800E32554 /* SearchResult.swift */,
 			);
 			path = Model;
@@ -728,20 +728,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/ID3TagEditor/ID3TagEditor.framework",
-				"${BUILT_PRODUCTS_DIR}/OutcastID3/OutcastID3.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ID3TagEditor.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OutcastID3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -789,7 +787,7 @@
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
-				B2A2585C21E0B3DA00CF3738 /* Music.swift in Sources */,
+				B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */,
 				B22C3CE222072811003BBFD1 /* UIImageEffects.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
@@ -981,10 +979,7 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1007,10 +1002,7 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.iMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

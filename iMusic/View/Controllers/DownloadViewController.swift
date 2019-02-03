@@ -17,17 +17,7 @@ extension DownloadViewController {
         super.viewDidLoad()
         setupView()
         addKeyboardNotifiactions()
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            for url in fileURLs {
-                print(url.absoluteString)
-            }
-            // process files
-        } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
-        }
+        
     }
     
 }
@@ -84,10 +74,10 @@ extension DownloadViewController {
     fileprivate func downloadSong(_ tableView: UITableView, _ indexPath: IndexPath) {
 
         guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
-        let id = self.searchResults[indexPath.row].id
+        let searchResult = self.searchResults[indexPath.row]
         
         cell.waitingBar.startAnimating()
-        API.download(id: id, progHandler : { (progress) in
+        API.download(downloadItem: searchResult, progHandler : { (progress) in
             
             cell.waitingBar.stopAnimating()
             cell.loadingBar.isHidden = false

@@ -16,4 +16,5 @@ target 'iMusic' do
     #    pod 'ID3TagEditor', '~> 2.0'
     #   pod 'OutcastID3', '~> 0.5'
     #   pod 'ID3Edit'
+    pod 'Disk', '~> 0.4.0'
 end

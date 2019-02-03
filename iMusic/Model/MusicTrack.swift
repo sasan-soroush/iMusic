@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct MusicTrack {
+    let track : SearchResult
+    let address : URL
+    let downloadDate : Int64
+}
