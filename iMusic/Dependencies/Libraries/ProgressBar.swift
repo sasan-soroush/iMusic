@@ -10,8 +10,6 @@ import UIKit
 
 public class HorizontalProgressbar: UIView {
     
-    
-    
     internal var arrProgressChunks = [UIView]() //To generate dymanic Chunks under progressbar
     public var progressTintColor : UIColor!   //Progressbar Tint color
     public var trackTintColor : UIColor!      //Progressbar track color
@@ -20,8 +18,6 @@ public class HorizontalProgressbar: UIView {
     public var kChunkWdith = 50.0            //Progressbar Chunk width
     public var noOfChunks = 3                //Number of Chunks to animate
     public var loadingStyle : ProgressType?        //Type of progress bar (Determine or Indetermine)
-    
-    
     
     public override init(frame: CGRect) {
         
