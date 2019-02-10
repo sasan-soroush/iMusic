@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Disk
 
 class API {
     
@@ -92,12 +93,10 @@ class API {
                     
                     let downloadedMusic = MusicTrack(track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis())
                     
+                    helper.saveDownloadedMusics(music: downloadedMusic)
                     
                     completion(true , filePath)
-                    
-                    
-                    
-//                    Player.playAudio(url: filePath)
+                
                     
                 } else {
                     completion(false,nil)

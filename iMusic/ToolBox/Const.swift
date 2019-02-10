@@ -12,6 +12,6 @@ class Consts {
     
     static let shared = Consts()
     
-    let baseUrl = "http://api.imoozik.ir/"
+    let downloadedMusicsKey = "Musics/Downloaded"
     
 }

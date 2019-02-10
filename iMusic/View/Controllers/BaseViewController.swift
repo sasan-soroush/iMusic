@@ -30,6 +30,9 @@ extension BaseViewController {
 
 class BaseViewController : UIViewController {
     
+    let constants = Consts.shared
+    let helper = Helper.shared
+    
     private func setupView() {
         self.view.backgroundColor = UIColor.MyTheme.backgroundColor
         let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))

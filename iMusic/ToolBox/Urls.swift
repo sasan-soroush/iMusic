@@ -12,7 +12,7 @@ class Urls {
     
     static let shared = Urls()
     
-    static let base = Consts.shared.baseUrl
+    static let base = "http://api.imoozik.ir/"
     
     static func search(text : String) -> String {
         let url = base + "search?query=\(text)&limit=10"

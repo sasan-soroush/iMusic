@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Disk
 
 class Helper  {
     
@@ -77,6 +78,33 @@ class Helper  {
             "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzNmODFlNTFjMmJmMjQxMTZmY2M1ZWYiLCJpYXQiOjE1NDc2NjU4OTMsImV4cCI6MTU3OTIwMTg5M30.eV6J0G0tWhDEdU96MDG0Jq0Sl3hQugRQ81lsTV-dSzg"
         ]
         return header
+    }
+    
+    //MARK:- get recent downloaded musics
+    
+    func getRecentlyDownloadedMusics(completion : ([MusicTrack])->()) {
+        var downloadedMusics : [MusicTrack] = []
+        do {
+            downloadedMusics = try Disk.retrieve(Consts.shared.downloadedMusicsKey, from: .documents, as: [MusicTrack].self)
+        } catch {
+            print(error)
+        }
+        
+        completion(downloadedMusics)
+    }
+    
+    //MARK:- save downlaoded music
+    
+    func saveDownloadedMusics(music : MusicTrack) {
+        
+        do {
+            
+            try Disk.append(music, to: Consts.shared.downloadedMusicsKey, in: Disk.Directory.documents)
+            
+        } catch {
+            print(error)
+        }
+        
     }
     
     //MARK:- path finder
