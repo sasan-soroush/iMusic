@@ -62,11 +62,11 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let filePath = self.downloadedMusics[indexPath.row].address
-        print(filePath.absoluteString)
+        
         if filePath.absoluteString != "" {
             let asset = AVAsset(url: filePath )
             let item = AVPlayerItem(asset: asset)
-            let playerVC = PandoraPlayer.configure(withPath: filePath.absoluteString)
+            let playerVC = PandoraPlayer.configure(withAVItem: item)
             self.navigationController?.present(playerVC, animated: true, completion: nil)
         }
     }
