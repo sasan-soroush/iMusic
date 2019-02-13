@@ -25,6 +25,7 @@ class API {
     
     //MARK:- methods -- Get
     //MARK:- search
+    
     static func search(text : String , completion : @escaping searchResultHandler ) {
         
         let url = Urls.search(text: text)
@@ -38,12 +39,16 @@ class API {
                     guard let data = response.data else {return}
                     
                     do {
+                        
                         let searchResults = try
                             JSONDecoder().decode([SearchResult].self, from: data)
                         
                         completion(true , searchResults)
+                        
                     } catch {
+                        
                         completion(false , [])
+                        
                     }
                     
                 } else {
