@@ -73,7 +73,7 @@ class API {
             "ext" : "mp3"
         ]
         
-        let fileUrl = self.getSaveFileUrl(fileName: "music\(id).mp3")
+        let fileUrl = helper.getSaveFileUrl(musicId: id)
 
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
@@ -110,14 +110,6 @@ class API {
                 
             })
         
-    }
-    
-    static func getSaveFileUrl(fileName: String) -> URL {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let nameUrl = URL(string: fileName)
-        let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)
-        NSLog(fileURL.absoluteString)
-        return fileURL;
     }
 }
 

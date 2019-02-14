@@ -12,6 +12,6 @@ class Consts {
     
     static let shared = Consts()
     
-    let downloadedMusicsKey = "Musics/Downloaded"
+    let downloadedMusicsKey = "DownloadedMusics.json"
     
 }

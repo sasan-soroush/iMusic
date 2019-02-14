@@ -90,6 +90,7 @@ extension DownloadViewController {
                 cell.loadingBar.isHidden = true
                 
                 if filePath != nil {
+                    print(filePath)
                     let asset = AVAsset(url: filePath! )
                     let item = AVPlayerItem(asset: asset)
                     let playerVC = PandoraPlayer.configure(withAVItem: item)

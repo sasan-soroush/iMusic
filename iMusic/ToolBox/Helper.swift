@@ -117,7 +117,8 @@ class Helper  {
     
     //MARK:- save file url
     
-    func getSaveFileUrl(fileName: String) -> URL {
+    func getSaveFileUrl(musicId: Int) -> URL {
+        let fileName = "music\(musicId).mp3"
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let nameUrl = URL(string: fileName)
         let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */; };
-		B22C3CB422070D36003BBFD1 /* Numb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B22C3CB322070D36003BBFD1 /* Numb.mp3 */; };
 		B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
@@ -53,7 +52,6 @@
 		B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EC21EF75F700E32554 /* Const.swift */; };
 		B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6EE21EF764700E32554 /* Urls.swift */; };
 		B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */; };
-		B2C5B78221F49A7200E32554 /* Alan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B2C5B78121F49A7200E32554 /* Alan.mp3 */; };
 		B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */; };
 		B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38321E1F8F600778B81 /* GhostTyper.swift */; };
 		B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */; };
@@ -106,7 +104,6 @@
 /* Begin PBXFileReference section */
 		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B22C3CB322070D36003BBFD1 /* Numb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Numb.mp3; sourceTree = "<group>"; };
 		B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +149,6 @@
 		B2C5B6EC21EF75F700E32554 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2C5B6EE21EF764700E32554 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		B2C5B6F021EF7E3400E32554 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
-		B2C5B78121F49A7200E32554 /* Alan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alan.mp3; sourceTree = "<group>"; };
 		B2FBB38121E1F56200778B81 /* B Koodak Bold_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B Koodak Bold_0.ttf"; sourceTree = "<group>"; };
 		B2FBB38321E1F8F600778B81 /* GhostTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostTyper.swift; sourceTree = "<group>"; };
 		B2FBB38621E1F9C800778B81 /* CustomTyperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTyperLabel.swift; sourceTree = "<group>"; };
@@ -259,8 +255,6 @@
 		B241B67E21D78F8000D53711 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
-				B2C5B78121F49A7200E32554 /* Alan.mp3 */,
-				B22C3CB322070D36003BBFD1 /* Numb.mp3 */,
 				B241B69D21D7925600D53711 /* Core */,
 				B241B69C21D7924E00D53711 /* Service */,
 				B241B69B21D7924600D53711 /* Dependencies */,
@@ -682,9 +676,7 @@
 				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
 				E27A707A2211F92A001751BC /* PandoraPlayer.storyboard in Resources */,
 				B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */,
-				B2C5B78221F49A7200E32554 /* Alan.mp3 in Resources */,
 				E27A70782211F92A001751BC /* PlayerSlider.xib in Resources */,
-				B22C3CB422070D36003BBFD1 /* Numb.mp3 in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
 				B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */,

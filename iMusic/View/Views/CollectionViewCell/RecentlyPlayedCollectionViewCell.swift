@@ -29,8 +29,10 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(cover)
-        addSubview(titleLabel)
-        addSubview(artistLabel)
+        cover.addSubview(titleBackground)
+        titleBackground.addSubview(titleLabel)
+        titleBackground.addSubview(artistLabel)
+        clipsToBounds = true
 
     }
     
@@ -46,12 +48,18 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     }()
     
     let titleLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 16))
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 16))
         return label
     }()
     
     let artistLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 16))
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 16))
         return label
+    }()
+    
+    let titleBackground : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
+        return view
     }()
 }

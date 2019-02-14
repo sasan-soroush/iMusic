@@ -456,8 +456,9 @@ open class PandoraPlayer: UIViewController {
 // MARK: Actions
     
     @IBAction func closeButtonDidClick(_ sender: Any) {
-        player = nil
-        onClose?(())
+//        player = nil
+//        onClose?(())
+        self.dismiss(animated: true, completion: nil)
     }
     
     
