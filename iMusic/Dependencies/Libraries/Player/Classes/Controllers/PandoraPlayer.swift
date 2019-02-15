@@ -48,7 +48,7 @@ open class PandoraPlayer: UIViewController {
     
     fileprivate var library: [Song] = []
 
-    fileprivate var player: EZAudioPlayer!
+    fileprivate var musicPlayer: EZAudioPlayer!
     fileprivate var originalPlayList: [Song] = []
     fileprivate var count: Int = 0
     
@@ -213,7 +213,13 @@ open class PandoraPlayer: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override open func didReceiveMemoryWarning() {
@@ -261,7 +267,7 @@ open class PandoraPlayer: UIViewController {
         if !designated { return }
         configurePlayer()
         self.sliderView.duration = currentSong?.metadata?.duration ?? 0
-        if !player.isPlaying && playImmediately {
+        if !musicPlayer.isPlaying && playImmediately {
             reloadPlayer()
         }
     }
@@ -286,10 +292,10 @@ open class PandoraPlayer: UIViewController {
 
         playerSongListView.setCurrentIndex(index: currentSongIndex, animated: true)
         
-        player.audioFile = EZAudioFile(url: url)
+        musicPlayer.audioFile = EZAudioFile(url: url)
         
-        if player != nil && !player.isPlaying {
-            player.play()
+        if musicPlayer != nil && !musicPlayer.isPlaying {
+            musicPlayer.play()
         }
     }
     
@@ -337,14 +343,14 @@ open class PandoraPlayer: UIViewController {
 	private func configurePlayer() {
         configurePlayerControls()
         configurePlayerTimeSlider()
-		player = EZAudioPlayer()
-		player.delegate = self
+		musicPlayer = EZAudioPlayer()
+		musicPlayer.delegate = self
 		updatePlaybackStatus()
         currentSongIndex = 0
     }
 
 	fileprivate func updatePlaybackStatus() {
-		self.controlsView.isPlaying = self.player.isPlaying
+		self.controlsView.isPlaying = self.musicPlayer.isPlaying
 	}
     
     fileprivate func resetPlaylist() {
@@ -380,25 +386,25 @@ open class PandoraPlayer: UIViewController {
     }
 	
     fileprivate func togglePlay() {
-        guard let audioFile = player.audioFile, audioFile.url == currentSong?.url else {
+        guard let audioFile = musicPlayer.audioFile, audioFile.url == currentSong?.url else {
             reloadPlayer()
             return
         }
         
-        let isPlaying = self.player.isPlaying
+        let isPlaying = self.musicPlayer.isPlaying
         
         if isPlaying {
-            player.pause()
+            musicPlayer.pause()
         } else {
-            player.play()
+            musicPlayer.play()
         }
         animatePlayToggling()
-        self.controlsView.isPlaying = self.player.isPlaying
+        self.controlsView.isPlaying = self.musicPlayer.isPlaying
     }
     
     fileprivate func animatePlayToggling(duration: TimeInterval = animationInterval) {
         let viewToAnimate = UIImageView(frame: CGRect(x: 0, y: 0, width: animatableViewWidth, height: animatableViewHeight))
-        let imageStr = self.player.isPlaying ? Images.pause: Images.play
+        let imageStr = self.musicPlayer.isPlaying ? Images.pause: Images.play
         let image = UIImage(named: imageStr, in: Bundle(for: self.classForCoder), compatibleWith: nil)
         viewToAnimate.image = image
         viewToAnimate.alpha = 0
@@ -449,9 +455,7 @@ open class PandoraPlayer: UIViewController {
 		sliderView.progress = defaultStartProgress
     }
 	
-	deinit {
-		NotificationCenter.default.removeObserver(self)
-	}
+	
     
 // MARK: Actions
     
@@ -531,23 +535,23 @@ extension PandoraPlayer: PlayerSongListDelegate {
 
 extension PandoraPlayer: PlayerControlsDelegate {
 	
-	func onRepeat() {
+	@objc func onRepeat() {
         self.isRepeatModeOn = !self.isRepeatModeOn
 	}
 	
-	func onRewindBack() {
+	@objc func onRewindBack() {
 		rewindBackward()
     }
 	
-	func onPlay() {
+	@objc func onPlay() {
 		togglePlay()
 	}
 	
-	func onRewindForward() {
+	@objc func onRewindForward() {
         rewindForward()
 	}
 	
-	func onShuffle() {
+	@objc func onShuffle() {
         self.isShuffleModeOn = !self.isShuffleModeOn
 	}
 }
@@ -557,8 +561,8 @@ extension PandoraPlayer: PlayerControlsDelegate {
 extension PandoraPlayer: PlayerSliderProtocol {
 	func onValueChanged(progress: Float, timePast: TimeInterval) {
 		beeingSeek = true
-		let frame = Int64(Float(player.audioFile.totalFrames) * progress)
-		self.player.seek(toFrame: frame)
+		let frame = Int64(Float(musicPlayer.audioFile.totalFrames) * progress)
+		self.musicPlayer.seek(toFrame: frame)
 	}
 }
 

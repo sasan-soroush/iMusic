@@ -13,5 +13,5 @@ class Consts {
     static let shared = Consts()
     
     let downloadedMusicsKey = "DownloadedMusics.json"
-    
+    let onPlayNotificationName = "onPlayNotificationName"
 }

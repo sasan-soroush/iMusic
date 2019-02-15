@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AudioKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate{
 
     var window: UIWindow?
     var mainTabBarController = ESTabBarController()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         setupGoogleSignIn()

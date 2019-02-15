@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 import Disk
+import AudioKit
+import AVKit
+import MediaPlayer
+
 
 
 extension HomeViewController {
@@ -17,6 +21,7 @@ extension HomeViewController {
         super.viewDidLoad()
         
         setupView()
+
 
     }
     
@@ -68,7 +73,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         let asset = AVAsset(url: filePath )
         let item = AVPlayerItem(asset: asset)
-        let playerVC = PandoraPlayer.configure(withAVItem: item)
+        let playerVC = PandoraPlayer.configure(withAVItems: [item])
         self.navigationController?.present(playerVC, animated: true, completion: nil)
         
     }
@@ -101,17 +106,16 @@ extension HomeViewController {
         view.addSubview(recentlyPlayedCV)
         recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height/4.5)
         
+        
     }
 }
-
-
-
 
 class HomeViewController : BaseViewControllerNormal {
     
     let padding : CGFloat = 10
     var downloadedMusics : [MusicTrack] = []
-    
+    fileprivate var musicPlayer: EZAudioPlayer!
+
     let recentlyPlayedCV : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
