@@ -60,10 +60,12 @@ open class PandoraPlayer: UIViewController {
     fileprivate var isReady: Bool = false
 
     fileprivate func rewindBackward() {
+        
         if currentSongIndex > 0 {
             currentSongIndex -= 1
         }
         updatePlaybackStatus()
+        
     }
     
     fileprivate var currentSongIndex: Int = -1 {
@@ -83,6 +85,7 @@ open class PandoraPlayer: UIViewController {
     
     fileprivate var isShuffleModeOn: Bool = false {
         didSet {
+            
             controlsView.isShuffleModeOn = isShuffleModeOn
             if isShuffleModeOn {
                 syncColorsWithOriginalList()
@@ -91,6 +94,7 @@ open class PandoraPlayer: UIViewController {
                 resetPlaylist()
             }
             configureBackgroundImage()
+            
         }
     }
     
@@ -114,6 +118,7 @@ open class PandoraPlayer: UIViewController {
      
      - returns: Instance of PandoraPlayer with set library.
      */
+    
     public static func configure(withPath path: String) -> PandoraPlayer {
         return PandoraPlayer.configure(withPaths: [path])
     }
@@ -125,6 +130,7 @@ open class PandoraPlayer: UIViewController {
      
      - returns: Instance of PandoraPlayer with set library.
      */
+    
     public static func configure(withPaths paths: [String]) -> PandoraPlayer {
         let playerVC = pandoraPlayerInstance()
         let songItems = paths.flatMap({ return Song(path: $0) })
@@ -140,6 +146,7 @@ open class PandoraPlayer: UIViewController {
      
      - returns: Instance of PandoraPlayer with set library.
      */
+    
     public static func configure(withAVItem item: AVPlayerItem) -> PandoraPlayer {
         return PandoraPlayer.configure(withAVItems: [item])
     }
@@ -151,6 +158,7 @@ open class PandoraPlayer: UIViewController {
      
      - returns: Instance of PandoraPlayer with set library.
      */
+    
     public static func configure(withAVItems items: [AVPlayerItem]) -> PandoraPlayer {
         let playerVC = pandoraPlayerInstance()
         let songItems = items.flatMap({ return Song(withAVPlayerItem: $0) })
@@ -555,6 +563,10 @@ extension PandoraPlayer: PlayerControlsDelegate {
         self.isShuffleModeOn = !self.isShuffleModeOn
 	}
 }
+
+//NOTE:- MRREmotecommandcenter
+
+
 
 // MARK: PlayerSliderProtocol
 

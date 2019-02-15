@@ -30,6 +30,7 @@ extension HomeViewController {
     }
     
     private func getDowloadedMusic() {
+        
         helper.getRecentlyDownloadedMusics { (musics) in
             self.downloadedMusics = musics
             recentlyPlayedCV.reloadData()
@@ -38,9 +39,6 @@ extension HomeViewController {
     }
     
 }
-
-
-
 
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
@@ -93,10 +91,6 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         recentlyPlayedCV.register(RecentlyPlayedCollectionViewCell.self, forCellWithReuseIdentifier: RecentlyPlayedCollectionViewCell.id)
     }
 }
-
-
-
-
 
 extension HomeViewController {
     private func setupView() {
