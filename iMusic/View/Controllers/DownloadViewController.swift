@@ -110,7 +110,6 @@ extension DownloadViewController {
 
 extension DownloadViewController {
     
-    
     private func addKeyboardNotifiactions() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -170,6 +169,8 @@ class DownloadViewController : BaseViewControllerPresented {
         
         view.addSubview(searchBar)
         view.addSubview(searchResultTableView)
+        
+        self.logo.frame.size.height = view.frame.height/8
         
         searchBar.delegate = self
         searchBar.frame = CGRect(x: 10, y: view.frame.height - 50, width: view.frame.width - 20, height: 40)

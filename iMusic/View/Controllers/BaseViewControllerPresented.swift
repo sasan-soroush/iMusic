@@ -92,7 +92,6 @@ class BaseViewControllerPresented: BaseViewController {
         
         self.presentedView.setGradientBackgroundColor(firstColor: UIColor.clear , secondColor: UIColor.MyTheme.gradientForBGColor)
         self.view.bringSubview(toFront: logo)
-        
     }
     
     let presentedView : UIView = {

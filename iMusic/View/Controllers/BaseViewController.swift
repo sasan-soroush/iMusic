@@ -38,7 +38,7 @@ class BaseViewController : UIViewController {
         let logoSize = logo.sizeThatFits(CGSize(width: 200, height: 50))
         self.view.addSubview(logo)
         
-        logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/8)
+        logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/12)
         
     }
     

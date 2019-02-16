@@ -42,7 +42,7 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     
     let cover : CustomImageView = {
         let view = CustomImageView()
-        view.layer.cornerRadius = 7
+        view.layer.cornerRadius = 4
         view.clipsToBounds = true
         return view
     }()

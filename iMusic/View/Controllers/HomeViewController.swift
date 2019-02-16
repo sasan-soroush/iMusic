@@ -52,13 +52,13 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
-        cell.titleBackground.frame = CGRect(x: cell.cover.frame.minX, y: cell.cover.frame.midY, width: cell.cover.frame.width, height: cell.cover.frame.height/2)
+        cell.titleBackground.frame = CGRect(x: cell.cover.frame.minX, y: cell.cover.frame.height/3*2, width: cell.cover.frame.width, height: cell.cover.frame.height/3)
         
         let labelsHeight = cell.titleBackground.frame.height/2-3
         
         cell.artistLabel.frame = CGRect(x: 3, y: 3, width: cell.titleBackground.frame.width-6, height: labelsHeight-3)
         
-        cell.titleLabel.frame = CGRect(x: 0, y: cell.artistLabel.frame.maxY, width: cell.titleBackground.frame.width-6, height: labelsHeight)
+        cell.titleLabel.frame = CGRect(x: 3, y: cell.artistLabel.frame.maxY, width: cell.titleBackground.frame.width-6, height: labelsHeight)
         cell.musicTrack = self.downloadedMusics[indexPath.row]
         
         return cell
@@ -77,12 +77,16 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return padding
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return padding
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: recentlyPlayedCV.frame.width/3 , height: recentlyPlayedCV.frame.height)
+        
+        return CGSize(width: recentlyPlayedCV.frame.width/2 - padding/2 , height: recentlyPlayedCV.frame.width/2 - padding/2)
     }
     
     private func setupCV() {
@@ -98,7 +102,7 @@ extension HomeViewController {
         setupCV()
         
         view.addSubview(recentlyPlayedCV)
-        recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height/4.5)
+        recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height - self.logo.frame.maxY - padding - 80)
         
         
     }
@@ -106,7 +110,7 @@ extension HomeViewController {
 
 class HomeViewController : BaseViewControllerNormal {
     
-    let padding : CGFloat = 10
+    let padding : CGFloat = 7
     var downloadedMusics : [MusicTrack] = []
     fileprivate var musicPlayer: EZAudioPlayer!
 
@@ -115,7 +119,7 @@ class HomeViewController : BaseViewControllerNormal {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
         view.showsHorizontalScrollIndicator = false
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         return view
     }()
     
