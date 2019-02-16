@@ -118,8 +118,8 @@ class HomeViewController : BaseViewControllerNormal {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
-        view.showsHorizontalScrollIndicator = false
         layout.scrollDirection = .vertical
+        view.showsVerticalScrollIndicator = false
         return view
     }()
     
