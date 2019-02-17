@@ -24,7 +24,7 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iZ3-6y-1KJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_background" translatesAutoresizingMaskIntoConstraints="NO" id="4E8-ja-wmq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPandoraBG" translatesAutoresizingMaskIntoConstraints="NO" id="4E8-ja-wmq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2L-3b-BsO">
@@ -176,6 +176,6 @@
     </scenes>
     <resources>
         <image name="cancel-music" width="14" height="14"/>
-        <image name="default_background" width="562.5" height="1000.5"/>
+        <image name="defaultPandoraBG" width="382" height="666"/>
     </resources>
 </document>
