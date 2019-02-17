@@ -14,4 +14,5 @@ class Consts {
     
     let downloadedMusicsKey = "DownloadedMusics.json"
     let onPlayNotificationName = "onPlayNotificationName"
+    let notificationName_BeforePlayingNewMusic = "notificationName_BeforePlayingNewMusic"
 }

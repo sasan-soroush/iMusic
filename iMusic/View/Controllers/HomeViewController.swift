@@ -66,6 +66,8 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        NotificationCenter.default.post(name: NSNotification.Name.init(constants.notificationName_BeforePlayingNewMusic), object: nil)
+        
         let id  = self.downloadedMusics[indexPath.row].track.id
         let filePath = helper.getSaveFileUrl(musicId: id)
         

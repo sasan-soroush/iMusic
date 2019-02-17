@@ -222,7 +222,19 @@ open class PandoraPlayer: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        NotificationCenter.default.addObserver(self, selector: #selector(makePlayerNil), name: NSNotification.Name(Consts.shared.notificationName_BeforePlayingNewMusic), object: nil)
+        
+
+            configure()
+        
+        
+    }
+    
+    @objc func makePlayerNil() {
+        
+        if musicPlayer != nil {
+            musicPlayer = nil
+        } 
         
     }
     
