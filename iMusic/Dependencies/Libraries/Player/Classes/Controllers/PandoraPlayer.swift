@@ -48,7 +48,7 @@ open class PandoraPlayer: UIViewController {
     
     fileprivate var library: [Song] = []
 
-    fileprivate var musicPlayer: EZAudioPlayer!
+    fileprivate var musicPlayer: EZAudioPlayer?
     fileprivate var originalPlayList: [Song] = []
     fileprivate var count: Int = 0
     
@@ -222,12 +222,23 @@ open class PandoraPlayer: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(makePlayerNil), name: NSNotification.Name(Consts.shared.notificationName_BeforePlayingNewMusic), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareForLoadNewSong), name: NSNotification.Name(Consts.shared.notificationName_BeforePlayingNewMusic), object: nil)
         
 
             configure()
         
         
+    }
+    
+    @objc func prepareForLoadNewSong() {
+        if musicPlayer != nil {
+            let isPlaying = self.musicPlayer!.isPlaying
+            if isPlaying {
+                musicPlayer!.pause()
+                self.controlsView.isPlaying = self.musicPlayer!.isPlaying
+                musicPlayer = nil
+            }
+        }
     }
     
     @objc func makePlayerNil() {
@@ -287,7 +298,8 @@ open class PandoraPlayer: UIViewController {
         if !designated { return }
         configurePlayer()
         self.sliderView.duration = currentSong?.metadata?.duration ?? 0
-        if !musicPlayer.isPlaying && playImmediately {
+        guard let player = musicPlayer else {return}
+        if !player.isPlaying && playImmediately {
             reloadPlayer()
         }
     }
@@ -311,11 +323,11 @@ open class PandoraPlayer: UIViewController {
         self.sliderView.duration = currentSong?.metadata?.duration ?? 0
 
         playerSongListView.setCurrentIndex(index: currentSongIndex, animated: true)
+        guard let player = musicPlayer else {return}
+        player.audioFile = EZAudioFile(url: url)
         
-        musicPlayer.audioFile = EZAudioFile(url: url)
-        
-        if musicPlayer != nil && !musicPlayer.isPlaying {
-            musicPlayer.play()
+        if player != nil && !player.isPlaying {
+            player.play()
         }
     }
     
@@ -364,13 +376,16 @@ open class PandoraPlayer: UIViewController {
         configurePlayerControls()
         configurePlayerTimeSlider()
 		musicPlayer = EZAudioPlayer()
-		musicPlayer.delegate = self
+        if musicPlayer != nil {
+            musicPlayer!.delegate = self
+        }
 		updatePlaybackStatus()
         currentSongIndex = 0
     }
 
 	fileprivate func updatePlaybackStatus() {
-		self.controlsView.isPlaying = self.musicPlayer.isPlaying
+        guard let player = musicPlayer else {return}
+		self.controlsView.isPlaying = player.isPlaying
 	}
     
     fileprivate func resetPlaylist() {
@@ -404,27 +419,34 @@ open class PandoraPlayer: UIViewController {
             self.currentSongIndex = 0
         }
     }
+    
+   
 	
     fileprivate func togglePlay() {
-        guard let audioFile = musicPlayer.audioFile, audioFile.url == currentSong?.url else {
+        
+        guard let player = self.musicPlayer else {return}
+        guard let audioFile = player.audioFile, audioFile.url == currentSong?.url else {
             reloadPlayer()
             return
         }
         
-        let isPlaying = self.musicPlayer.isPlaying
+        let isPlaying = player.isPlaying
         
         if isPlaying {
-            musicPlayer.pause()
+            player.pause()
         } else {
-            musicPlayer.play()
+            player.play()
         }
         animatePlayToggling()
-        self.controlsView.isPlaying = self.musicPlayer.isPlaying
+        self.controlsView.isPlaying = player.isPlaying
     }
     
     fileprivate func animatePlayToggling(duration: TimeInterval = animationInterval) {
         let viewToAnimate = UIImageView(frame: CGRect(x: 0, y: 0, width: animatableViewWidth, height: animatableViewHeight))
-        let imageStr = self.musicPlayer.isPlaying ? Images.pause: Images.play
+        
+        guard let player = self.musicPlayer else {return}
+        let imageStr = player.isPlaying ? Images.pause: Images.play
+        
         let image = UIImage(named: imageStr, in: Bundle(for: self.classForCoder), compatibleWith: nil)
         viewToAnimate.image = image
         viewToAnimate.alpha = 0
@@ -585,8 +607,9 @@ extension PandoraPlayer: PlayerControlsDelegate {
 extension PandoraPlayer: PlayerSliderProtocol {
 	func onValueChanged(progress: Float, timePast: TimeInterval) {
 		beeingSeek = true
-		let frame = Int64(Float(musicPlayer.audioFile.totalFrames) * progress)
-		self.musicPlayer.seek(toFrame: frame)
+        guard let player = musicPlayer else {return}
+		let frame = Int64(Float(player.audioFile.totalFrames) * progress)
+		player.seek(toFrame: frame)
 	}
 }
 
