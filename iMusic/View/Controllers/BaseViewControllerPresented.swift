@@ -13,7 +13,7 @@ extension BaseViewControllerPresented {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView2()
+        setupBlurredView()
         addPan()
         
     }
@@ -60,8 +60,10 @@ class BaseViewControllerPresented: BaseViewController {
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
-    private func setupView2() {
+    private func setupBlurredView() {
+        
         self.view.backgroundColor = UIColor.clear
+        
         let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         blurredEffectView.frame = CGRect(x: 0, y: 25, width: view.frame.width, height: view.frame.height)
@@ -75,6 +77,7 @@ class BaseViewControllerPresented: BaseViewController {
         
         topView.frame = CGRect(x: view.frame.width/5*2-5, y: topView_y, width: view.frame.width/5+10, height: topViewHeight)
         self.view.bringSubview(toFront: logo)
+        
     }
     
     private func setupView() {

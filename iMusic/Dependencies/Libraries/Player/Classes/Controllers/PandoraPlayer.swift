@@ -13,6 +13,7 @@ import MediaPlayer
 
 // MARK: Constants
 
+var globalTime : TimeInterval!
 fileprivate let storyboardIdentifier = "PandoraPlayer"
 fileprivate let nowPlaying = "Now Playing"
 fileprivate let unknown = "Unknown"
@@ -326,7 +327,7 @@ open class PandoraPlayer: UIViewController {
         guard let player = musicPlayer else {return}
         player.audioFile = EZAudioFile(url: url)
         
-        if player != nil && !player.isPlaying {
+        if !player.isPlaying {
             player.play()
         }
     }
@@ -375,6 +376,7 @@ open class PandoraPlayer: UIViewController {
 	private func configurePlayer() {
         configurePlayerControls()
         configurePlayerTimeSlider()
+        configureAudio()
 		musicPlayer = EZAudioPlayer()
         if musicPlayer != nil {
             musicPlayer!.delegate = self
@@ -514,6 +516,54 @@ open class PandoraPlayer: UIViewController {
         let storyboard = UIStoryboard(name: storyboardIdentifier, bundle: Bundle(for: PandoraPlayer.classForCoder()))
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! PandoraPlayer
     }
+    
+    func updateCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.changePlaybackPositionCommand.isEnabled = true
+        commandCenter.changePlaybackPositionCommand.addTarget(self, action:#selector(changePlaybackPositionCommand(_:)))
+        
+        commandCenter.togglePlayPauseCommand.addTarget(self, action:   #selector(onPlay))
+        commandCenter.nextTrackCommand.addTarget(self, action:   #selector(onRewindForward))
+        commandCenter.previousTrackCommand.addTarget(self, action:   #selector(onRewindBack))
+        commandCenter.changeShuffleModeCommand.addTarget(self, action:   #selector(onShuffle))
+        commandCenter.changeRepeatModeCommand.addTarget(self, action:   #selector(onRepeat))
+    }
+    
+    
+    
+    @objc func changePlaybackPositionCommand(_ event:MPChangePlaybackPositionCommandEvent) -> MPRemoteCommandHandlerStatus{
+        //guard let player = musicPlayer else {return MPRemoteCommandHandlerStatus.commandFailed}
+        musicPlayer!.currentTime = event.positionTime
+        //use time to update your track time
+        return MPRemoteCommandHandlerStatus.success;
+    }
+    
+    func setupNowPlaying() {
+        print(currentSongIndex)
+        // Define Now Playing Info
+        var nowPlayingInfo = [String : Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = currentSong?.metadata?.title
+        nowPlayingInfo[MPMediaItemPropertyArtist] = currentSong?.metadata?.artist
+        if let image = currentSong?.metadata?.artwork {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] =
+                MPMediaItemArtwork(boundsSize: image.size) { size in
+                    return image
+            }
+        }
+        
+        print(currentSong)
+        print(currentSong?.metadata)
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = globalTime
+        
+        
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = currentSong?.metadata?.duration
+        
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1
+        
+        // Set the metadata
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        
+    }
 }
 
 // MARK: PlayerSongListDelegate
@@ -632,6 +682,8 @@ extension PandoraPlayer: EZAudioPlayerDelegate {
 		
 		let duration = audioFile.duration
 		let progress = audioFile.totalFrames > 0 ? Float(framePosition) / Float(audioFile.totalFrames): 0
+        globalTime = audioFile.currentTime
+        setupNowPlaying()
 		let isPlaying = audioPlayer.isPlaying
 		DispatchQueue.main.async {[weak sliderView, weak controlsView] in
 			controlsView?.isPlaying = isPlaying
@@ -640,6 +692,21 @@ extension PandoraPlayer: EZAudioPlayerDelegate {
 		}
 	}
 	
+    private func configureAudio() {
+        do {
+            try AKSettings.setSession(category: .playback, with: [])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeDefault, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            updateCommandCenter()
+            
+        } catch {
+            print(error)
+        }
+        AKSettings.playbackWhileMuted = true;
+        AKSettings.enableRouteChangeHandling = true
+    }
+    
 	public func audioPlayer(_ audioPlayer: EZAudioPlayer!, reachedEndOf audioFile: EZAudioFile!) {
         guard !isRepeatModeOn else {
             DispatchQueue.main.async { [weak self] in
