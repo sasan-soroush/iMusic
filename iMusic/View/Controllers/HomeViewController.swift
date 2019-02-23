@@ -78,15 +78,9 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        NotificationCenter.default.post(name: NSNotification.Name.init(constants.notificationName_BeforePlayingNewMusic), object: nil)
-        
         let id  = self.downloadedMusics[indexPath.row].track.id
         let filePath = helper.getSaveFileUrl(musicId: id)
-        
-        let asset = AVAsset(url: filePath )
-        let item = AVPlayerItem(asset: asset)
-        let playerVC = PandoraPlayer.configure(withAVItems: [item])
-        self.navigationController?.present(playerVC, animated: true, completion: nil)
+        helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
         
     }
     

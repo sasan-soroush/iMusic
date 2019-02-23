@@ -225,11 +225,11 @@ open class PandoraPlayer: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(prepareForLoadNewSong), name: NSNotification.Name(Consts.shared.notificationName_BeforePlayingNewMusic), object: nil)
         
-
-            configure()
+        configure()
         
         
     }
+    
     
     @objc func prepareForLoadNewSong() {
         if musicPlayer != nil {
@@ -338,7 +338,7 @@ open class PandoraPlayer: UIViewController {
                 return
         }
         
-        if let color = colors?.primaryColor {
+        /*if let color = colors?.primaryColor {
             rightChannelColor = color
         }
         
@@ -352,8 +352,12 @@ open class PandoraPlayer: UIViewController {
         
         if let color = colors?.primaryColor {
             songAlbumColor = color
-        }
-        
+        }*/
+        let color = UIColor.init(rgb: 0xFFE4B0)
+        songNameColor = color
+        songAlbumColor = color
+        leftChannelColor = UIColor.white
+        rightChannelColor = color
         songNameLabel.changeAnimated(metadata.title ?? unknown, color: songNameColor)
         songAlbumLabel.changeAnimated(metadata.albumName ?? unknown, color: songAlbumColor)
         waveVisualizer.setColors(left: leftChannelColor, right: rightChannelColor)
@@ -523,8 +527,8 @@ open class PandoraPlayer: UIViewController {
         commandCenter.changePlaybackPositionCommand.addTarget(self, action:#selector(changePlaybackPositionCommand(_:)))
         
         commandCenter.togglePlayPauseCommand.addTarget(self, action:   #selector(onPlay))
-        commandCenter.nextTrackCommand.addTarget(self, action:   #selector(onRewindForward))
-        commandCenter.previousTrackCommand.addTarget(self, action:   #selector(onRewindBack))
+        //commandCenter.nextTrackCommand.addTarget(self, action:   #selector(onRewindForward))
+        //commandCenter.previousTrackCommand.addTarget(self, action:   #selector(onRewindBack))
         commandCenter.changeShuffleModeCommand.addTarget(self, action:   #selector(onShuffle))
         commandCenter.changeRepeatModeCommand.addTarget(self, action:   #selector(onRepeat))
     }
@@ -551,8 +555,6 @@ open class PandoraPlayer: UIViewController {
             }
         }
         
-        print(currentSong)
-        print(currentSong?.metadata)
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = globalTime
         
         

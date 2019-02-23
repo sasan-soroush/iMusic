@@ -90,11 +90,7 @@ extension DownloadViewController {
                 cell.loadingBar.isHidden = true
                 
                 if filePath != nil {
-                    NotificationCenter.default.post(name: NSNotification.Name.init(self.constants.notificationName_BeforePlayingNewMusic), object: nil)
-                    let asset = AVAsset(url: filePath! )
-                    let item = AVPlayerItem(asset: asset)
-                    let playerVC = PandoraPlayer.configure(withAVItem: item)
-                    self.navigationController?.present(playerVC, animated: true, completion: nil)
+                    self.helper.pandoraPlay(fromTabBar: false, target: self, filePath: filePath!)
                 }
                 
             } else {

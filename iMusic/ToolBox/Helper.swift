@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import Disk
+import AVFoundation
 
 class Helper  {
     
@@ -60,6 +61,41 @@ class Helper  {
             break
         }
     }
+    
+    func makeArrayOfSongs(StartWith : URL) -> [AVPlayerItem] {
+        var playerItems : [AVPlayerItem] = []
+        
+        self.getRecentlyDownloadedMusics { (tracks) in
+            
+            let sortedTracks = tracks.sorted { $0.downloadDate > $1.downloadDate }
+            let mappedTracks = sortedTracks.map {$0.track.id}
+            var savedPaths = mappedTracks.map {self.getSaveFileUrl(musicId: $0)}
+            savedPaths.insert(StartWith, at: 0)
+            let assets = savedPaths.map {AVAsset(url: $0)}
+            let items = assets.map {AVPlayerItem(asset: $0)}
+            playerItems = items
+        }
+        
+        return playerItems
+        
+    }
+    
+    func pandoraPlay(fromTabBar: Bool , target : UIViewController , filePath : URL) {
+        NotificationCenter.default.post(name: NSNotification.Name.init(Consts.shared.notificationName_BeforePlayingNewMusic), object: nil)
+        
+        let items = makeArrayOfSongs(StartWith: filePath)
+        let playerVC = PandoraPlayer.configure(withAVItems: items)
+        playerVC.modalPresentationStyle = .overCurrentContext
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let tabBar = delegate.mainTabBarController
+        if fromTabBar {
+            tabBar.present(playerVC, animated: true, completion: nil)
+        } else {
+            target.navigationController?.present(playerVC, animated: true, completion: nil)
+        }
+        
+    }
+    
     //MARK:- show alert without option
     func alert(_ controller:UIViewController, title:String, body:String){
         
