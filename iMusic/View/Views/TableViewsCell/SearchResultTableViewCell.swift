@@ -75,7 +75,7 @@ class SearchResultTableViewCell : UITableViewCell {
     
     let loadingBar : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.35)
         view.isHidden = true
         return view
     }()

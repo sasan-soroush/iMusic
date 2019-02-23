@@ -40,7 +40,24 @@ class BaseViewController : UIViewController {
         
         logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/12)
         
+
+       
     }
+    
+    func startIndicator() {
+        indicator.startAnimating()
+    }
+    
+    func stopIndicator() {
+        indicator.stopAnimating()
+    }
+    
+    lazy var indicator : NVActivityIndicatorView = {
+        let size : CGFloat = 40
+        let frame = CGRect(x: self.view.frame.midX - size/2 , y: self.view.frame.height/3 - size/2, width: size, height: size)
+        let indic = NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorType.init(rawValue: 14) , color: UIColor.white, padding: 0)
+        return indic
+    }()
     
     let logo : CustomLabel = {
         let label = CustomLabel(customFont: Font.DINCondensed(size: 30))

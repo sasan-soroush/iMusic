@@ -58,7 +58,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         cell.musicImage.frame = CGRect(x: 0, y: 5, width: cell.frame.height-10, height: cell.frame.height-10)
         cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: paddingForTexts, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
         cell.musicArtist.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: cell.frame.height/2, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
-        cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: 0, height: 3)
+        cell.loadingBar.frame = CGRect(x: 0, y: 0, width: 0, height: cell.frame.height)
         cell.waitingBar.frame = CGRect(x: 0, y: cell.frame.height-2, width: cell.frame.width, height: 2)
         cell.selectionStyle = .none
     }
@@ -81,7 +81,7 @@ extension DownloadViewController {
             
             cell.waitingBar.stopAnimating()
             cell.loadingBar.isHidden = false
-            cell.loadingBar.frame = CGRect(x: 0, y: cell.frame.height-3, width: cell.frame.width/100 * (progress), height: 3)
+            cell.loadingBar.frame = CGRect(x: 0, y: 0, width: cell.frame.width/100 * (progress), height: cell.frame.height)
             
         }) { (success, filePath) in
             
@@ -90,7 +90,7 @@ extension DownloadViewController {
                 cell.loadingBar.isHidden = true
                 
                 if filePath != nil {
-                    print(filePath)
+                    NotificationCenter.default.post(name: NSNotification.Name.init(self.constants.notificationName_BeforePlayingNewMusic), object: nil)
                     let asset = AVAsset(url: filePath! )
                     let item = AVPlayerItem(asset: asset)
                     let playerVC = PandoraPlayer.configure(withAVItem: item)
@@ -144,14 +144,18 @@ extension DownloadViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        startIndicator()
+        
         guard let text = searchBar.text else {
             Helper.shared.alert(self, title: "", body: "مشکلی با متن وارد شده وجود دارد.")
+            stopIndicator()
             return
         }
         
         API.search(text: text) { (success, searchResultArray) in
             self.searchResults = searchResultArray
             self.searchResultTableView.reloadData()
+            self.stopIndicator()
         }
     }
     
@@ -184,6 +188,8 @@ class DownloadViewController : BaseViewControllerPresented {
         searchResultTableView.frame = CGRect(x: 10, y: logo.frame.maxY , width: view.frame.width-20, height: searchBar.frame.minY - logo.frame.maxY - 10)
         
         setupSearchBar()
+        
+        view.addSubview(indicator)
         
     }
     

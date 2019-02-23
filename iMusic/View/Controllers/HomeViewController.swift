@@ -38,6 +38,18 @@ extension HomeViewController {
         
     }
     
+    @objc private func presentDownloadVC() {
+        let downloadVC = DownloadViewController()
+        let presentedNav = UINavigationController(rootViewController: downloadVC)
+        presentedNav.modalPresentationStyle = .overCurrentContext
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let tabBar = delegate.mainTabBarController
+        tabBar.present(presentedNav, animated: true, completion: {
+            downloadVC.searchBar.becomeFirstResponder()
+        })
+    }
+    
+    
 }
 
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -104,7 +116,11 @@ extension HomeViewController {
         setupCV()
         
         view.addSubview(recentlyPlayedCV)
-        recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height - self.logo.frame.maxY - padding - 80)
+        recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height - self.logo.frame.maxY - padding - 52)
+        
+        view.addSubview(searchButton)
+        let searchButtonWidth = recentlyPlayedCV.frame.minY - 20 - 10
+        searchButton.frame = CGRect(x: view.frame.width - searchButtonWidth - 10, y: 20, width: searchButtonWidth, height: searchButtonWidth)
         
         
     }
@@ -123,6 +139,16 @@ class HomeViewController : BaseViewControllerNormal {
         layout.scrollDirection = .vertical
         view.showsVerticalScrollIndicator = false
         return view
+    }()
+    
+    let searchButton : UIButton = {
+        let button = UIButton()
+        let padding : CGFloat = 14
+        button.setImage(#imageLiteral(resourceName: "magnifier").withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.imageEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        button.addTarget(self, action: #selector(presentDownloadVC), for: UIControlEvents.touchUpInside)
+        return button
     }()
     
 }
