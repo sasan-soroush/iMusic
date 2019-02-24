@@ -238,6 +238,8 @@ open class PandoraPlayer: UIViewController {
                 musicPlayer!.pause()
                 self.controlsView.isPlaying = self.musicPlayer!.isPlaying
                 musicPlayer = nil
+            } else {
+                musicPlayer = nil
             }
         }
     }
@@ -441,6 +443,7 @@ open class PandoraPlayer: UIViewController {
         if isPlaying {
             player.pause()
         } else {
+            player.pause()
             player.play()
         }
         animatePlayToggling()
@@ -525,7 +528,6 @@ open class PandoraPlayer: UIViewController {
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.changePlaybackPositionCommand.isEnabled = true
         commandCenter.changePlaybackPositionCommand.addTarget(self, action:#selector(changePlaybackPositionCommand(_:)))
-        
         commandCenter.togglePlayPauseCommand.addTarget(self, action:   #selector(onPlay))
         //commandCenter.nextTrackCommand.addTarget(self, action:   #selector(onRewindForward))
         //commandCenter.previousTrackCommand.addTarget(self, action:   #selector(onRewindBack))
@@ -537,7 +539,10 @@ open class PandoraPlayer: UIViewController {
     
     @objc func changePlaybackPositionCommand(_ event:MPChangePlaybackPositionCommandEvent) -> MPRemoteCommandHandlerStatus{
         //guard let player = musicPlayer else {return MPRemoteCommandHandlerStatus.commandFailed}
-        musicPlayer!.currentTime = event.positionTime
+        if musicPlayer != nil {
+            musicPlayer!.currentTime = event.positionTime
+        }
+        
         //use time to update your track time
         return MPRemoteCommandHandlerStatus.success;
     }
