@@ -93,8 +93,8 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: recentlyPlayedCV.frame.width/2 - padding/2 , height: recentlyPlayedCV.frame.width/2 - padding/2)
+        let size = (recentlyPlayedCV.frame.width - padding*2) / 3
+        return CGSize(width: size , height: size )
     }
     
     private func setupCV() {
@@ -124,7 +124,6 @@ class HomeViewController : BaseViewControllerNormal {
     
     let padding : CGFloat = 7
     var downloadedMusics : [MusicTrack] = []
-    fileprivate var musicPlayer: EZAudioPlayer!
 
     let recentlyPlayedCV : UICollectionView = {
         let layout = UICollectionViewFlowLayout()

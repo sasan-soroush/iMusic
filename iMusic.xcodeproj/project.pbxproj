@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */; };
+		B224C17622259AFE003BFE22 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = B224C17322259AFD003BFE22 /* iCarousel.m */; };
+		B224C17A22259B60003BFE22 /* PlayListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B224C17922259B60003BFE22 /* PlayListsViewController.swift */; };
 		B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
@@ -142,6 +144,10 @@
 /* Begin PBXFileReference section */
 		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B224C17322259AFD003BFE22 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		B224C17422259AFD003BFE22 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		B224C17822259B10003BFE22 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		B224C17922259B60003BFE22 /* PlayListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListsViewController.swift; sourceTree = "<group>"; };
 		B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +300,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B224C17222259AFD003BFE22 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				B224C17822259B10003BFE22 /* SwiftExample-Bridging-Header.h */,
+				B224C17322259AFD003BFE22 /* iCarousel.m */,
+				B224C17422259AFD003BFE22 /* iCarousel.h */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		B22C3D0222075343003BBFD1 /* TableViewsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +439,7 @@
 				B241B68121D78F8000D53711 /* SignUpViewController.swift */,
 				B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */,
 				B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */,
+				B224C17922259B60003BFE22 /* PlayListsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -474,6 +491,7 @@
 		B241B6BB21D7B00400D53711 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B224C17222259AFD003BFE22 /* iCarousel */,
 				E27A70382211F92A001751BC /* Player */,
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
@@ -977,9 +995,11 @@
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
 				B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */,
 				B2BB46AB22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
+				B224C17A22259B60003BFE22 /* PlayListsViewController.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
 				E27A70642211F92A001751BC /* UIImageColors.swift in Sources */,
+				B224C17622259AFE003BFE22 /* iCarousel.m in Sources */,
 				E27A70712211F92A001751BC /* ViewWithXib.swift in Sources */,
 				B2BB46A822217FB200D97FA8 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				E27A706B2211F92A001751BC /* NSObjectExtensions.swift in Sources */,
