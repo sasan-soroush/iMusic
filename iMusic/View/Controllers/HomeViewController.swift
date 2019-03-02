@@ -64,13 +64,18 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
-        cell.titleBackground.frame = CGRect(x: cell.cover.frame.minX, y: cell.cover.frame.height/3*2, width: cell.cover.frame.width, height: cell.cover.frame.height/3)
+        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 6)
+        
+        cell.titleBackground.frame = CGRect(x: cell.cover.frame.minX, y: cell.cover.frame.maxY - 5 , width: cell.cover.frame.width, height: cell.cover.frame.height/2)
+        
+        cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 6)
         
         let labelsHeight = cell.titleBackground.frame.height/2-3
         
         cell.artistLabel.frame = CGRect(x: 3, y: 3, width: cell.titleBackground.frame.width-6, height: labelsHeight-3)
         
         cell.titleLabel.frame = CGRect(x: 3, y: cell.artistLabel.frame.maxY, width: cell.titleBackground.frame.width-6, height: labelsHeight)
+        
         cell.musicTrack = self.downloadedMusics[indexPath.row]
         
         return cell
@@ -94,7 +99,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (recentlyPlayedCV.frame.width - padding*2) / 3
-        return CGSize(width: size , height: size )
+        return CGSize(width: size , height: 180)
     }
     
     private func setupCV() {

@@ -122,6 +122,7 @@ class Helper  {
         var downloadedMusics : [MusicTrack] = []
         do {
             downloadedMusics = try Disk.retrieve(Consts.shared.downloadedMusicsKey, from: .documents, as: [MusicTrack].self)
+            
         } catch {
             print(error)
         }

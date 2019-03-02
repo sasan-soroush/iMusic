@@ -15,7 +15,9 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         didSet {
             if let music = musicTrack {
                 
-                self.cover.sd_setImage(with: URL(string: music.track.cover), completed: nil)
+                self.cover.sd_setImage(with: URL(string: music.track.cover)) { (image , error, _, _) in
+                    self.titleBackground.backgroundColor = image?.averageColor
+                }
                 self.titleLabel.text = music.track.title
                 self.artistLabel.text = music.track.artistName
                 
@@ -29,7 +31,7 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(cover)
-        cover.addSubview(titleBackground)
+        addSubview(titleBackground)
         titleBackground.addSubview(titleLabel)
         titleBackground.addSubview(artistLabel)
         clipsToBounds = true
@@ -42,8 +44,9 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     
     let cover : CustomImageView = {
         let view = CustomImageView()
-        view.layer.cornerRadius = 4
+//        view.layer.cornerRadius = 4
         view.clipsToBounds = true
+//        view.roundCorners(corners: [.topLeft , .topRight], radius: 8)
         return view
     }()
     
