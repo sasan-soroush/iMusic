@@ -144,6 +144,7 @@
 /* Begin PBXFileReference section */
 		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2075E5F222BFE4A000D87A4 /* iMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		B224C17322259AFD003BFE22 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		B224C17422259AFD003BFE22 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		B224C17822259B10003BFE22 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 		B241B67321D78F8000D53711 = {
 			isa = PBXGroup;
 			children = (
+				B2075E5F222BFE4A000D87A4 /* iMusic-Bridging-Header.h */,
 				B241B6B921D7AFF600D53711 /* pop.framework */,
 				B241B67E21D78F8000D53711 /* iMusic */,
 				B241B67D21D78F8000D53711 /* Products */,
@@ -1180,7 +1182,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1207,7 +1209,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

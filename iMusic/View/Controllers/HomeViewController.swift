@@ -99,7 +99,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (recentlyPlayedCV.frame.width - padding*2) / 3
-        return CGSize(width: size , height: 180)
+        return CGSize(width: size , height: size * 1.5 - 5)
     }
     
     private func setupCV() {

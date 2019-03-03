@@ -41,7 +41,7 @@ extension AppDelegate{
             }
         }*/
         
-        let v1 = UINavigationController(rootViewController: HomeViewController())
+        let v1 = UINavigationController(rootViewController: PlayListViewController())
         let v2 = UINavigationController(rootViewController: HomeViewController())
         //let v3 = UINavigationController(rootViewController: HomeViewController())
         let v4 = UINavigationController(rootViewController: HomeViewController())

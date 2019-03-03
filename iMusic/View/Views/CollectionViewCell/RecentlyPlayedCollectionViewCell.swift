@@ -17,6 +17,16 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
                 
                 self.cover.sd_setImage(with: URL(string: music.track.cover)) { (image , error, _, _) in
                     self.titleBackground.backgroundColor = image?.averageColor
+                    
+                    if image?.averageColor?.isDarkColor ?? true {
+                        self.titleLabel.textColor = .white
+                        self.artistLabel.textColor = .white
+                    } else {
+                        self.titleLabel.textColor = .black
+                        self.artistLabel.textColor = .black
+                    }
+                    
+                    
                 }
                 self.titleLabel.text = music.track.title
                 self.artistLabel.text = music.track.artistName
