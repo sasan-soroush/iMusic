@@ -16,15 +16,15 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
             if let music = musicTrack {
                 
                 self.cover.sd_setImage(with: URL(string: music.track.cover)) { (image , error, _, _) in
-                    self.titleBackground.backgroundColor = image?.averageColor
+                    self.titleBackground.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
                     
-                    if image?.averageColor?.isDarkColor ?? true {
+//                    if image?.averageColor?.isDarkColor ?? true {
                         self.titleLabel.textColor = .white
                         self.artistLabel.textColor = .white
-                    } else {
-                        self.titleLabel.textColor = .black
-                        self.artistLabel.textColor = .black
-                    }
+//                    } else {
+//                        self.titleLabel.textColor = .black
+//                        self.artistLabel.textColor = .black
+//                    }
                     
                     
                 }

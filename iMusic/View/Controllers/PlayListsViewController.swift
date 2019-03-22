@@ -94,7 +94,7 @@ class PlayListViewController : BaseViewControllerNormal {
     
     let carousel : iCarousel = {
         let view = iCarousel()
-        view.type = iCarouselType.invertedCylinder
+        view.type = iCarouselType.linear
         return view
     }()
 
