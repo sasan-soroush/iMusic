@@ -31,10 +31,11 @@ extension UIColor {
     
     struct MyTheme {
         
-        static var backgroundColor : UIColor  { return UIColor(rgb: 0x202123)}
+        static var backgroundColor : UIColor  { return UIColor.init(rgb: 0x1B1B27)}
         static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
         static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
         static var gradientForBGColor : UIColor  { return UIColor.init(rgb: 0x266762)}
+//        static var gradientForBGColor : UIColor  { return UIColor.clear}
         static var textFieldBG : UIColor  { return UIColor.init(rgb: 0x1E2628)}
         static var textFieldTextColor : UIColor  { return UIColor.init(rgb: 0xE3E3E3)}
         
@@ -109,8 +110,8 @@ extension UIView {
         let gradiendLayer = CAGradientLayer()
         gradiendLayer.frame = bounds
         gradiendLayer.colors = [firstColor.cgColor , secondColor.cgColor]
-        gradiendLayer.startPoint = CGPoint(x: 0.27, y: 0.0)
-        gradiendLayer.endPoint = CGPoint(x: 0.35, y: 0.7)
+        gradiendLayer.startPoint = CGPoint(x: 0.1, y: 0.1)
+        gradiendLayer.endPoint = CGPoint(x: 0.1, y: 1)
         layer.insertSublayer(gradiendLayer, at: 1)
         
     }
@@ -183,6 +184,19 @@ extension UIViewController {
             return tab.topMostViewController()
         }
         return self.presentedViewController!.topMostViewController()
+    }
+    
+    func assignbackground(image : UIImage){
+        let background = image
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
     }
     
 }

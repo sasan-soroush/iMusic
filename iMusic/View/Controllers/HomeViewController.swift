@@ -61,20 +61,27 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPlayedCollectionViewCell.id, for: indexPath) as! RecentlyPlayedCollectionViewCell
-        
+        let padding : CGFloat = 0
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
-        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 6)
+//        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
+        cell.cover.layer.cornerRadius = 4
         
-        cell.titleBackground.frame = CGRect(x: cell.cover.frame.minX, y: cell.cover.frame.maxY - 5 , width: cell.cover.frame.width, height: cell.cover.frame.height/2)
+        cell.clipsToBounds = true
+        
+        cell.titleBackground.frame = CGRect(x: 0, y: cell.cover.frame.maxY - 10 , width: cell.frame.width, height: cell.frame.height - cell.frame.width)
+        
+//        cell.titleBackground.layer.cornerRadius = 4
+        
+        cell.titleBackground.clipsToBounds = true
         
         cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 6)
         
         let labelsHeight = cell.titleBackground.frame.height/2-3
         
-        cell.artistLabel.frame = CGRect(x: 3, y: 3, width: cell.titleBackground.frame.width-6, height: labelsHeight-3)
+        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 13, width: cell.titleBackground.frame.width-6, height: labelsHeight-3)
         
-        cell.titleLabel.frame = CGRect(x: 3, y: cell.artistLabel.frame.maxY, width: cell.titleBackground.frame.width-6, height: labelsHeight)
+        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY - 5, width: cell.titleBackground.frame.width-6, height: labelsHeight)
         
         cell.musicTrack = self.downloadedMusics[indexPath.row]
         

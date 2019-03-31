@@ -27,9 +27,20 @@ extension BaseViewControllerNormal {
 class BaseViewControllerNormal : BaseViewController {
     
     private func setupView() {
-        self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor, secondColor: UIColor.makeRgb(red: 0, green: 0, blue: 0, alpha: 0.85))
+        
         self.view.bringSubview(toFront: logo)
+        
+        let image_size = headerView.sizeThatFits(CGSize(width: view.frame.width, height: 200))
+        
+        self.view.addSubview(headerView)
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: image_size.height)
+        
     }
+    
+    let headerView : UIImageView = {
+        let view = UIImageView(image: #imageLiteral(resourceName: "Rectangle 16"))
+        return view
+    }()
 }
 
 
