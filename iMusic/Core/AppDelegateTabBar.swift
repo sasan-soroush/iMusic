@@ -17,7 +17,7 @@ extension AppDelegate{
         mainTabBarController.delegate = self
         mainTabBarController.title = "Irregularity"
         mainTabBarController.tabBar.shadowImage = UIImage(named: "transparent")
-        mainTabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "TabBar")
+        mainTabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Group 2")
         
         /*mainTabBarController.shouldHijackHandler = {
             tabbarController, viewController, index in

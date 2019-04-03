@@ -12,4 +12,5 @@ struct MusicTrack : Codable {
     let track : SearchResult
     let address : URL
     let downloadDate : Int64
+    let cover : Data?
 }

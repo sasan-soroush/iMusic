@@ -31,10 +31,11 @@ extension UIColor {
     
     struct MyTheme {
         
-        static var backgroundColor : UIColor  { return UIColor.init(rgb: 0x1B1B27)}
+        static var backgroundColor : UIColor { return UIColor(rgb: 0x04303F)}
+//        { return UIColor.init(rgb: 0x1B1B27)}
         static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
         static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
-        static var gradientForBGColor : UIColor  { return UIColor.init(rgb: 0x266762)}
+        static var gradientForBGColor : UIColor  { return UIColor.init(rgb: 0x8A5754)}
 //        static var gradientForBGColor : UIColor  { return UIColor.clear}
         static var textFieldBG : UIColor  { return UIColor.init(rgb: 0x1E2628)}
         static var textFieldTextColor : UIColor  { return UIColor.init(rgb: 0xE3E3E3)}

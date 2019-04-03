@@ -15,28 +15,23 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         didSet {
             if let music = musicTrack {
                 
-                self.cover.sd_setImage(with: URL(string: music.track.cover)) { (image , error, _, _) in
-                    
-//                    self.titleBackground.backgroundColor = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.45)
-                    let color_1 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.0)
-                    let color_2 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.5)
-                    self.titleBackground.setGradientBackgroundColor(firstColor: color_1, secondColor: color_2)
-//                    self.titleBackground.alpha = 0.7
-//                    if image?.averageColor?.isDarkColor ?? true {
-                    
-                          self.artistLabel.textColor = .white
-                          self.titleLabel.textColor = .white
-                    
-                    
-//                    } else {
-                    
-//                        self.artistLabel.textColor = .black
-//                        self.titleLabel.textColor = .darkGray
-//
-//                    }
-                    
-                    
+                if let imgData = music.cover {
+                    if let image = UIImage(data: imgData) {
+                        cover.image = image
+                    } else {
+                        cover.sd_setImage(with: URL(string: music.track.cover) , completed: nil)
+                    }
+                } else {
+                    cover.sd_setImage(with: URL(string: music.track.cover) , completed: nil)
                 }
+                
+                //let color_1 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.0)
+                //let color_2 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.5)
+                
+                self.titleBackground.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.25)
+                
+                self.artistLabel.textColor = .white
+                self.titleLabel.textColor = .white
                 
                 self.titleLabel.text = music.track.title
                 self.artistLabel.text = music.track.artistName
@@ -50,8 +45,8 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(cover)
         addSubview(titleBackground)
+        addSubview(cover)
         
         titleBackground.addSubview(titleLabel)
         titleBackground.addSubview(artistLabel)
@@ -72,13 +67,13 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     }()
     
     let titleLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 17))
+        let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 16))
         label.textAlignment = .left
         return label
     }()
     
     let artistLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 17))
+        let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 16))
         label.textAlignment = .left
         return label
     }()

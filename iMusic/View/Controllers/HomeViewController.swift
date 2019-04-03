@@ -22,7 +22,6 @@ extension HomeViewController {
         
         setupView()
 
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,31 +57,12 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         return downloadedMusics.count
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPlayedCollectionViewCell.id, for: indexPath) as! RecentlyPlayedCollectionViewCell
-        let padding : CGFloat = 0
-        cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
-        
-//        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
-        cell.cover.layer.cornerRadius = 4
-        
-        cell.clipsToBounds = true
-        
-        cell.titleBackground.frame = CGRect(x: 0, y: cell.cover.frame.maxY - 10 , width: cell.frame.width, height: cell.frame.height - cell.frame.width)
-        
-//        cell.titleBackground.layer.cornerRadius = 4
-        
-        cell.titleBackground.clipsToBounds = true
-        
-        cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 6)
-        
-        let labelsHeight = cell.titleBackground.frame.height/2-3
-        
-        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 13, width: cell.titleBackground.frame.width-6, height: labelsHeight-3)
-        
-        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY - 5, width: cell.titleBackground.frame.width-6, height: labelsHeight)
-        
+        setup_view(cell)
         cell.musicTrack = self.downloadedMusics[indexPath.row]
         
         return cell
@@ -107,6 +87,30 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (recentlyPlayedCV.frame.width - padding*2) / 3
         return CGSize(width: size , height: size * 1.5 - 5)
+    }
+    
+    fileprivate func setup_view(_ cell: RecentlyPlayedCollectionViewCell) {
+        let padding : CGFloat = 2
+        cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
+        
+                cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
+//        cell.cover.layer.cornerRadius = 4
+        
+        cell.clipsToBounds = true
+        
+        cell.titleBackground.frame = CGRect(x: 0, y: cell.cover.frame.maxY , width: cell.frame.width, height: cell.frame.height - cell.frame.width)
+        
+        //        cell.titleBackground.layer.cornerRadius = 4
+        
+        cell.titleBackground.clipsToBounds = true
+        
+        cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 5)
+        
+        let labelsHeight = (cell.titleBackground.frame.height)/2
+        
+        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 4, width: cell.titleBackground.frame.width-6, height: labelsHeight-4)
+        
+        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY , width: cell.titleBackground.frame.width-6, height: labelsHeight-4)
     }
     
     private func setupCV() {

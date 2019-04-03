@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Disk
+import AVFoundation
 
 class API {
     
@@ -96,7 +97,22 @@ class API {
                     
                     //TODO:- maybe date needs some work
                     
-                    let downloadedMusic = MusicTrack(track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis())
+                    var image_data : Data?
+                    
+                    let playerItem = AVPlayerItem(url: filePath)
+                    let metadataList = playerItem.asset.metadata
+                    
+                    for item in metadataList {
+                        
+                        if item.commonKey!.rawValue  == "artwork" {
+                            if let audioImage = item.value as? Data  {
+                                image_data = audioImage
+                            }
+                        }
+                        
+                    }
+                    
+                    let downloadedMusic = MusicTrack(track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis() , cover : image_data)
                     
                     helper.saveDownloadedMusics(music: downloadedMusic)
                     
