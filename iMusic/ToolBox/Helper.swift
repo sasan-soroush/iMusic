@@ -130,6 +130,13 @@ class Helper  {
         completion(downloadedMusics)
     }
     
+    //MARK:- get tab bar height
+    func getTabBarHeight() -> CGFloat {
+        let tabBarImageView = UIImageView(image: #imageLiteral(resourceName: "Group 2"))
+        let size = tabBarImageView.sizeThatFits(CGSize(width: UIScreen.main.bounds.size.width, height: 100))
+        return size.height
+    }
+    
     //MARK:- save downlaoded music
     
     func saveDownloadedMusics(music : MusicTrack) {

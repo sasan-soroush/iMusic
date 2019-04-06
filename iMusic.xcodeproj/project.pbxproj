@@ -406,7 +406,11 @@
 			isa = PBXGroup;
 			children = (
 				B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */,
-				B241B6BB21D7B00400D53711 /* Libraries */,
+				B224C17222259AFD003BFE22 /* iCarousel */,
+				E27A70382211F92A001751BC /* Player */,
+				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
+				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
+				E26A408B21F09BF300E71D39 /* ProgressBar.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -488,18 +492,6 @@
 				B241B6B621D7AEE000D53711 /* ExampleIrregularityContentView.swift */,
 			);
 			path = Content;
-			sourceTree = "<group>";
-		};
-		B241B6BB21D7B00400D53711 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				B224C17222259AFD003BFE22 /* iCarousel */,
-				E27A70382211F92A001751BC /* Player */,
-				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
-				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
-				E26A408B21F09BF300E71D39 /* ProgressBar.swift */,
-			);
-			path = Libraries;
 			sourceTree = "<group>";
 		};
 		B241B6D221D8A72500D53711 /* Font */ = {

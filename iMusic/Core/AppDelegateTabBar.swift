@@ -44,13 +44,13 @@ extension AppDelegate{
         let v1 = UINavigationController(rootViewController: PlayListViewController())
         let v2 = UINavigationController(rootViewController: HomeViewController())
         //let v3 = UINavigationController(rootViewController: HomeViewController())
-        let v4 = UINavigationController(rootViewController: HomeViewController())
-        let v5 = UINavigationController(rootViewController: HomeViewController()) 
+        let v4 = UINavigationController(rootViewController: DownloadViewController())
+        let v5 = UINavigationController(rootViewController: PlayListViewController()) 
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "خانه", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "پلی لیست", image: #imageLiteral(resourceName: "playlist"), selectedImage: #imageLiteral(resourceName: "playlist_1"))
         //v3.tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: #imageLiteral(resourceName: "download"), selectedImage: #imageLiteral(resourceName: "download"))
-        v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "اخبار", image: #imageLiteral(resourceName: "news"), selectedImage: #imageLiteral(resourceName: "news_1"))
+        v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "دانلود", image: #imageLiteral(resourceName: "download"), selectedImage: #imageLiteral(resourceName: "download"))
         v5.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "پروفایل", image: UIImage(named: "me"), selectedImage: UIImage(named: "me_1"))
         
         mainTabBarController.viewControllers = [v1, v2, v4, v5]

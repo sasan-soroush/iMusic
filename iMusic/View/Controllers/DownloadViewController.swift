@@ -86,16 +86,15 @@ extension DownloadViewController {
         }) { (success, filePath) in
             
             if success {
+                
                 cell.waitingBar.stopAnimating()
                 cell.loadingBar.isHidden = true
                 
-                if filePath != nil {
-                    self.helper.pandoraPlay(fromTabBar: false, target: self, filePath: filePath!)
-                }
-                
             } else {
+                
                 //TODO:- change it
                 Helper.shared.alert(UIApplication.topViewController() ?? self, title: "", body: "Download failed.")
+                
             }
             
         }
@@ -118,7 +117,7 @@ extension DownloadViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.searchBar.frame.origin.y = view.frame.height - 50
+        self.searchBar.frame.origin.y = view.frame.height - helper.getTabBarHeight() - 50
         self.searchResultTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
     }
     
@@ -160,7 +159,7 @@ extension DownloadViewController : UISearchBarDelegate {
     }
 }
 
-class DownloadViewController : BaseViewControllerPresented {
+class DownloadViewController : BaseViewControllerNormal {
     
     private var searchResults : [SearchResult] = []
     
@@ -170,10 +169,8 @@ class DownloadViewController : BaseViewControllerPresented {
         view.addSubview(searchBar)
         view.addSubview(searchResultTableView)
         
-        self.logo.frame.size.height = view.frame.height/8
-        
         searchBar.delegate = self
-        searchBar.frame = CGRect(x: 10, y: view.frame.height - 50, width: view.frame.width - 20, height: 40)
+        searchBar.frame = CGRect(x: 10, y: view.frame.height - helper.getTabBarHeight() - 50 , width: view.frame.width - 20, height: 40)
         searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 8, vertical: 0)
         
         searchResultTableView.delegate = self
@@ -196,11 +193,13 @@ class DownloadViewController : BaseViewControllerPresented {
         
         if let txtSearchField = searchBar.value(forKey: "_searchField") as? UITextField {
             txtSearchField.borderStyle = .none
-            txtSearchField.backgroundColor = UIColor.MyTheme.textFieldBG
+            txtSearchField.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.25)
             txtSearchField.layer.cornerRadius = 8
             txtSearchField.clipsToBounds = true
             txtSearchField.keyboardAppearance = .dark
-            let attributedString = NSAttributedString(string: "  نام اهنگ یا خواننده", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray , NSAttributedStringKey.font : Font.IranYekanLight(size: 18) ])
+            txtSearchField.layer.borderColor = UIColor.MyTheme.gradientForBGColor.cgColor
+            txtSearchField.layer.borderWidth = 0.5
+            let attributedString = NSAttributedString(string: "موزیک مورد نظر را جستجو کنید", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray , NSAttributedStringKey.font : Font.IranYekanLight(size: 18) ])
             txtSearchField.attributedPlaceholder = attributedString
             
         }
@@ -218,6 +217,7 @@ class DownloadViewController : BaseViewControllerPresented {
         let bar = UISearchBar()
         bar.clipsToBounds = true
         bar.backgroundImage = UIImage()
+        
         return bar
     }()
     
