@@ -11,6 +11,8 @@ import SDWebImage
 
 class SearchResultTableViewCell : UITableViewCell {
     
+    var isDownloading : Bool = false
+    
     var searchResult : SearchResult?{
         didSet {
             guard let result = searchResult else {return}

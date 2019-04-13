@@ -119,9 +119,21 @@ class Helper  {
     //MARK:- get recent downloaded musics
     
     func getRecentlyDownloadedMusics(completion : ([MusicTrack])->()) {
+        
         var downloadedMusics : [MusicTrack] = []
+        
         do {
+        
             downloadedMusics = try Disk.retrieve(Consts.shared.downloadedMusicsKey, from: .documents, as: [MusicTrack].self)
+            
+            for d in downloadedMusics {
+                
+                print(d.address)
+                print(d.track.title)
+                print(d.downloadDate)
+                print("-__---__---__-")
+                
+            }
             
         } catch {
             print(error)
@@ -162,7 +174,7 @@ class Helper  {
     //MARK:- save file url
     
     func getSaveFileUrl(musicId: Int) -> URL {
-        let fileName = "music\(musicId).mp3"
+        let fileName = "\(musicId).mp3"
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let nameUrl = URL(string: fileName)
         let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)

@@ -44,9 +44,10 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        downloadSong(tableView, indexPath)
+        handleDownload(tableView, indexPath)
         
     }
     
@@ -71,12 +72,10 @@ extension DownloadViewController {
     
     //MARK:- download
     
-    fileprivate func downloadSong(_ tableView: UITableView, _ indexPath: IndexPath) {
-
-        guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
-        let searchResult = self.searchResults[indexPath.row]
-        
+    fileprivate func startDownloading(_ cell: SearchResultTableViewCell, _ searchResult: SearchResult) {
+        self.isDownloading = true
         cell.waitingBar.startAnimating()
+        cell.isDownloading = true
         API.download(downloadItem: searchResult, progHandler : { (progress) in
             
             cell.waitingBar.stopAnimating()
@@ -93,9 +92,55 @@ extension DownloadViewController {
             } else {
                 
                 //TODO:- change it
-                Helper.shared.alert(UIApplication.topViewController() ?? self, title: "", body: "Download failed.")
+                //Helper.shared.alert(UIApplication.topViewController() ?? self, title: "", body: "Download failed.")
                 
             }
+            
+            self.isDownloading = false
+            cell.isDownloading = false
+            
+        }
+    }
+    
+    fileprivate func handleDownload(_ tableView: UITableView, _ indexPath: IndexPath) {
+
+        var isDownloaded = false
+        guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
+        let searchResult = self.searchResults[indexPath.row]
+        
+        helper.getRecentlyDownloadedMusics { (tracks) in
+            let ids = tracks.map {$0.track_id}
+            let matchedId = ids.filter {$0 == "\(searchResult.id)"}
+            
+            isDownloaded = !matchedId.isEmpty
+            
+        }
+        
+        if isDownloaded {
+            helper.alert(self, title: "💾", body: "شما این موزیک را دانلود کرده اید. ")
+        } else {
+            
+            if !isDownloading {
+                
+                startDownloading(cell, searchResult)
+                
+            } else {
+                
+                if cell.isDownloading{
+
+                    API.request?.cancel()
+                    API.request = nil
+                    cell.waitingBar.stopAnimating()
+                    cell.loadingBar.isHidden = true
+                    
+                } else {
+                    
+                    helper.alert(self, title: "✘", body: "لطفا صبر کنید تا دانلود در حال انجام تمام شود.")
+                    
+                }
+                
+            }
+            
             
         }
         
@@ -162,6 +207,7 @@ extension DownloadViewController : UISearchBarDelegate {
 class DownloadViewController : BaseViewControllerNormal {
     
     private var searchResults : [SearchResult] = []
+    private var isDownloading : Bool = false
     
     private func setupView() {
         

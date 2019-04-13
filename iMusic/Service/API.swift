@@ -14,6 +14,8 @@ import AVFoundation
 
 class API {
     
+    static var request: Alamofire.Request?
+
     static let helper = Helper.shared
     
     typealias stringHandler  = (Bool , String) -> ()
@@ -80,7 +82,7 @@ class API {
             return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        Alamofire.download(
+        request = Alamofire.download(
             url,
             method: .post,
             parameters: params,
@@ -103,16 +105,17 @@ class API {
                     let metadataList = playerItem.asset.metadata
                     
                     for item in metadataList {
-                        
-                        if item.commonKey!.rawValue  == "artwork" {
-                            if let audioImage = item.value as? Data  {
-                                image_data = audioImage
+                        if let key = item.commonKey {
+                            if key.rawValue  == "artwork" {
+                                if let audioImage = item.value as? Data  {
+                                    image_data = audioImage
+                                }
                             }
                         }
-                        
+
                     }
                     
-                    let downloadedMusic = MusicTrack(track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis() , cover : image_data)
+                    let downloadedMusic = MusicTrack( track_id : "\(id)" , track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis() , cover : image_data  )
                     
                     helper.saveDownloadedMusics(music: downloadedMusic)
                     

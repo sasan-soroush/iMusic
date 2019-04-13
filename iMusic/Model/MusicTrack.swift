@@ -9,6 +9,7 @@
 import Foundation
 
 struct MusicTrack : Codable {
+    let track_id : String
     let track : SearchResult
     let address : URL
     let downloadDate : Int64
