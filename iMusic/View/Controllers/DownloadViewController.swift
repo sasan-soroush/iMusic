@@ -62,6 +62,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         cell.loadingBar.frame = CGRect(x: 0, y: 0, width: 0, height: cell.frame.height)
         cell.waitingBar.frame = CGRect(x: 0, y: cell.frame.height-2, width: cell.frame.width, height: 2)
         cell.selectionStyle = .none
+        
     }
     
     
