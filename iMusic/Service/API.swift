@@ -66,7 +66,6 @@ class API {
     //MARK:- download
     static func download(downloadItem : SearchResult, progHandler : @escaping progressHandler, completion : @escaping urlHandler ) {
         
-        
         let url = Urls.download
         let header = helper.getHeader()
         let id = downloadItem.id
@@ -94,38 +93,47 @@ class API {
                 
             }).response(completionHandler: { (DefaultDownloadResponse) in
                 
+                let statusCode = DefaultDownloadResponse.response?.statusCode
                 
-                if let filePath = DefaultDownloadResponse.destinationURL {
+                if statusCode == 200 || statusCode == 201 {
                     
-                    //TODO:- maybe date needs some work
-                    
-                    var image_data : Data?
-                    
-                    let playerItem = AVPlayerItem(url: filePath)
-                    let metadataList = playerItem.asset.metadata
-                    
-                    for item in metadataList {
-                        if let key = item.commonKey {
-                            if key.rawValue  == "artwork" {
-                                if let audioImage = item.value as? Data  {
-                                    image_data = audioImage
+                    if let filePath = DefaultDownloadResponse.destinationURL {
+                        
+                        //TODO:- maybe date needs some work
+                        
+                        var image_data : Data?
+                        
+                        let playerItem = AVPlayerItem(url: filePath)
+                        let metadataList = playerItem.asset.metadata
+                        
+                        for item in metadataList {
+                            
+                            if let key = item.commonKey {
+                                if key.rawValue  == "artwork" {
+                                    if let audioImage = item.value as? Data  {
+                                        image_data = audioImage
+                                    }
                                 }
                             }
+                            
                         }
-
+                        
+                        let downloadedMusic = MusicTrack( track_id : "\(id)" , track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis() , cover : image_data  )
+                        
+                        helper.saveDownloadedMusics(music: downloadedMusic)
+                        
+                        completion(true , filePath)
+                        
+                        
+                    } else {
+                        
+                        completion(false,nil)
+                        
                     }
-                    
-                    let downloadedMusic = MusicTrack( track_id : "\(id)" , track: downloadItem, address: filePath, downloadDate: Date().currentTimeMillis() , cover : image_data  )
-                    
-                    helper.saveDownloadedMusics(music: downloadedMusic)
-                    
-                    completion(true , filePath)
-                
-                    
                 } else {
                     completion(false,nil)
-                    
                 }
+                
                 
             })
         

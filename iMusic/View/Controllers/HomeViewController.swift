@@ -57,8 +57,6 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         return downloadedMusics.count
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPlayedCollectionViewCell.id, for: indexPath) as! RecentlyPlayedCollectionViewCell
@@ -69,8 +67,8 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let id  = self.downloadedMusics[indexPath.row].track.id
+        let track = self.downloadedMusics[indexPath.row]
+        let id  = track.track.id
         let filePath = helper.getSaveFileUrl(musicId: id)
         helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
         

@@ -117,10 +117,10 @@ extension DownloadViewController {
             
         }
         
-        if isDownloaded {
-            helper.alert(self, title: "💾", body: "شما این موزیک را دانلود کرده اید. ")
-        } else {
-            
+//        if isDownloaded {
+//            helper.alert(self, title: "💾", body: "شما این موزیک را دانلود کرده اید. ")
+//        } else {
+        
             if !isDownloading {
                 
                 startDownloading(cell, searchResult)
@@ -143,7 +143,7 @@ extension DownloadViewController {
             }
             
             
-        }
+//        }
         
     }
     

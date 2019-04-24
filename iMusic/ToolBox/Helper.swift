@@ -101,8 +101,9 @@ class Helper  {
         
         let alertController = UIAlertController(title: title, message:body, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-        controller.present(alertController, animated: true, completion: nil)
-        
+        DispatchQueue.main.async {
+            controller.present(alertController, animated: true, completion: nil)
+        }
         //        controller.view.hideToastActivity()
     }
     
