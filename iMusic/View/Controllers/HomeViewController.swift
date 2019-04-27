@@ -37,18 +37,6 @@ extension HomeViewController {
         
     }
     
-    /*@objc private func presentDownloadVC() {
-        let downloadVC = DownloadViewController()
-        let presentedNav = UINavigationController(rootViewController: downloadVC)
-        presentedNav.modalPresentationStyle = .overCurrentContext
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let tabBar = delegate.mainTabBarController
-        tabBar.present(presentedNav, animated: true, completion: {
-            downloadVC.searchBar.becomeFirstResponder()
-        })
-    }*/
-    
-    
 }
 
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -91,7 +79,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         let padding : CGFloat = 2
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
-                cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
+        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
 //        cell.cover.layer.cornerRadius = 4
         
         cell.clipsToBounds = true
