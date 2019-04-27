@@ -176,7 +176,7 @@ class SignUpViewController : BaseViewControllerNormal {
     
     let phoneLoginGuide : CustomTyperLabel = {
         let label = CustomTyperLabel(customFont: Font.IranYekanLight(size: fontSize))
-        label.typingTimeInterval = 0.04
+        label.typingTimeInterval = 0.03
         label.hideTextBeforeTypewritingAnimation = true
         let LabelString = "لطفا شماره موبایل خود را وارد کنید"
         label.text = LabelString
@@ -297,6 +297,21 @@ extension SignUpViewController {
     
     fileprivate func setFrames(_ regularHeight: CGFloat , isFromBackButton : Bool = false ) {
         
+        if !isFromBackButton {
+            let sideViewSize = view.frame.width/15
+            sideViewLeft.frame = CGRect(x:-sideViewSize/2 , y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
+            sideViewRight.frame = CGRect(x: view.frame.width - sideViewSize/2, y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
+            sideViewLeft.rotate(angle: 45)
+            sideViewRight.rotate(angle: 45)
+            
+            timerLabel.alpha = 0
+            
+        } else {
+            self.phoneLoginGuide.text = "لطفا شماره موبایل خود را وارد کنید"
+            self.phoneLoginGuide.startTypewritingAnimation()
+            self.mobileButton.setTitle("ورود با شماره موبایل", for: UIControlState.normal)
+        }
+        
         welocomeLabel.frame = CGRect(x: view.frame.width/3-30, y: self.logo.frame.maxY , width: view.frame.width/3+60, height: regularHeight)
         
         let phoneGuideSize = phoneLoginGuide.sizeThatFits(CGSize(width: view.frame.width, height: regularHeight))
@@ -324,23 +339,6 @@ extension SignUpViewController {
         let googleLoginGuide_y = Helper.shared.getMiddleYAxisPoint(up_y: dividerLine.frame.maxY, down_y: googleButton.frame.minY+10, height: googleLoginSize.height)
         
         googleLoginGuide.frame = CGRect(x: 30, y: googleLoginGuide_y, width: view.frame.width - 60, height: googleLoginSize.height)
-        
-        
-        
-        if !isFromBackButton {
-            let sideViewSize = view.frame.width/15
-            sideViewLeft.frame = CGRect(x:-sideViewSize/2 , y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
-            sideViewRight.frame = CGRect(x: view.frame.width - sideViewSize/2, y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
-            sideViewLeft.rotate(angle: 45)
-            sideViewRight.rotate(angle: 45)
-            
-            timerLabel.alpha = 0
-            
-        } else {
-            
-            self.mobileButton.setTitle("ورود با شماره موبایل", for: UIControlState.normal)
-        }
-        
         
         let resendButton_y = self.view.frame.midY - 15 + self.codeNumberTextField.frame.height + 10
         
