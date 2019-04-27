@@ -32,6 +32,9 @@ extension SignUpViewController : GIDSignInUIDelegate {
     
     
     fileprivate func setToCodeState() {
+        
+        self.codeState = true
+        self.view.endEditing(true)
         self.runTimer()
         self.mobileButton.setTitle("تایید کد", for: .normal)
         self.phoneLoginGuide.text = "لطفا کد ارسال شده را وارد کنید"
@@ -45,7 +48,9 @@ extension SignUpViewController : GIDSignInUIDelegate {
         if codeState {
             
         } else {
+            
             setToCodeState()
+            
         }
         
     }
@@ -56,22 +61,16 @@ extension SignUpViewController : GIDSignInUIDelegate {
         self.timerLabel.isHidden = false
     }
     
+    
     @objc private func backButtonTapped() {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            
-            self.codeState = false
-            self.setFrames(self.view.frame.height/9, isFromBackButton: true)
-            
-        }) { (success) in
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.setGoogleViewsVisiblity(visible: true)
-            })
-            
-        }
+        
+        timer.invalidate()
+        
+        backButtonAnimation()
     }
     
     private func runTimer() {
+        seconds = 90
         let time = timeString(time: TimeInterval(seconds))
         timerLabel.text = "\(time)"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
@@ -334,6 +333,9 @@ extension SignUpViewController {
             sideViewRight.frame = CGRect(x: view.frame.width - sideViewSize/2, y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
             sideViewLeft.rotate(angle: 45)
             sideViewRight.rotate(angle: 45)
+            
+            timerLabel.alpha = 0
+            
         } else {
             
             self.mobileButton.setTitle("ورود با شماره موبایل", for: UIControlState.normal)
@@ -485,6 +487,22 @@ extension SignUpViewController {
                 })
                 
                 
+            })
+            
+        }
+    }
+    
+    
+    fileprivate func backButtonAnimation() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            
+            self.codeState = false
+            self.setFrames(self.view.frame.height/9, isFromBackButton: true)
+            
+        }) { (success) in
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.setGoogleViewsVisiblity(visible: true)
             })
             
         }
