@@ -70,7 +70,7 @@ extension SignUpViewController : GIDSignInUIDelegate {
     }
     
     private func runTimer() {
-        seconds = 90
+        seconds = 60
         let time = timeString(time: TimeInterval(seconds))
         timerLabel.text = "\(time)"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
@@ -82,7 +82,7 @@ extension SignUpViewController : GIDSignInUIDelegate {
             timerLabel.isHidden = true
             resendButton.isHidden = false
             timer.invalidate()
-            seconds = 90
+            seconds = 60
         } else {
             seconds -= 1
             let time = timeString(time: TimeInterval(seconds))
@@ -162,7 +162,8 @@ class SignUpViewController : BaseViewControllerNormal {
         NotificationCenter.default.removeObserver(self)
     }
     
-    var seconds = 90
+    
+    var seconds = 60
     var timer = Timer()
     var isTimerRunning = false
     
@@ -298,6 +299,7 @@ extension SignUpViewController {
     fileprivate func setFrames(_ regularHeight: CGFloat , isFromBackButton : Bool = false ) {
         
         if !isFromBackButton {
+            
             let sideViewSize = view.frame.width/15
             sideViewLeft.frame = CGRect(x:-sideViewSize/2 , y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
             sideViewRight.frame = CGRect(x: view.frame.width - sideViewSize/2, y: view.frame.height - sideViewSize/2, width: sideViewSize, height: sideViewSize)
@@ -307,9 +309,11 @@ extension SignUpViewController {
             timerLabel.alpha = 0
             
         } else {
+            
             self.phoneLoginGuide.text = "لطفا شماره موبایل خود را وارد کنید"
             self.phoneLoginGuide.startTypewritingAnimation()
             self.mobileButton.setTitle("ورود با شماره موبایل", for: UIControlState.normal)
+            
         }
         
         welocomeLabel.frame = CGRect(x: view.frame.width/3-30, y: self.logo.frame.maxY , width: view.frame.width/3+60, height: regularHeight)
