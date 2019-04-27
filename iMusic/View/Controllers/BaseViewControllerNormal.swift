@@ -28,22 +28,10 @@ class BaseViewControllerNormal : BaseViewController {
     
     private func setupView() {
         
-        
-        
-        let image_size = headerView.sizeThatFits(CGSize(width: view.frame.width, height: 200))
-        
-        self.view.addSubview(headerView)
-        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: image_size.height)
         self.view.setGradientBackgroundColor(firstColor: UIColor.MyTheme.gradientForBGColor , secondColor: UIColor.clear)
         
         self.view.bringSubview(toFront: logo)
     }
-    
-    let headerView : UIImageView = {
-        let view = UIImageView(image: #imageLiteral(resourceName: "Rectangle 16"))
-        view.isHidden = true
-        return view
-    }()
 }
 
 

@@ -39,6 +39,7 @@
 		B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */; };
 		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
+		B257F4722274867300CB062A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257F4712274867300CB062A /* ProfileViewController.swift */; };
 		B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E521E9FF4200192393 /* BaseViewController.swift */; };
 		B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */; };
 		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
@@ -179,6 +180,7 @@
 		B241B6C921D8A71400D53711 /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D-DINCondensed-Bold.otf"; sourceTree = "<group>"; };
 		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		B257F4712274867300CB062A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B29AA2E521E9FF4200192393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */,
 				B2BB511E21E5DD8800A35D36 /* DownloadViewController.swift */,
 				B224C17922259B60003BFE22 /* PlayListsViewController.swift */,
+				B257F4712274867300CB062A /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				B2BB46BD22217FB200D97FA8 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				B2BB46A722217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				B2BB46AD22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
+				B257F4722274867300CB062A /* ProfileViewController.swift in Sources */,
 				E27A706C2211F92A001751BC /* PandoraPlayer.swift in Sources */,
 				B2BB46C122217FB300D97FA8 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				B2BB46BA22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,

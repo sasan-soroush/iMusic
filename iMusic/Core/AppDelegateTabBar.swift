@@ -45,7 +45,7 @@ extension AppDelegate{
         let v2 = UINavigationController(rootViewController: HomeViewController())
         //let v3 = UINavigationController(rootViewController: HomeViewController())
         let v4 = UINavigationController(rootViewController: DownloadViewController())
-        let v5 = UINavigationController(rootViewController: PlayListViewController()) 
+        let v5 = UINavigationController(rootViewController: ProfileViewController()) 
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "خانه", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "پلی لیست", image: #imageLiteral(resourceName: "playlist"), selectedImage: #imageLiteral(resourceName: "playlist_1"))

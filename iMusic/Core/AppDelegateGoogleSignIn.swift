@@ -22,12 +22,7 @@ extension AppDelegate : GIDSignInDelegate{
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
             let email = user.profile.email
-            print(userId)
-            print(idToken)
-            print(fullName)
-            print(givenName)
-            print(familyName)
-            print(email)
+            
             UIApplication.topViewController()?.present(mainTabBarController, animated: true, completion: nil)
 
         }
