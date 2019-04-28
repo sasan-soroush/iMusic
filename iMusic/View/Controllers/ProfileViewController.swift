@@ -53,7 +53,7 @@ class ProfileViewController: BaseViewControllerNormal {
     
     let headerSubtitle = "subtitle"
     
-    let image = #imageLiteral(resourceName: "brooks-leibee-562087-unsplash")
+    let image = #imageLiteral(resourceName: "Screen Shot 2019-04-27 at 5.30.32 PM")
     
     var minHeaderHeight: CGFloat {
         return view.frame.height/5
@@ -98,14 +98,14 @@ class ProfileViewController: BaseViewControllerNormal {
     fileprivate lazy var imageMaskView : UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.image = #imageLiteral(resourceName: "Rectangle_black")
+        view.image = #imageLiteral(resourceName: "Rectangle")
         view.clipsToBounds = true
         return view
     }()
     
     lazy var settingLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.DINCondensed(size: 40))
-        label.text = "Setting"
+        let label = CustomLabel(customFont: Font.IranYekanLight(size: 40))
+        label.text = "تنظیمات"
         label.alpha = 0
         return label
     }()
@@ -113,7 +113,7 @@ class ProfileViewController: BaseViewControllerNormal {
     let scrollView : UITableView = {
         let view = UITableView(frame: .zero, style: UITableViewStyle.plain)
         view.backgroundColor = .clear
-        view.separatorColor = .white
+        view.separatorColor = .clear
         return view
     }()
     
@@ -183,7 +183,7 @@ class ProfileViewController: BaseViewControllerNormal {
     fileprivate func setupViews() {
         
         view.layer.sublayers = nil
-        view.backgroundColor = UIColor.init(rgb: 0x01171f)
+        view.backgroundColor = UIColor.MyTheme.backgroundColor
         
         view.addSubview(imageView)
         imageView.frame.size = CGSize(width: view.frame.width, height: maxHeaderHeight)
@@ -250,7 +250,10 @@ class ProfileViewController: BaseViewControllerNormal {
 //        cell.alpha = progress
         
         imageView.alpha = progress
-        imageMaskView.alpha = progress
+        
+        if progress == 0.0 {
+            imageMaskView.alpha = 0.0
+        }
         
         settingLabel.alpha = 1.0 - progress
     }
