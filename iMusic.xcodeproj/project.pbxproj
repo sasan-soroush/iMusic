@@ -40,6 +40,10 @@
 		B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D321D8AC7900D53711 /* CustomLabel.swift */; };
 		B241B6D621D8B00800D53711 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B6D521D8B00800D53711 /* Font.swift */; };
 		B257F4722274867300CB062A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257F4712274867300CB062A /* ProfileViewController.swift */; };
+		B279798E2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279798A2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift */; };
+		B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */; };
+		B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */; };
+		B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */; };
 		B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E521E9FF4200192393 /* BaseViewController.swift */; };
 		B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */; };
 		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
@@ -181,6 +185,11 @@
 		B241B6D321D8AC7900D53711 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B241B6D521D8B00800D53711 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		B257F4712274867300CB062A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B279798A2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCycleGalleryViewLayout.swift; sourceTree = "<group>"; };
+		B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCycleGalleryView.swift; sourceTree = "<group>"; };
+		B279798D2275D4FB006CB84B /* HSCycleGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCycleGalleryView.h; sourceTree = "<group>"; };
+		B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPlansCollectionViewCell.swift; sourceTree = "<group>"; };
+		B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPlansTableViewCell.swift; sourceTree = "<group>"; };
 		B29AA2E521E9FF4200192393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
@@ -317,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
+				B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */,
 			);
 			path = TableViewsCell;
 			sourceTree = "<group>";
@@ -325,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */,
+				B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -407,6 +418,7 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				B27979882275D4FB006CB84B /* HSCycleGalleryView */,
 				B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */,
 				B224C17222259AFD003BFE22 /* iCarousel */,
 				E27A70382211F92A001751BC /* Player */,
@@ -512,6 +524,24 @@
 				B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		B27979882275D4FB006CB84B /* HSCycleGalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				B27979892275D4FB006CB84B /* Source */,
+			);
+			path = HSCycleGalleryView;
+			sourceTree = "<group>";
+		};
+		B27979892275D4FB006CB84B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B279798A2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift */,
+				B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */,
+				B279798D2275D4FB006CB84B /* HSCycleGalleryView.h */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */ = {
@@ -926,6 +956,7 @@
 				B241B69421D791D100D53711 /* Extentions.swift in Sources */,
 				B2BB46B222217FB200D97FA8 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
+				B279798E2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift in Sources */,
 				E27A70792211F92A001751BC /* VisualisationHelper.swift in Sources */,
 				B2BB46BD22217FB200D97FA8 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				B2BB46A722217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
@@ -959,6 +990,8 @@
 				B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */,
 				B2BB46A022217FB200D97FA8 /* NVActivityIndicatorPresenter.swift in Sources */,
 				B2BB46AF22217FB200D97FA8 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
+				B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */,
+				B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B2BB46C422217FB300D97FA8 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
@@ -976,6 +1009,7 @@
 				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
 				B2BB46BF22217FB200D97FA8 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
+				B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */,
 				B2BB46AC22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				E27A70662211F92A001751BC /* Constants.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,

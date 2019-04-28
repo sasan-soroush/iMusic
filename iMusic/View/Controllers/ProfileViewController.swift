@@ -17,14 +17,26 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        return cell
+        
+        switch indexPath.row {
+        case 0:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: PaymentPlansTableViewCell.id, for: indexPath) as! PaymentPlansTableViewCell
+            cell.paymentPlans.frame = cell.frame
+            cell.selectionStyle = .none
+            
+            return cell
+        default:
+            let cell = UITableViewCell()
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height/10
+        return indexPath.row == 0 ? view.frame.height/4 : view.frame.height/10
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -91,10 +103,17 @@ class ProfileViewController: BaseViewControllerNormal {
         return view
     }()
     
+    lazy var settingLabel : CustomLabel = {
+        let label = CustomLabel(customFont: Font.DINCondensed(size: 40))
+        label.text = "Setting"
+        label.alpha = 0
+        return label
+    }()
+    
     let scrollView : UITableView = {
         let view = UITableView(frame: .zero, style: UITableViewStyle.plain)
         view.backgroundColor = .clear
-        view.separatorColor = .clear
+        view.separatorColor = .white
         return view
     }()
     
@@ -129,9 +148,7 @@ class ProfileViewController: BaseViewControllerNormal {
     
     // MARK :  - Lifecycle methods
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    fileprivate func setupGeneral() {
         titleLabel.text = headerTitle
         subtitleLabel.text = headerSubtitle
         imageView.image = image
@@ -148,9 +165,17 @@ class ProfileViewController: BaseViewControllerNormal {
         titleLabel.layer.shadowOpacity = shadowOpacity
         subtitleLabel.layer.shadowOpacity = shadowOpacity
         scrollView.contentInsetAdjustmentBehavior = .never
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupGeneral()
         
         scrollView.delegate = self
         scrollView.dataSource = self
+        scrollView.register(PaymentPlansTableViewCell.self, forCellReuseIdentifier: PaymentPlansTableViewCell.id)
+       
         setupViews()
         
     }
@@ -169,6 +194,9 @@ class ProfileViewController: BaseViewControllerNormal {
         view.addSubview(scrollView)
         scrollView.frame = view.frame
         scrollView.frame.size.height = view.frame.height - helper.getTabBarHeight()
+        
+        view.addSubview(settingLabel)
+        settingLabel.frame = CGRect(x: 20, y: 20, width: view.frame.width - 40, height: view.frame.height/5 - 20)
         
         view.bringSubview(toFront: imageView)
         view.bringSubview(toFront: imageMaskView)
@@ -217,6 +245,14 @@ class ProfileViewController: BaseViewControllerNormal {
         
         titleLabel.alpha = progress
         subtitleLabel.alpha = progress
+        
+//        guard let cell = scrollView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PaymentPlansTableViewCell else {return}
+//        cell.alpha = progress
+        
+        imageView.alpha = progress
+        imageMaskView.alpha = progress
+        
+        settingLabel.alpha = 1.0 - progress
     }
 }
 
