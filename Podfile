@@ -17,4 +17,5 @@ target 'iMusic' do
     #   pod 'OutcastID3', '~> 0.5'
     #   pod 'ID3Edit'
     pod 'Disk', '~> 0.4.0'
+    #pod 'SwiftLint', '~> 0.31'
 end

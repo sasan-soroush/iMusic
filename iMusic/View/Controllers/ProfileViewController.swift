@@ -151,8 +151,8 @@ class ProfileViewController: BaseViewControllerNormal {
         
         scrollView.delegate = self
         scrollView.dataSource = self
-        
         setupViews()
+        
     }
     
     fileprivate func setupViews() {
