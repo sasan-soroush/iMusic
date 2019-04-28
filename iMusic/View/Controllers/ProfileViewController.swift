@@ -43,9 +43,13 @@ class ProfileViewController: BaseViewControllerNormal {
     
     let image = #imageLiteral(resourceName: "brooks-leibee-562087-unsplash")
     
-    let minHeaderHeight: CGFloat = 100
+    var minHeaderHeight: CGFloat {
+        return view.frame.height/5
+    }
     
-    let maxHeaderHeight: CGFloat = 300
+    var maxHeaderHeight: CGFloat {
+        return view.frame.height/2.5
+    }
     
     let tintColor: UIColor = .black
     
@@ -154,7 +158,7 @@ class ProfileViewController: BaseViewControllerNormal {
     fileprivate func setupViews() {
         
         view.layer.sublayers = nil
-        view.backgroundColor = UIColor.init(rgb: 0x020C0F)
+        view.backgroundColor = UIColor.init(rgb: 0x01171f)
         
         view.addSubview(imageView)
         imageView.frame.size = CGSize(width: view.frame.width, height: maxHeaderHeight)

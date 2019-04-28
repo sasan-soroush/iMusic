@@ -32,7 +32,7 @@ extension UIColor {
     
     struct MyTheme {
         
-        static var backgroundColor : UIColor { return UIColor(rgb: 0x04303F)}
+        static var backgroundColor : UIColor { return UIColor(rgb: 0x01171f)}
 //        { return UIColor.init(rgb: 0x1B1B27)}
         static var themeGreenColor : UIColor  { return UIColor(rgb: 0x19CE85)}
         static var themeBlueColor : UIColor  { return UIColor(rgb: 0x35E7B7)}
@@ -113,7 +113,7 @@ extension UIView {
         gradiendLayer.frame = bounds
         gradiendLayer.colors = [firstColor.cgColor , secondColor.cgColor]
         gradiendLayer.startPoint = CGPoint(x: 0.1, y: 0.1)
-        gradiendLayer.endPoint = CGPoint(x: 0.1, y: 1)
+        gradiendLayer.endPoint = CGPoint(x: 0.1, y: 0.75)
         layer.insertSublayer(gradiendLayer, at: 1)
         
     }
