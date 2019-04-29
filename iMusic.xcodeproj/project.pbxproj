@@ -44,6 +44,9 @@
 		B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */; };
 		B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */; };
 		B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */; };
+		B27979D222770F9B006CB84B /* PopBounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979CE22770F9B006CB84B /* PopBounceButton.swift */; };
+		B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979CF22770F9B006CB84B /* ButtonAnimator.swift */; };
+		B27979D422770F9B006CB84B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = B27979D122770F9B006CB84B /* .gitkeep */; };
 		B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E521E9FF4200192393 /* BaseViewController.swift */; };
 		B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */; };
 		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
@@ -190,6 +193,9 @@
 		B279798D2275D4FB006CB84B /* HSCycleGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCycleGalleryView.h; sourceTree = "<group>"; };
 		B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPlansCollectionViewCell.swift; sourceTree = "<group>"; };
 		B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPlansTableViewCell.swift; sourceTree = "<group>"; };
+		B27979CE22770F9B006CB84B /* PopBounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopBounceButton.swift; sourceTree = "<group>"; };
+		B27979CF22770F9B006CB84B /* ButtonAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimator.swift; sourceTree = "<group>"; };
+		B27979D122770F9B006CB84B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		B29AA2E521E9FF4200192393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
@@ -418,6 +424,7 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				B27979CC22770F9B006CB84B /* PopBounceButton */,
 				B27979882275D4FB006CB84B /* HSCycleGalleryView */,
 				B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */,
 				B224C17222259AFD003BFE22 /* iCarousel */,
@@ -542,6 +549,32 @@
 				B279798D2275D4FB006CB84B /* HSCycleGalleryView.h */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		B27979CC22770F9B006CB84B /* PopBounceButton */ = {
+			isa = PBXGroup;
+			children = (
+				B27979CD22770F9B006CB84B /* Classes */,
+				B27979D022770F9B006CB84B /* Assets */,
+			);
+			path = PopBounceButton;
+			sourceTree = "<group>";
+		};
+		B27979CD22770F9B006CB84B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B27979CE22770F9B006CB84B /* PopBounceButton.swift */,
+				B27979CF22770F9B006CB84B /* ButtonAnimator.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B27979D022770F9B006CB84B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B27979D122770F9B006CB84B /* .gitkeep */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */ = {
@@ -870,6 +903,7 @@
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
 				B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */,
+				B27979D422770F9B006CB84B /* .gitkeep in Resources */,
 				B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */,
 				B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */,
 				B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */,
@@ -908,6 +942,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
+				"${BUILT_PRODUCTS_DIR}/DisplaySwitcher/DisplaySwitcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -917,6 +952,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DisplaySwitcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1030,6 +1066,7 @@
 				B224C17A22259B60003BFE22 /* PlayListsViewController.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
+				B27979D222770F9B006CB84B /* PopBounceButton.swift in Sources */,
 				E27A70642211F92A001751BC /* UIImageColors.swift in Sources */,
 				B224C17622259AFE003BFE22 /* iCarousel.m in Sources */,
 				E27A70712211F92A001751BC /* ViewWithXib.swift in Sources */,
@@ -1041,6 +1078,7 @@
 				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
 				E27A70672211F92A001751BC /* MetaData.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
+				B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */,
 				B2BB46AA22217FB200D97FA8 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */,
 				B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */,

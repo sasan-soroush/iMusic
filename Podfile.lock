@@ -7,6 +7,7 @@ PODS:
   - AudioKit/UI (4.6.1):
     - AudioKit/Core
   - Disk (0.4.0)
+  - DisplaySwitcher (1.0.1)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Alamofire
   - AudioKit (~> 4.6.1)
   - Disk (~> 0.4.0)
+  - DisplaySwitcher
   - GoogleSignIn
   - SDWebImage
   - SwiftyJSON (~> 4.2)
@@ -38,6 +40,7 @@ SPEC REPOS:
     - Alamofire
     - AudioKit
     - Disk
+    - DisplaySwitcher
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
@@ -48,12 +51,13 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AudioKit: 76f8f5dbed135967b91b6cc6aa970e3d30226134
   Disk: ef2956657d5bb56034b38b29b352170165226440
+  DisplaySwitcher: 5f725284c28cdf22ea7ba2eee8e8f7e7cb9cdf87
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 843942a018be1c80aa28af9f69cb6815e14ac7da
+PODFILE CHECKSUM: a553facc3e63cb032a3f7808cb2e9deab55dde01
 
 COCOAPODS: 1.5.3

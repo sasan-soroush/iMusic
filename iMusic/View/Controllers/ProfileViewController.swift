@@ -104,8 +104,8 @@ class ProfileViewController: BaseViewControllerNormal {
     }()
     
     lazy var settingLabel : CustomLabel = {
-        let label = CustomLabel(customFont: Font.IranYekanLight(size: 40))
-        label.text = "تنظیمات"
+        let label = CustomLabel(customFont: Font.IranYekanLight(size: 25))
+        label.text = "تنظیمات پروفایل"
         label.alpha = 0
         return label
     }()
@@ -117,53 +117,12 @@ class ProfileViewController: BaseViewControllerNormal {
         return view
     }()
     
-    fileprivate lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.numberOfLines = 0
-        titleLabel.font = titleFont
-        titleLabel.textColor = tintColor
-        titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.backgroundColor = UIColor.clear
-        titleLabel.layer.shadowColor = shadowColor
-        titleLabel.layer.shadowOffset = shadowOffset
-        titleLabel.layer.shadowRadius = shadowRadius
-        titleLabel.layer.shadowOpacity = shadowOpacity
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return titleLabel
-    }()
-    
-    fileprivate lazy var subtitleLabel: UILabel = {
-        let subtitleLabel = UILabel()
-        subtitleLabel.numberOfLines = 0
-        subtitleLabel.font = subtitleFont
-        subtitleLabel.textColor = tintColor
-        subtitleLabel.backgroundColor = UIColor.clear
-        subtitleLabel.layer.shadowColor = shadowColor
-        subtitleLabel.layer.shadowOffset = shadowOffset
-        subtitleLabel.layer.shadowRadius = shadowRadius
-        subtitleLabel.layer.shadowOpacity = shadowOpacity
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return subtitleLabel
-    }()
-    
     // MARK :  - Lifecycle methods
     
     fileprivate func setupGeneral() {
-        titleLabel.text = headerTitle
-        subtitleLabel.text = headerSubtitle
+        
         imageView.image = image
-        titleLabel.textColor = tintColor
-        subtitleLabel.textColor = tintColor
-        titleLabel.font = titleFont
-        subtitleLabel.font = subtitleFont
-        titleLabel.layer.shadowColor = shadowColor
-        subtitleLabel.layer.shadowColor = shadowColor
-        titleLabel.layer.shadowOffset = shadowOffset
-        subtitleLabel.layer.shadowOffset = shadowOffset
-        titleLabel.layer.shadowRadius = shadowRadius
-        subtitleLabel.layer.shadowRadius = shadowRadius
-        titleLabel.layer.shadowOpacity = shadowOpacity
-        subtitleLabel.layer.shadowOpacity = shadowOpacity
+        
         scrollView.contentInsetAdjustmentBehavior = .never
     }
     
@@ -207,7 +166,7 @@ class ProfileViewController: BaseViewControllerNormal {
         scrollView.contentInset.top = imageMaskView.frame.height
         scrollView.contentOffset.y = -imageMaskView.frame.height
         
-        
+        view.bringSubview(toFront: settingLabel)
     }
     
     func expandHeader() {
@@ -243,16 +202,12 @@ class ProfileViewController: BaseViewControllerNormal {
         
         scrollView.scrollIndicatorInsets = scrollView.contentInset
         
-        titleLabel.alpha = progress
-        subtitleLabel.alpha = progress
-        
-//        guard let cell = scrollView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PaymentPlansTableViewCell else {return}
-//        cell.alpha = progress
-        
         imageView.alpha = progress
         
         if progress == 0.0 {
             imageMaskView.alpha = 0.0
+        } else {
+            imageMaskView.alpha = 1.0
         }
         
         settingLabel.alpha = 1.0 - progress

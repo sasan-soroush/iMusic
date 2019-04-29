@@ -12,8 +12,7 @@ import Disk
 import AudioKit
 import AVKit
 import MediaPlayer
-
-
+import DisplaySwitcher
 
 extension HomeViewController {
 
@@ -22,6 +21,7 @@ extension HomeViewController {
         
         setupView()
 
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,7 +32,7 @@ extension HomeViewController {
         
         helper.getRecentlyDownloadedMusics { (musics) in
             self.downloadedMusics = musics
-            recentlyPlayedCV.reloadData()
+            recentlyPlayedCV?.reloadData()
         }
         
     }
@@ -48,10 +48,23 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPlayedCollectionViewCell.id, for: indexPath) as! RecentlyPlayedCollectionViewCell
-        setup_view(cell)
+        
+        if layoutState == .grid {
+            setup_view_grid(cell)
+        } else {
+            setup_view_list(cell)
+        }
+        
         cell.musicTrack = self.downloadedMusics[indexPath.row]
         
         return cell
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
+        let customTransitionLayout = TransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
+        return customTransitionLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -59,7 +72,6 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         let id  = track.track.id
         let filePath = helper.getSaveFileUrl(musicId: id)
         helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -70,71 +82,150 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         return padding
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (recentlyPlayedCV.frame.width - padding*2) / 3
-        return CGSize(width: size , height: size * 1.5 - 5)
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isTransitionAvailable = false
     }
     
-    fileprivate func setup_view(_ cell: RecentlyPlayedCollectionViewCell) {
-        let padding : CGFloat = 2
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        isTransitionAvailable = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+    
+    fileprivate func setup_view_grid(_ cell: RecentlyPlayedCollectionViewCell) {
+        
+        let padding : CGFloat = 5
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
         cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
-//        cell.cover.layer.cornerRadius = 4
-        
+
         cell.clipsToBounds = true
         
         cell.titleBackground.frame = CGRect(x: 0, y: cell.cover.frame.maxY , width: cell.frame.width, height: cell.frame.height - cell.frame.width)
-        
-        //        cell.titleBackground.layer.cornerRadius = 4
-        
-        cell.titleBackground.clipsToBounds = true
         
         cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 5)
         
         let labelsHeight = (cell.titleBackground.frame.height)/2
         
-        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 4, width: cell.titleBackground.frame.width-6, height: labelsHeight-4)
+        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 4, width: cell.titleBackground.frame.width-6 - padding*2, height: labelsHeight-4)
         
-        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY , width: cell.titleBackground.frame.width-6, height: labelsHeight-4)
+        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY , width: cell.titleBackground.frame.width - 6 - padding*2, height: labelsHeight-4)
+        
+        self.cover_size = cell.cover.frame.size.width
+        
+        cell.artistLabel.font = Font.DINCondensedRegular(size: 16)
+        
+        cell.titleLabel.font = Font.DINCondensedRegular(size: 16)
     }
     
-    private func setupCV() {
-        recentlyPlayedCV.delegate = self
-        recentlyPlayedCV.dataSource = self
-        recentlyPlayedCV.register(RecentlyPlayedCollectionViewCell.self, forCellWithReuseIdentifier: RecentlyPlayedCollectionViewCell.id)
+    fileprivate func setup_view_list(_ cell: RecentlyPlayedCollectionViewCell) {
+        
+        let padding : CGFloat = 10
+        let coverSize = self.cover_size == 0.0 ? cell.frame.height : self.cover_size
+        cell.cover.frame = CGRect(x: 0, y: 0, width: coverSize, height: coverSize)
+        
+        cell.cover.roundCorners(corners: [.topLeft , .bottomLeft], radius: 4)
+        
+        cell.clipsToBounds = true
+        
+        cell.titleBackground.frame = CGRect(x: cell.cover.frame.maxX, y: 0 , width: cell.frame.width - cell.cover.frame.width, height: cell.frame.height)
+        
+        cell.titleBackground.roundCorners(corners: [.topRight , .bottomRight], radius: 5)
+        
+        let labelsHeight = (cell.titleBackground.frame.height)/2
+        
+        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 10, width: cell.titleBackground.frame.width - 6 - padding*2, height: labelsHeight-10)
+        
+        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY , width: cell.titleBackground.frame.width-6 - padding*2, height: labelsHeight-10)
+        
+        cell.artistLabel.font = Font.DINCondensed(size: 20)
+        cell.titleLabel.font = Font.DINCondensed(size: 20)
+        
     }
 }
 
 extension HomeViewController {
     private func setupView() {
         
-        setupCV()
+        recentlyPlayedCV = UICollectionView(frame: .zero, collectionViewLayout: gridLayout)
+        recentlyPlayedCV.backgroundColor = .clear
+        recentlyPlayedCV.showsVerticalScrollIndicator = false
+        recentlyPlayedCV.delegate = self
+        recentlyPlayedCV.dataSource = self
+        recentlyPlayedCV.register(RecentlyPlayedCollectionViewCell.self, forCellWithReuseIdentifier: RecentlyPlayedCollectionViewCell.id)
         
         view.addSubview(recentlyPlayedCV)
         recentlyPlayedCV.frame = CGRect(x: padding, y: self.logo.frame.maxY+padding, width: view.frame.width - padding*2, height: view.frame.height - self.logo.frame.maxY - padding - 52)
         
-        /*view.addSubview(searchButton)
+        recentlyPlayedCV.collectionViewLayout = gridLayout
+        view.addSubview(rotationButton)
         let searchButtonWidth = recentlyPlayedCV.frame.minY - 20 - 10
-        searchButton.frame = CGRect(x: view.frame.width - searchButtonWidth - 10, y: 20, width: searchButtonWidth, height: searchButtonWidth)*/
+        rotationButton.frame = CGRect(x: view.frame.width - searchButtonWidth - 10, y: 20, width: searchButtonWidth, height: searchButtonWidth)
+
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
         
+        self.rotationButton.isUserInteractionEnabled = false
         
+        if !isTransitionAvailable {
+            return
+        }
+        let animationDuration : Double = 0.3
+        
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.recentlyPlayedCV.alpha = 0
+        }) { (_) in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.recentlyPlayedCV.alpha = 1
+            }, completion: { (_) in
+                //
+                self.rotationButton.isUserInteractionEnabled = true
+            })
+        }
+        
+        let transitionManager: TransitionManager
+        if layoutState == .list {
+            layoutState = .grid
+            rotationButton.setImage(#imageLiteral(resourceName: "List"), for: UIControlState.normal)
+            
+            transitionManager = TransitionManager(duration: animationDuration, collectionView: recentlyPlayedCV, destinationLayout: gridLayout, layoutState: layoutState)
+        } else {
+            rotationButton.setImage(#imageLiteral(resourceName: "Grid"), for: UIControlState.normal)
+            layoutState = .list
+            transitionManager = TransitionManager(duration: animationDuration, collectionView: recentlyPlayedCV, destinationLayout: listLayout, layoutState: layoutState)
+        }
+        
+        transitionManager.startInteractiveTransition()
+
     }
 }
 
 class HomeViewController : BaseViewControllerNormal {
     
+    var cover_size : CGFloat = 0.0
     let padding : CGFloat = 7
     var downloadedMusics : [MusicTrack] = []
-
-    let recentlyPlayedCV : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .clear
-        layout.scrollDirection = .vertical
-        view.showsVerticalScrollIndicator = false
-        return view
+    var recentlyPlayedCV : UICollectionView!
+    
+    let rotationButton : PopBounceButton = {
+        let button = PopBounceButton()
+        let padding : CGFloat = 13
+        button.setImage(#imageLiteral(resourceName: "List"), for: UIControlState.normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        button.addTarget(self, action: #selector(buttonTapped(_:)), for: UIControlEvents.touchUpInside)
+        return button
     }()
+    
+    fileprivate var isTransitionAvailable = true
+    private lazy var heightGrid = (view.frame.width - padding*4)/2
+    private lazy var heighList = (view.frame.width - padding*4)/3
+    private lazy var listLayout = DisplaySwitchLayout(staticCellHeight: heighList, nextLayoutStaticCellHeight: heightGrid, layoutState: .list)
+    private lazy var gridLayout = DisplaySwitchLayout(staticCellHeight: heightGrid, nextLayoutStaticCellHeight: heighList, layoutState: .grid)
+    private var layoutState: LayoutState = .grid
     
     /*let searchButton : UIButton = {
         let button = UIButton()

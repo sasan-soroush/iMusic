@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import DisplaySwitcher
 
 class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     
@@ -24,11 +25,6 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
                 } else {
                     cover.sd_setImage(with: URL(string: music.track.cover) , completed: nil)
                 }
-                
-                //let color_1 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.0)
-                //let color_2 = UIColor.init(red: 0 , green: 255/255, blue: 234/255, alpha: 0.5)
-                
-                self.titleBackground.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.25)
                 
                 self.artistLabel.textColor = .white
                 self.titleLabel.textColor = .white
@@ -50,19 +46,19 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         
         titleBackground.addSubview(titleLabel)
         titleBackground.addSubview(artistLabel)
+        
         clipsToBounds = true
-
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+  
     let cover : CustomImageView = {
         let view = CustomImageView()
-//        view.layer.cornerRadius = 4
         view.clipsToBounds = true
-//        view.roundCorners(corners: [.topLeft , .topRight], radius: 8)
         return view
     }()
     
@@ -80,6 +76,7 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     
     let titleBackground : UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.20)
         return view
     }()
 }
