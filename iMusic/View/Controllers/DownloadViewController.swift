@@ -171,6 +171,20 @@ extension DownloadViewController {
 
 extension DownloadViewController : UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchBar)
+        perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.75)
+    }
+    
+    @objc func reload(_ searchBar: UISearchBar) {
+        
+        guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
+            print("nothing to search")
+            return
+        }
+        searchFor(query)
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
@@ -179,20 +193,18 @@ extension DownloadViewController : UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        if searchBar.text == "" {
+            self.searchResults.removeAll()
+            self.searchResultTableView.reloadData()
+        }
+        
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+    fileprivate func searchFor(_ text: String) {
         startIndicator()
-        
-        guard let text = searchBar.text else {
-            Helper.shared.alert(self, title: "", body: "مشکلی با متن وارد شده وجود دارد.")
-            stopIndicator()
-            return
-        }
-        
         API.search(text: text) { (success, searchResultArray) in
             self.searchResults = searchResultArray
             self.searchResultTableView.reloadData()
@@ -200,9 +212,21 @@ extension DownloadViewController : UISearchBarDelegate {
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //TODO:- search after 1 second delay
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        
+        
+        guard let text = searchBar.text else {
+            Helper.shared.alert(self, title: "", body: "مشکلی با متن وارد شده وجود دارد.")
+            stopIndicator()
+            return
+        }
+        
+        searchFor(text)
     }
+    
+    
+    
 }
 
 class DownloadViewController : BaseViewControllerNormal {
