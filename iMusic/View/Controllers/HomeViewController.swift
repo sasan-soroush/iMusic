@@ -100,13 +100,13 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         let padding : CGFloat = 5
         cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width)
         
-        cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
-
+        //cell.cover.roundCorners(corners: [.topLeft , .topRight], radius: 4)
+        
         cell.clipsToBounds = true
         
         cell.titleBackground.frame = CGRect(x: 0, y: cell.cover.frame.maxY , width: cell.frame.width, height: cell.frame.height - cell.frame.width)
         
-        cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 5)
+        //cell.titleBackground.roundCorners(corners: [.bottomLeft , .bottomRight], radius: 5)
         
         let labelsHeight = (cell.titleBackground.frame.height)/2
         
@@ -116,33 +116,38 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         self.cover_size = cell.cover.frame.size.width
         
-        cell.artistLabel.font = Font.DINCondensedRegular(size: 16)
+        cell.artistLabel.font = Font.DINCondensedRegular(size: 16.5)
         
-        cell.titleLabel.font = Font.DINCondensedRegular(size: 16)
+        cell.titleLabel.font = Font.DINCondensedRegular(size: 16.5)
+        
+        cell.artistLabel.textColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.75)
     }
     
     fileprivate func setup_view_list(_ cell: RecentlyPlayedCollectionViewCell) {
         
         let padding : CGFloat = 10
-        let coverSize = self.cover_size == 0.0 ? cell.frame.height : self.cover_size
-        cell.cover.frame = CGRect(x: 0, y: 0, width: coverSize, height: coverSize)
         
-        cell.cover.roundCorners(corners: [.topLeft , .bottomLeft], radius: 4)
+        cell.cover.frame = CGRect(x: 0, y: 0, width: cell.frame.height, height: cell.frame.height)
+        
+        //cell.cover.roundCorners(corners: [.topLeft , .bottomLeft], radius: 4)
         
         cell.clipsToBounds = true
         
         cell.titleBackground.frame = CGRect(x: cell.cover.frame.maxX, y: 0 , width: cell.frame.width - cell.cover.frame.width, height: cell.frame.height)
         
-        cell.titleBackground.roundCorners(corners: [.topRight , .bottomRight], radius: 5)
+        //cell.titleBackground.roundCorners(corners: [.topRight , .bottomRight], radius: 5)
         
         let labelsHeight = (cell.titleBackground.frame.height)/2
         
-        cell.artistLabel.frame = CGRect(x: 3 + padding , y: 10, width: cell.titleBackground.frame.width - 6 - padding*2, height: labelsHeight-10)
+        cell.titleLabel.frame = CGRect(x: 3 + padding , y: 10, width: cell.titleBackground.frame.width - 6 - padding*2, height: labelsHeight-10)
         
-        cell.titleLabel.frame = CGRect(x: 3 + padding , y: cell.artistLabel.frame.maxY , width: cell.titleBackground.frame.width-6 - padding*2, height: labelsHeight-10)
+        cell.artistLabel.frame = CGRect(x: 3 + padding , y: cell.titleLabel.frame.maxY , width: cell.titleBackground.frame.width-6 - padding*2, height: labelsHeight-10)
         
-        cell.artistLabel.font = Font.DINCondensed(size: 20)
-        cell.titleLabel.font = Font.DINCondensed(size: 20)
+        cell.artistLabel.font = Font.DINCondensedRegular(size: 18)
+        
+        cell.titleLabel.font = Font.DINCondensedRegular(size: 20)
+        
+        cell.artistLabel.textColor = .lightGray
         
     }
 }
@@ -222,7 +227,7 @@ class HomeViewController : BaseViewControllerNormal {
     
     fileprivate var isTransitionAvailable = true
     private lazy var heightGrid = (view.frame.width - padding*4)/2
-    private lazy var heighList = (view.frame.width - padding*4)/3
+    private lazy var heighList = (view.frame.width - padding*4)/4
     private lazy var listLayout = DisplaySwitchLayout(staticCellHeight: heighList, nextLayoutStaticCellHeight: heightGrid, layoutState: .list)
     private lazy var gridLayout = DisplaySwitchLayout(staticCellHeight: heightGrid, nextLayoutStaticCellHeight: heighList, layoutState: .grid)
     private var layoutState: LayoutState = .grid

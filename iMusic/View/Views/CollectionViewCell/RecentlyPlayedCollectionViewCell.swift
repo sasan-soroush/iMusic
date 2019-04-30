@@ -26,9 +26,6 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
                     cover.sd_setImage(with: URL(string: music.track.cover) , completed: nil)
                 }
                 
-                self.artistLabel.textColor = .white
-                self.titleLabel.textColor = .white
-                
                 self.titleLabel.text = music.track.title
                 self.artistLabel.text = music.track.artistName
                 
@@ -71,12 +68,13 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     let artistLabel : CustomLabel = {
         let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 16))
         label.textAlignment = .left
+        
         return label
     }()
     
     let titleBackground : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.20)
+        view.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.22)
         return view
     }()
 }

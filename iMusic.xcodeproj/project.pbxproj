@@ -1244,10 +1244,7 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
@@ -1271,10 +1268,7 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";

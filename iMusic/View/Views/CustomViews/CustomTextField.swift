@@ -16,7 +16,7 @@ class CustomTextField : UITextField {
         textColor = .white
         attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray , NSAttributedStringKey.font : Font.IranYekanLight(size: 18)])
         textAlignment = .center
-        tintColor = UIColor.MyTheme.themeBlueColor
+        tintColor = UIColor.white
         keyboardType = .numberPad
         keyboardAppearance = .dark
     }
