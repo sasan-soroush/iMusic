@@ -176,11 +176,16 @@ extension HomeViewController {
     
     @objc func buttonTapped(_ sender: UIButton) {
         
+        if downloadedMusics.isEmpty {
+            return
+        }
+        
         self.rotationButton.isUserInteractionEnabled = false
         
         if !isTransitionAvailable {
             return
         }
+        
         let animationDuration : Double = 0.3
         
         UIView.animate(withDuration: animationDuration, animations: {
@@ -189,7 +194,6 @@ extension HomeViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.recentlyPlayedCV.alpha = 1
             }, completion: { (_) in
-                //
                 self.rotationButton.isUserInteractionEnabled = true
             })
         }
@@ -198,7 +202,6 @@ extension HomeViewController {
         if layoutState == .list {
             layoutState = .grid
             rotationButton.setImage(#imageLiteral(resourceName: "List"), for: UIControlState.normal)
-            
             transitionManager = TransitionManager(duration: animationDuration, collectionView: recentlyPlayedCV, destinationLayout: gridLayout, layoutState: layoutState)
         } else {
             rotationButton.setImage(#imageLiteral(resourceName: "Grid"), for: UIControlState.normal)

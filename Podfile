@@ -12,7 +12,7 @@ target 'iMusic' do
     pod 'SwiftyJSON', '~> 4.2'
     pod 'SDWebImage'
 #    pod 'PandoraPlayer'
-    pod 'AudioKit', '~> 4.6.1'
+    pod 'AudioKit', '~> 4.7.2'
     #    pod 'ID3TagEditor', '~> 2.0'
     #   pod 'OutcastID3', '~> 0.5'
     #   pod 'ID3Edit'

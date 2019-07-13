@@ -18,7 +18,7 @@ class SearchResultTableViewCell : UITableViewCell {
             guard let result = searchResult else {return}
             musicArtist.text = result.artistName
             musicName.text = result.title
-            musicImage.sd_setImage(with: URL(string: result.cover) , placeholderImage: nil, options: SDWebImageOptions.progressiveDownload, completed: nil)
+            musicImage.sd_setImage(with: URL(string: result.cover) , placeholderImage: nil, options: SDWebImageOptions.progressiveLoad, completed: nil)
         }
     }
     
