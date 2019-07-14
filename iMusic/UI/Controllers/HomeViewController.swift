@@ -20,7 +20,6 @@ extension HomeViewController {
         super.viewDidLoad()
         
         setupView()
-
         
     }
     

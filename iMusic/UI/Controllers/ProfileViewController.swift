@@ -16,37 +16,111 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
         return 6
     }
     
+    fileprivate func logoutCell() -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .clear
+        cell.textLabel?.text = "خروج از حساب کاربری"
+        cell.textLabel?.textColor = UIColor.MyTheme.gradientForBGColor
+        cell.textLabel?.textAlignment = .right
+        cell.textLabel?.font = Font.IranYekanRegular(size: 17)
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    fileprivate func changePicCell() -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .clear
+        cell.textLabel?.text = "تغییر عکس پروفایل"
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.textAlignment = .right
+        cell.textLabel?.font = Font.IranYekanRegular(size: 17)
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    fileprivate func textfieldCells(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.id, for: indexPath) as! ProfileTableViewCell
+        cell.selectionStyle = .none
+        cell.textField.frame = CGRect(x: 20, y: cell.frame.height - 80, width: cell.frame.width - 40, height: 70)
+        cell.textField.placeholder = "نام و نام خانوادگی"
+        return cell
+    }
+    
+    fileprivate func emptyCell() -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
-        case 0:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: PaymentPlansTableViewCell.id, for: indexPath) as! PaymentPlansTableViewCell
-            cell.paymentPlans.frame = cell.frame
-            cell.selectionStyle = .none
-            
-            return cell
+        case 5 :
+            return emptyCell()
+        case 3 :
+            return changePicCell()
+        case 4 :
+            return logoutCell()
         default:
-            let cell = UITableViewCell()
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
+            return textfieldCells(tableView, indexPath)
         }
-        
+    
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? view.frame.height/4 : view.frame.height/10
+        
+        switch indexPath.row {
+        case 3 , 4 :
+            return 70
+        case 5:
+            return view.frame.height/7
+        default:
+            return 100
+        }
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.updateHeaderView()
     }
     
+}
+
+extension ProfileViewController {
+    
+    
+    private func addKeyboardNotifiactions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/2
+            }
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     
 }
 
 class ProfileViewController: BaseViewControllerNormal {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     // MARK : - Attributes
     let headerTitle = "title"
@@ -56,7 +130,7 @@ class ProfileViewController: BaseViewControllerNormal {
     let image = #imageLiteral(resourceName: "Screen Shot 2019-04-27 at 5.30.32 PM")
     
     var minHeaderHeight: CGFloat {
-        return view.frame.height/5
+        return view.frame.height/10
     }
     
     var maxHeaderHeight: CGFloat {
@@ -84,7 +158,6 @@ class ProfileViewController: BaseViewControllerNormal {
     var headerCollapsingAnimationDuration: Double = 1
     var headerExpandingAnimationDuration: Double = 1
     
-    // Defining margin in this file in order to reuser the class in multiple projects
     fileprivate let margin: CGFloat = 10
     
     // MARK : - UI Elements
@@ -105,7 +178,7 @@ class ProfileViewController: BaseViewControllerNormal {
     
     lazy var settingLabel : CustomLabel = {
         let label = CustomLabel(customFont: Font.IranYekanLight(size: 25))
-        label.text = "تنظیمات پروفایل"
+        label.text = "پروفایل"
         label.alpha = 0
         return label
     }()
@@ -133,9 +206,11 @@ class ProfileViewController: BaseViewControllerNormal {
         
         scrollView.delegate = self
         scrollView.dataSource = self
-        scrollView.register(PaymentPlansTableViewCell.self, forCellReuseIdentifier: PaymentPlansTableViewCell.id)
+        scrollView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.id)
+       
        
         setupViews()
+        addKeyboardNotifiactions()
         
     }
     
@@ -155,7 +230,7 @@ class ProfileViewController: BaseViewControllerNormal {
         scrollView.frame.size.height = view.frame.height - helper.getTabBarHeight()
         
         view.addSubview(settingLabel)
-        settingLabel.frame = CGRect(x: 20, y: 20, width: view.frame.width - 40, height: view.frame.height/5 - 20)
+        settingLabel.frame = CGRect(x: 20, y: 20, width: view.frame.width - 40, height: 80)
         
         view.bringSubview(toFront: imageView)
         view.bringSubview(toFront: imageMaskView)

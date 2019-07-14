@@ -56,6 +56,9 @@
 		B2A2585821E0B3C100CF3738 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585721E0B3C100CF3738 /* API.swift */; };
 		B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */; };
 		B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2585B21E0B3DA00CF3738 /* MusicTrack.swift */; };
+		B2AA08A422DB783F00681BC7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA08A322DB783F00681BC7 /* ProfileTableViewCell.swift */; };
+		B2AA08AC22DB797A00681BC7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA08A922DB797A00681BC7 /* HoshiTextField.swift */; };
+		B2AA08AD22DB797A00681BC7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA08AA22DB797A00681BC7 /* TextFieldEffects.swift */; };
 		B2BB469F22217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB467622217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift */; };
 		B2BB46A022217FB200D97FA8 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB467822217FB200D97FA8 /* NVActivityIndicatorPresenter.swift */; };
 		B2BB46A122217FB200D97FA8 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB467922217FB200D97FA8 /* NVActivityIndicatorViewable.swift */; };
@@ -205,6 +208,11 @@
 		B2A2585721E0B3C100CF3738 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B2A2585921E0B3CE00CF3738 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		B2A2585B21E0B3DA00CF3738 /* MusicTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrack.swift; sourceTree = "<group>"; };
+		B2AA08A322DB783F00681BC7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		B2AA08A822DB797A00681BC7 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		B2AA08A922DB797A00681BC7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		B2AA08AA22DB797A00681BC7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		B2AA08AB22DB797A00681BC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2BB467622217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		B2BB467822217FB200D97FA8 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		B2BB467922217FB200D97FA8 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 			children = (
 				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
 				B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */,
+				B2AA08A322DB783F00681BC7 /* ProfileTableViewCell.swift */,
 			);
 			path = TableViewsCell;
 			sourceTree = "<group>";
@@ -374,7 +383,7 @@
 				B241B69B21D7924600D53711 /* Dependencies */,
 				B241B69A21D791EA00D53711 /* ToolBox */,
 				B241B69921D791E400D53711 /* ViewModel */,
-				B241B69821D791E000D53711 /* View */,
+				B241B69821D791E000D53711 /* UI */,
 				B241B69721D791DB00D53711 /* Model */,
 				B241B68B21D78F8300D53711 /* Info.plist */,
 				B2FFE9E621D9070500FE0C0F /* credentials.plist */,
@@ -391,13 +400,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B241B69821D791E000D53711 /* View */ = {
+		B241B69821D791E000D53711 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				B241B69F21D7927A00D53711 /* Views */,
 				B241B69E21D7926E00D53711 /* Controllers */,
 			);
-			path = View;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		B241B69921D791E400D53711 /* ViewModel */ = {
@@ -424,6 +433,7 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				B2AA08A722DB797A00681BC7 /* TextFieldEffects */,
 				B27979CC22770F9B006CB84B /* PopBounceButton */,
 				B27979882275D4FB006CB84B /* HSCycleGalleryView */,
 				B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */,
@@ -575,6 +585,17 @@
 				B27979D122770F9B006CB84B /* .gitkeep */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		B2AA08A722DB797A00681BC7 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				B2AA08A822DB797A00681BC7 /* TextFieldEffects.h */,
+				B2AA08A922DB797A00681BC7 /* HoshiTextField.swift */,
+				B2AA08AA22DB797A00681BC7 /* TextFieldEffects.swift */,
+				B2AA08AB22DB797A00681BC7 /* Info.plist */,
+			);
+			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
 		B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */ = {
@@ -1014,6 +1035,7 @@
 				B2BB46A422217FB200D97FA8 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
 				B2BB46B122217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
+				B2AA08AD22DB797A00681BC7 /* TextFieldEffects.swift in Sources */,
 				B2BB46A122217FB200D97FA8 /* NVActivityIndicatorViewable.swift in Sources */,
 				E27A706E2211F92A001751BC /* RoundedPictureCollectionViewCell.swift in Sources */,
 				B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */,
@@ -1061,8 +1083,10 @@
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				E27A70652211F92A001751BC /* UIImageEffects.swift in Sources */,
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
+				B2AA08AC22DB797A00681BC7 /* HoshiTextField.swift in Sources */,
 				B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */,
 				B2BB46AB22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
+				B2AA08A422DB783F00681BC7 /* ProfileTableViewCell.swift in Sources */,
 				B224C17A22259B60003BFE22 /* PlayListsViewController.swift in Sources */,
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
@@ -1244,7 +1268,10 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
@@ -1268,7 +1295,10 @@
 					"$(PROJECT_DIR)/iMusic/Dependencies",
 				);
 				INFOPLIST_FILE = iMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";

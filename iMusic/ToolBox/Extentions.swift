@@ -70,6 +70,23 @@ extension UITextField {
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+    func addDoneButton() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = UIBarStyle.blackOpaque
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action:#selector(doneButtonTapped))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc private func doneButtonTapped() {
+        self.resignFirstResponder()
+    }
 }
 
 
