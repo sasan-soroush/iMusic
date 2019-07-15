@@ -9,6 +9,58 @@
 import Foundation
 import UIKit
 
+
+extension ProfileViewController {
+    
+    @objc private func logoutButtonTapped(sender : UIButton) {
+        
+    }
+    
+    func expandHeader() {
+        UIView.animate(withDuration: headerExpandingAnimationDuration) {
+            self.scrollView.contentOffset.y = -self.maxHeaderHeight
+            self.imageView.frame.size.height = self.maxHeaderHeight
+            self.imageMaskView.frame.size.height = self.maxHeaderHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func collapseHeader() {
+        UIView.animate(withDuration: headerCollapsingAnimationDuration) {
+            self.scrollView.contentOffset.y = -self.minHeaderHeight
+            self.imageView.frame.size.height = self.minHeaderHeight
+            self.imageMaskView.frame.size.height = self.maxHeaderHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateHeaderView() {
+        
+        if scrollView.contentOffset.y < -maxHeaderHeight {
+            imageView.frame.size.height = -scrollView.contentOffset.y
+            imageMaskView.frame.size.height = imageView.frame.size.height
+        } else if scrollView.contentOffset.y >= -maxHeaderHeight && scrollView.contentOffset.y < -minHeaderHeight {
+            imageView.frame.size.height = -scrollView.contentOffset.y
+            imageMaskView.frame.size.height = imageView.frame.size.height
+        } else {
+            imageView.frame.size.height = minHeaderHeight
+            imageMaskView.frame.size.height = minHeaderHeight
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+        imageView.alpha = progress
+        
+        if progress == 0.0 {
+            imageMaskView.alpha = 0.0
+        } else {
+            imageMaskView.alpha = 1.0
+        }
+        
+        settingLabel.alpha = 1.0 - progress
+    }
+}
+
 extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     
     
@@ -33,24 +85,23 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
             cell.button.setTitle("تغییر عکس پروفایل", for: UIControlState.normal)
             cell.button.setTitleColor(.white, for: .normal)
             cell.button.contentHorizontalAlignment = .right
+            cell.button.tag = 1
+            cell.button.addTarget(self, action: #selector(changePic(_:)), for: UIControlEvents.touchUpInside)
         case 4 :
             cell.addSubview(cell.button)
             cell.button.frame = CGRect(x: cell.frame.width/2, y: cell.frame.height - 80, width: cell.frame.width/2 - 20, height: 70)
             cell.button.setTitle("خروج از حساب کاربری", for: UIControlState.normal)
             cell.button.setTitleColor(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), for: .normal)
             cell.button.contentHorizontalAlignment = .right
+            
+            cell.button.addTarget(self, action: #selector(logoutButtonTapped(sender:)), for: UIControlEvents.touchUpInside)
         default:
             cell.addSubview(cell.textField)
             cell.textField.frame = CGRect(x: 20, y: cell.frame.height - 80, width: cell.frame.width - 40, height: 70)
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.id, for: indexPath) as! ProfileTableViewCell
-        cell.selectionStyle = .none
-        setupViewForCells(indexPath, cell)
-        
+    fileprivate func setupTextfieldsInCells(_ indexPath: IndexPath, _ cell: ProfileTableViewCell) {
         switch indexPath.item {
         case 0:
             cell.textField.placeholder = "نام و نام خانوادگی"
@@ -61,6 +112,17 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.id, for: indexPath) as! ProfileTableViewCell
+        cell.selectionStyle = .none
+        
+        setupViewForCells(indexPath, cell)
+        
+        setupTextfieldsInCells(indexPath, cell)
+        
         
         return cell
     
@@ -72,7 +134,7 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
         case 3 :
             return 90
         case 4 :
-            return view.frame.height/3.5
+            return view.frame.height/3.25
         default:
             return 80
         }
@@ -191,22 +253,16 @@ class ProfileViewController: BaseViewControllerNormal {
     // MARK :  - Lifecycle methods
     
     fileprivate func setupGeneral() {
-        
-        imageView.image = image
-        
         scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.delegate = self
+        scrollView.dataSource = self
+        scrollView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.id)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupGeneral()
-        
-        scrollView.delegate = self
-        scrollView.dataSource = self
-        scrollView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.id)
-       
-       
         setupViews()
         addKeyboardNotifiactions()
         
@@ -242,48 +298,54 @@ class ProfileViewController: BaseViewControllerNormal {
         view.bringSubview(toFront: settingLabel)
     }
     
-    func expandHeader() {
-        UIView.animate(withDuration: headerExpandingAnimationDuration) {
-            self.scrollView.contentOffset.y = -self.maxHeaderHeight
-            self.imageView.frame.size.height = self.maxHeaderHeight
-            self.imageMaskView.frame.size.height = self.maxHeaderHeight
-            self.view.layoutIfNeeded()
+    
+}
+
+extension ProfileViewController : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
+    
+    @objc private func changePic(_ sender: UIButton) {
+        var optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         }
+        let library = UIAlertAction(title: "Device Photos", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.allowsEditing = true
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+            
+        })
+        
+        let camera = UIAlertAction(title: "Camera", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .camera
+            imagePickerController.allowsEditing = true
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+            
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler:nil)
+        optionMenu.addAction(camera)
+        optionMenu.addAction(library)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+        
     }
     
-    func collapseHeader() {
-        UIView.animate(withDuration: headerCollapsingAnimationDuration) {
-            self.scrollView.contentOffset.y = -self.minHeaderHeight
-            self.imageView.frame.size.height = self.minHeaderHeight
-            self.imageMaskView.frame.size.height = self.maxHeaderHeight
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func updateHeaderView() {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        if scrollView.contentOffset.y < -maxHeaderHeight {
-            imageView.frame.size.height = -scrollView.contentOffset.y
-            imageMaskView.frame.size.height = imageView.frame.size.height
-        } else if scrollView.contentOffset.y >= -maxHeaderHeight && scrollView.contentOffset.y < -minHeaderHeight {
-            imageView.frame.size.height = -scrollView.contentOffset.y
-            imageMaskView.frame.size.height = imageView.frame.size.height
-        } else {
-            imageView.frame.size.height = minHeaderHeight
-            imageMaskView.frame.size.height = minHeaderHeight
-        }
+        let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        self.imageView.image = selectedImage
+        self.dismiss(animated: true, completion: nil)
         
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
+       
         
-        imageView.alpha = progress
-        
-        if progress == 0.0 {
-            imageMaskView.alpha = 0.0
-        } else {
-            imageMaskView.alpha = 1.0
-        }
-        
-        settingLabel.alpha = 1.0 - progress
     }
 }
 
