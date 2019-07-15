@@ -13,38 +13,10 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
-    fileprivate func logoutCell() -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .clear
-        cell.textLabel?.text = "خروج از حساب کاربری"
-        cell.textLabel?.textColor = UIColor.MyTheme.gradientForBGColor
-        cell.textLabel?.textAlignment = .right
-        cell.textLabel?.font = Font.IranYekanRegular(size: 17)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    fileprivate func changePicCell() -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .clear
-        cell.textLabel?.text = "تغییر عکس پروفایل"
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.textAlignment = .right
-        cell.textLabel?.font = Font.IranYekanRegular(size: 17)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    fileprivate func textfieldCells(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.id, for: indexPath) as! ProfileTableViewCell
-        cell.selectionStyle = .none
-        cell.textField.frame = CGRect(x: 20, y: cell.frame.height - 80, width: cell.frame.width - 40, height: 70)
-        cell.textField.placeholder = "نام و نام خانوادگی"
-        return cell
-    }
+   
     
     fileprivate func emptyCell() -> UITableViewCell {
         let cell = UITableViewCell()
@@ -53,30 +25,56 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
+    fileprivate func setupViewForCells(_ indexPath: IndexPath, _ cell: ProfileTableViewCell) {
+        switch indexPath.row {
+        case 3 :
+            cell.addSubview(cell.button)
+            cell.button.frame = CGRect(x: cell.frame.width/2, y: cell.frame.height - 80, width: cell.frame.width/2 - 20, height: 70)
+            cell.button.setTitle("تغییر عکس پروفایل", for: UIControlState.normal)
+            cell.button.setTitleColor(.white, for: .normal)
+            cell.button.contentHorizontalAlignment = .right
+        case 4 :
+            cell.addSubview(cell.button)
+            cell.button.frame = CGRect(x: cell.frame.width/2, y: cell.frame.height - 80, width: cell.frame.width/2 - 20, height: 70)
+            cell.button.setTitle("خروج از حساب کاربری", for: UIControlState.normal)
+            cell.button.setTitleColor(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), for: .normal)
+            cell.button.contentHorizontalAlignment = .right
+        default:
+            cell.addSubview(cell.textField)
+            cell.textField.frame = CGRect(x: 20, y: cell.frame.height - 80, width: cell.frame.width - 40, height: 70)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        case 5 :
-            return emptyCell()
-        case 3 :
-            return changePicCell()
-        case 4 :
-            return logoutCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.id, for: indexPath) as! ProfileTableViewCell
+        cell.selectionStyle = .none
+        setupViewForCells(indexPath, cell)
+        
+        switch indexPath.item {
+        case 0:
+            cell.textField.placeholder = "نام و نام خانوادگی"
+        case 1:
+            cell.textField.placeholder = "ایمیل"
+        case 2:
+            cell.textField.placeholder = "شماره موبایل"
         default:
-            return textfieldCells(tableView, indexPath)
+            break
         }
+        
+        return cell
     
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.row {
-        case 3 , 4 :
-            return 70
-        case 5:
-            return view.frame.height/7
+        case 3 :
+            return 90
+        case 4 :
+            return view.frame.height/3.5
         default:
-            return 100
+            return 80
         }
         
     }

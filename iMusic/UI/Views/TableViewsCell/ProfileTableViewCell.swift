@@ -16,7 +16,6 @@ class ProfileTableViewCell : UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: ProfileTableViewCell.id)
         backgroundColor = .clear
-        addSubview(textField)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +35,13 @@ class ProfileTableViewCell : UITableViewCell {
         field.autocorrectionType = .no
         field.addDoneButton()
         return field
+    }()
+    
+    let button : UIButton = {
+        let button = UIButton(type: UIButtonType.system)
+        button.titleLabel?.textAlignment = .right
+        button.titleLabel?.font = Font.IranYekanRegular(size: 17)
+        return button
     }()
     
 }
