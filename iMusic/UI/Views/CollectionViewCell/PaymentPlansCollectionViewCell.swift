@@ -17,9 +17,16 @@ class PaymentPlanCollectionViewCell : UICollectionViewCell {
         backgroundColor = .gray
         layer.cornerRadius = 8
         clipsToBounds = true
+        addSubview(playlistImage)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    let playlistImage : CustomImageView = {
+        let view = CustomImageView()
+        view.image = #imageLiteral(resourceName: "Screen Shot 2019-04-27 at 5.30.32 PM")
+        return view
+    }()
 }
