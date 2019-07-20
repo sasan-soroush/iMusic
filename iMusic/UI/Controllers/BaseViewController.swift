@@ -42,6 +42,10 @@ class BaseViewController : UIViewController {
                
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent 
+    }
+    
     func startIndicator() {
         indicator.startAnimating()
     }

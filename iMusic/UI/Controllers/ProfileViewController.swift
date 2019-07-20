@@ -134,11 +134,15 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
         case 3 :
             return 90
         case 4 :
-            return view.frame.height/3.25
+            return view.frame.height/3
         default:
             return 80
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return view.frame.width+100
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
