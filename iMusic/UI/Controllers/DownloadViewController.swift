@@ -20,35 +20,60 @@ extension DownloadViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchResultTableView.isHidden = searchResults.isEmpty
+        searchSuggestionsTableView.isHidden = !searchResultTableView.isHidden
+    }
+    
 }
 
 extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
+    static var searchSugg = ["Linkin park numb" , "Katy perry lion" , "Imagine dragons dream" , "Rony james dio" , "Metallica fade to black" , "pavarati" , "Sirvan khosravi naro"]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.searchResults.count
+        if tableView == searchSuggestionsTableView {
+            return 7
+        } else {
+            return self.searchResults.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
-        
-        setupCell(cell, indexPath)
-        cell.searchResult = self.searchResults[indexPath.row]
-        
-        return cell
+        if tableView == searchSuggestionsTableView {
+            let padding : CGFloat = 10
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchSuggestionCell.id, for: indexPath) as! SearchSuggestionCell
+            cell.selectionStyle = .none
+            cell.suggestion.frame = CGRect(x: padding, y: padding/2, width: cell.frame.width - padding*2, height: cell.frame.height - padding)
+            DownloadViewController.searchSugg = DownloadViewController.searchSugg.sorted{$0.count < $1.count}
+            cell.suggestion.text = DownloadViewController.searchSugg[indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
+            setupCell(cell, indexPath)
+            cell.searchResult = self.searchResults[indexPath.row]
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return view.frame.height/8
+        if tableView == searchSuggestionsTableView {
+            return searchSuggestionsTableView.frame.height/10
+        } else {
+            return view.frame.height/8
+        }
         
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        handleDownload(tableView, indexPath)
-        
+        if tableView == searchSuggestionsTableView {
+            self.searchBar.becomeFirstResponder()
+            self.searchBar.text = DownloadViewController.searchSugg[indexPath.row]
+        } else {
+            handleDownload(tableView, indexPath)
+        }
     }
     
     fileprivate func setupCell(_ cell: SearchResultTableViewCell, _ indexPath: IndexPath) {
@@ -159,12 +184,14 @@ extension DownloadViewController {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             self.searchBar.frame.origin.y = view.frame.height - 50 - keyboardSize.height
             self.searchResultTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
+            //self.searchSuggestionsTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.searchBar.frame.origin.y = view.frame.height - helper.getTabBarHeight() - 50
         self.searchResultTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
+        //self.searchSuggestionsTableView.frame = CGRect(x: 10, y: self.logo.frame.maxY , width: view.frame.width-20, height: self.searchBar.frame.minY - self.logo.frame.maxY - 10)
     }
     
 }
@@ -187,6 +214,8 @@ extension DownloadViewController : UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        searchResultTableView.isHidden = false
+        searchSuggestionsTableView.isHidden = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -239,6 +268,7 @@ class DownloadViewController : BaseViewControllerNormal {
         
         view.addSubview(searchBar)
         view.addSubview(searchResultTableView)
+        view.addSubview(searchSuggestionsTableView)
         
         searchBar.delegate = self
         searchBar.frame = CGRect(x: 10, y: view.frame.height - helper.getTabBarHeight() - 50 , width: view.frame.width - 20, height: 40)
@@ -248,8 +278,13 @@ class DownloadViewController : BaseViewControllerNormal {
         searchResultTableView.dataSource = self
         searchResultTableView.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.id)
         searchResultTableView.separatorStyle = .none
-        
         searchResultTableView.frame = CGRect(x: 10, y: logo.frame.maxY , width: view.frame.width-20, height: searchBar.frame.minY - logo.frame.maxY - 10)
+        
+        searchSuggestionsTableView.delegate = self
+        searchSuggestionsTableView.dataSource = self
+        searchSuggestionsTableView.register(SearchSuggestionCell.self, forCellReuseIdentifier: SearchSuggestionCell.id)
+        searchSuggestionsTableView.separatorStyle = .none
+        searchSuggestionsTableView.frame = CGRect(x: 10, y: logo.frame.maxY , width: view.frame.width-20, height: view.frame.height/2)
         
         setupSearchBar()
         
@@ -282,17 +317,20 @@ class DownloadViewController : BaseViewControllerNormal {
     
     //MARK:- UI Properties
     
-    
-    
     let searchBar : UISearchBar = {
         let bar = UISearchBar()
         bar.clipsToBounds = true
         bar.backgroundImage = UIImage()
-        
         return bar
     }()
     
     let searchResultTableView : UITableView = {
+        let view = UITableView(frame: .zero, style: UITableViewStyle.plain)
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let searchSuggestionsTableView : UITableView = {
         let view = UITableView(frame: .zero, style: UITableViewStyle.plain)
         view.backgroundColor = .clear
         return view

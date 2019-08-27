@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */; };
+		B215778923154B5B00E67AB9 /* SearchSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215778823154B5B00E67AB9 /* SearchSuggestionCell.swift */; };
 		B224C17622259AFE003BFE22 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = B224C17322259AFD003BFE22 /* iCarousel.m */; };
 		B224C17A22259B60003BFE22 /* PlayListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B224C17922259B60003BFE22 /* PlayListsViewController.swift */; };
 		B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */; };
@@ -156,6 +157,7 @@
 		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2075E5F222BFE4A000D87A4 /* iMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMusic-Bridging-Header.h"; sourceTree = "<group>"; };
+		B215778823154B5B00E67AB9 /* SearchSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionCell.swift; sourceTree = "<group>"; };
 		B224C17322259AFD003BFE22 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		B224C17422259AFD003BFE22 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		B224C17822259B10003BFE22 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */,
 				B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */,
 				B2AA08A322DB783F00681BC7 /* ProfileTableViewCell.swift */,
+				B215778823154B5B00E67AB9 /* SearchSuggestionCell.swift */,
 			);
 			path = TableViewsCell;
 			sourceTree = "<group>";
@@ -1100,6 +1103,7 @@
 				E27A70692211F92A001751BC /* CommonExtensions.swift in Sources */,
 				B2BB46AE22217FB200D97FA8 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
+				B215778923154B5B00E67AB9 /* SearchSuggestionCell.swift in Sources */,
 				E27A70672211F92A001751BC /* MetaData.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
 				B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */,

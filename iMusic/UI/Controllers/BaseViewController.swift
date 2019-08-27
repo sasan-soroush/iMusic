@@ -39,7 +39,6 @@ class BaseViewController : UIViewController {
         self.view.addSubview(logo)
         
         logo.frame = CGRect(x: view.frame.width/2 - logoSize.width/2, y: 20, width: logoSize.width, height: view.frame.height/12)
-               
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
