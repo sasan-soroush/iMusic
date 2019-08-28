@@ -43,8 +43,14 @@ class API {
                     
                     do {
                         
-                        let searchResults = try
-                            JSONDecoder().decode([SearchResult].self, from: data)
+                        var searchResults = try JSONDecoder().decode([SearchResult].self, from: data)
+                        for i in 0 ..< searchResults.count {
+                            helper.getRecentlyDownloadedMusics { (tracks) in
+                                let ids = tracks.map {$0.track_id}
+                                let matchedId = ids.filter {$0 == "\(searchResults[i].id)"}
+                                searchResults[i].isDownloaded = !matchedId.isEmpty
+                            }
+                        }
                         
                         completion(true , searchResults)
                         

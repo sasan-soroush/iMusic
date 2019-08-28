@@ -14,4 +14,5 @@ struct SearchResult : Codable {
     let duration : Int
     let cover : String
     let id : Int
+    var isDownloaded : Bool? 
 }

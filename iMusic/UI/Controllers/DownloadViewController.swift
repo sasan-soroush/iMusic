@@ -22,9 +22,7 @@ extension DownloadViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchResultTableView.isHidden = searchResults.isEmpty
-        searchSuggestionsTableView.isHidden = !searchResultTableView.isHidden
-        isShowingSuggestions = !searchSuggestionsTableView.isHidden
+        setShowingSuggestion(hide: !searchResults.isEmpty)
     }
     
 }
@@ -43,6 +41,7 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == searchSuggestionsTableView {
+            
             if section == 0 {
                 return recentSearches.count + 1
             } else {
@@ -54,31 +53,35 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == searchSuggestionsTableView {
-            let padding : CGFloat = 10
-            let cell = tableView.dequeueReusableCell(withIdentifier: SearchSuggestionCell.id, for: indexPath) as! SearchSuggestionCell
-            cell.selectionStyle = .none
-            cell.suggestion.frame = CGRect(x: padding, y: padding/2, width: cell.frame.width - padding*2, height: cell.frame.height - padding)
-            recentSearches = recentSearches.sorted{$0.count < $1.count}
-            
-            switch indexPath.section {
-            case 0 :
-                switch indexPath.row {
-                    case 0 : cell.title = "❖  Recent Searches"
-                    default : cell.suggest = recentSearches[indexPath.row - 1]
-                }
-                
-            case 1 :
-                switch indexPath.row {
-                    case 0 : cell.title = "❖  Popular Searches"
-                    default : cell.suggest = popularSearches[indexPath.row - 1]
-                }
-                
-            default : break
+    fileprivate func handleSuggestCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let padding : CGFloat = 10
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchSuggestionCell.id, for: indexPath) as! SearchSuggestionCell
+        cell.selectionStyle = .none
+        cell.suggestion.frame = CGRect(x: padding, y: padding/2, width: cell.frame.width - padding*2, height: cell.frame.height - padding)
+        recentSearches = recentSearches.sorted{$0.count < $1.count}
+        
+        switch indexPath.section {
+        case 0 :
+            switch indexPath.row {
+            case 0 : cell.title = "❖  Recent Searches"
+            default : cell.suggest = recentSearches[indexPath.row - 1]
             }
             
-            return cell
+        case 1 :
+            switch indexPath.row {
+            case 0 : cell.title = "❖  Popular Searches"
+            default : cell.suggest = popularSearches[indexPath.row - 1]
+            }
+            
+        default : break
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == searchSuggestionsTableView {
+            return handleSuggestCell(tableView, indexPath)
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.id, for: indexPath) as! SearchResultTableViewCell
             setupCell(cell, indexPath)
@@ -96,7 +99,6 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         }
         
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == searchSuggestionsTableView {
@@ -129,10 +131,11 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
         cell.line.frame = CGRect(x: 0, y: cell.frame.height - 0.5, width: cell.frame.width, height: 0.5)
         cell.musicImage.frame = CGRect(x: 0, y: 5, width: cell.frame.height-10, height: cell.frame.height-10)
-        cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: paddingForTexts, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
-        cell.musicArtist.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: cell.frame.height/2, width: cell.frame.width - cell.musicImage.frame.width - 10, height: cell.frame.height/2-paddingForTexts)
+        cell.musicName.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: paddingForTexts, width: cell.frame.width - cell.musicImage.frame.width - 10 - 50, height: cell.frame.height/2-paddingForTexts)
+        cell.musicArtist.frame = CGRect(x: cell.musicImage.frame.maxX + 10, y: cell.frame.height/2, width: cell.musicName.frame.width , height: cell.frame.height/2-paddingForTexts)
         cell.loadingBar.frame = CGRect(x: 0, y: 0, width: 0, height: cell.frame.height)
         cell.waitingBar.frame = CGRect(x: 0, y: cell.frame.height-2, width: cell.frame.width, height: 2)
+        cell.checkMark.frame = CGRect(x: cell.frame.width - 35, y: cell.frame.height/2-8, width: 16, height: 16)
         cell.selectionStyle = .none
         
     }
@@ -145,7 +148,7 @@ extension DownloadViewController {
     
     //MARK:- download
     
-    fileprivate func startDownloading(_ cell: SearchResultTableViewCell, _ searchResult: SearchResult) {
+    fileprivate func startDownloading(_ cell: SearchResultTableViewCell, _ searchResult: SearchResult , _ index : IndexPath) {
         self.isDownloading = true
         cell.waitingBar.startAnimating()
         cell.isDownloading = true
@@ -161,12 +164,14 @@ extension DownloadViewController {
                 
                 cell.waitingBar.stopAnimating()
                 cell.loadingBar.isHidden = true
+                self.searchResults[index.row].isDownloaded = true
+                self.searchResultTableView.reloadRows(at: [index], with: UITableViewRowAnimation.left)
+                
                 
             } else {
                 
                 //TODO:- change it
-                //Helper.shared.alert(UIApplication.topViewController() ?? self, title: "", body: "Download failed.")
-                
+                Helper.shared.alert(self, title: "", body: "دانلود موفقیت آمیز نبود.")
             }
             
             self.isDownloading = false
@@ -177,45 +182,39 @@ extension DownloadViewController {
     
     fileprivate func handleDownload(_ tableView: UITableView, _ indexPath: IndexPath) {
 
-        var isDownloaded = false
+        
         guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultTableViewCell else {return}
         let searchResult = self.searchResults[indexPath.row]
         
-        helper.getRecentlyDownloadedMusics { (tracks) in
-            let ids = tracks.map {$0.track_id}
-            let matchedId = ids.filter {$0 == "\(searchResult.id)"}
-            
-            isDownloaded = !matchedId.isEmpty
-            
+        if searchResult.isDownloaded == true {
+            let track = self.searchResults[indexPath.row]
+            let id  = track.id
+            let filePath = helper.getSaveFileUrl(musicId: id)
+            helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
+            return
         }
         
-//        if isDownloaded {
-//            helper.alert(self, title: "💾", body: "شما این موزیک را دانلود کرده اید. ")
-//        } else {
-        
-            if !isDownloading {
-                
-                startDownloading(cell, searchResult)
+        if !isDownloading {
+            
+            startDownloading(cell, searchResult ,indexPath)
+            
+        } else {
+            
+            if cell.isDownloading{
+
+                API.request?.cancel()
+                API.request = nil
+                cell.waitingBar.stopAnimating()
+                cell.loadingBar.isHidden = true
                 
             } else {
                 
-                if cell.isDownloading{
-
-                    API.request?.cancel()
-                    API.request = nil
-                    cell.waitingBar.stopAnimating()
-                    cell.loadingBar.isHidden = true
-                    
-                } else {
-                    
-                    helper.alert(self, title: "✘", body: "لطفا صبر کنید تا دانلود در حال انجام تمام شود.")
-                    
-                }
+                helper.alert(self, title: "✘", body: "لطفا صبر کنید تا دانلود در حال انجام تمام شود.")
                 
             }
-        
+            
+        }
     }
-    
 }
 
 extension DownloadViewController {
@@ -258,8 +257,6 @@ extension DownloadViewController : UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
-        //searchResultTableView.isHidden = false
-        //searchSuggestionsTableView.isHidden = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -287,6 +284,9 @@ extension DownloadViewController : UISearchBarDelegate {
     }
     
     func setShowingSuggestion(hide : Bool) {
+        if hide && isDownloading {
+            return
+        }
         self.searchSuggestionsTableView.isHidden = hide
         self.searchResultTableView.isHidden      = !hide
         self.isShowingSuggestions                = !hide

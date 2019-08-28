@@ -19,6 +19,7 @@ class SearchResultTableViewCell : UITableViewCell {
             musicArtist.text = result.artistName
             musicName.text = result.title
             musicImage.sd_setImage(with: URL(string: result.cover) , placeholderImage: nil, options: SDWebImageOptions.progressiveLoad, completed: nil)
+            checkMark.isHidden = !(result.isDownloaded ?? false)
         }
     }
     
@@ -33,6 +34,7 @@ class SearchResultTableViewCell : UITableViewCell {
         addSubview(musicArtist)
         addSubview(loadingBar)
         addSubview(waitingBar)
+        addSubview(checkMark)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,6 +60,14 @@ class SearchResultTableViewCell : UITableViewCell {
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
         return image
+    }()
+    
+    let checkMark : CustomImageView = {
+        let view = CustomImageView()
+        view.image = #imageLiteral(resourceName: "tick").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        view.tintColor = .white
+        
+        return view
     }()
     
     let line : UIView = {
