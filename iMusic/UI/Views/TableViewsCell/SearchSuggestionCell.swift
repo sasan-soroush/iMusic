@@ -13,6 +13,23 @@ class SearchSuggestionCell : UITableViewCell {
     
     static let id = "SearchSuggestionCell"
     
+    var title : String? {
+        didSet {
+            suggestion.text = title ?? ""
+            suggestion.textColor = .white
+            suggestion.font = Font.DINCondensedRegular(size: 19)
+        }
+    }
+    
+    var suggest : String? {
+        didSet {
+            suggestion.text = suggest ?? ""
+            suggestion.textColor = .white
+            suggestion.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.light)
+        }
+    }
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: SearchResultTableViewCell.id)
         backgroundColor = .clear
@@ -27,7 +44,6 @@ class SearchSuggestionCell : UITableViewCell {
     let suggestion : CustomLabel = {
         let label = CustomLabel(customFont: Font.DINCondensedRegular(size: 19))
         label.textAlignment = .left
-        label.textColor = UIColor.white.withAlphaComponent(0.75)
         return label
     }()
    
