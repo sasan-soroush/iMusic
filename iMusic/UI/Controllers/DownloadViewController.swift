@@ -140,8 +140,6 @@ extension DownloadViewController : UITableViewDelegate , UITableViewDataSource {
         
     }
     
-    
-    
 }
 
 extension DownloadViewController {
