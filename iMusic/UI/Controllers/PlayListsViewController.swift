@@ -37,6 +37,20 @@ extension PlayListViewController {
         playlistsTableView.register(OfferedPlaylistsCell.self, forCellReuseIdentifier: OfferedPlaylistsCell.id)
     }
     
+    @objc private func showAllButtonTapped(button : UIButton) {
+        print(button.tag)
+        switch button.tag {
+        case 0:
+            break
+        case 1:
+            break
+        case 2:
+            break
+        default:
+            break
+        }
+    }
+    
 }
 
 extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
@@ -69,11 +83,23 @@ extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
-        let label = CustomLabel(customFont: Font.IranYekanRegular(size: 17))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
+        let label = CustomLabel(customFont: Font.IranYekanRegular(size: 15))
+        
+        let showAllButton = UIButton(type: UIButtonType.system)
+        showAllButton.setTitle("نمایش همه", for: UIControlState.normal)
+        showAllButton.setTitleColor(.white, for: UIControlState.normal)
+        showAllButton.titleLabel?.font = Font.IranYekanRegular(size: 15)
+        showAllButton.contentHorizontalAlignment = .left
+        showAllButton.frame = CGRect(x: 10, y: 0, width: tableView.frame.width/2, height: 30)
+        showAllButton.tag = section
+        showAllButton.addTarget(self, action: #selector(showAllButtonTapped(button:)), for: UIControlEvents.touchUpInside)
+        
         label.textAlignment = .right
-        headerView.addSubview(label)
         label.frame = CGRect(x: view.frame.midX, y: 0, width: tableView.frame.width/2-10, height: 30)
+        
+        headerView.addSubview(label)
+        headerView.addSubview(showAllButton)
         switch section {
         case 0:
             label.text = "پلی لیست های پیشنهادی"
@@ -96,7 +122,7 @@ extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 40
     }
 }
 
@@ -108,6 +134,7 @@ class PlayListViewController : BaseViewControllerNormal {
         view.isScrollEnabled = true
         view.backgroundColor = .clear
         view.separatorColor = .clear
+        view.showsVerticalScrollIndicator = false
         return view
     }()
     

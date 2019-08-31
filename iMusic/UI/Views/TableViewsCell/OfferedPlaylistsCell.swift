@@ -29,6 +29,7 @@ class OfferedPlaylistsCell : UITableViewCell {
         let layout = HSCycleGalleryViewLayout()
         let pager = UICollectionView(frame: .zero, collectionViewLayout: layout)
         pager.backgroundColor = .clear
+        pager.showsHorizontalScrollIndicator = false
         return pager
     }()
     
@@ -36,14 +37,13 @@ class OfferedPlaylistsCell : UITableViewCell {
 
 extension OfferedPlaylistsCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PaymentPlanCollectionViewCell.id, for: indexPath) as! PaymentPlanCollectionViewCell
-        cell.backgroundColor = UIColor.white.withAlphaComponent(1)
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.22)
         return cell
     }
     

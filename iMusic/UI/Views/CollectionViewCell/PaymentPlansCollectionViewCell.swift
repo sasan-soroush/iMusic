@@ -15,7 +15,7 @@ class PaymentPlanCollectionViewCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .gray
-        layer.cornerRadius = 8
+        layer.cornerRadius = 5
         clipsToBounds = true
         addSubview(playlistImage)
     }

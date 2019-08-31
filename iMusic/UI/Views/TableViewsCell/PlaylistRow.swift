@@ -21,7 +21,7 @@ class PlaylistRowCell : UITableViewCell {
         playlistsCV.delegate = self
         playlistsCV.dataSource = self
         playlistsCV.register(PlaylistCollectionViewCell.self, forCellWithReuseIdentifier: PlaylistCollectionViewCell.id)
-        playlistsCV.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        playlistsCV.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +32,7 @@ class PlaylistRowCell : UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isPagingEnabled = false
+        view.showsHorizontalScrollIndicator = false
         layout.scrollDirection = UICollectionViewScrollDirection.horizontal
         return view
     }()

@@ -14,6 +14,8 @@ class PlaylistCollectionViewCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.22)
+        layer.cornerRadius = 5
+        clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
