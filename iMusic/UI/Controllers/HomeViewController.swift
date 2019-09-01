@@ -40,13 +40,18 @@ extension HomeViewController {
 
 extension HomeViewController {
     
-    @objc private func cellButtonsTapped(Button : UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.deleteButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
-            self.cancelButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
-        }) { (_) in
+    @objc private func cellButtonsTapped(button : UIButton) {
+        
+        let indicator = "\(button.tag)".first!
+        let indexString = "\(button.tag)".dropFirst()
+        let index = Int(indexString)
+        
+        if indicator == "1" {
+            
+        } else if indicator == "2" {
             
         }
+        
     }
     
     @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
@@ -57,42 +62,8 @@ extension HomeViewController {
         let p = gesture.location(in: self.recentlyPlayedCV)
         
         if let indexPath = self.recentlyPlayedCV.indexPathForItem(at: p) {
-            // get the cell at indexPath (the one you long pressed)
-            guard let cell = self.recentlyPlayedCV.cellForItem(at: indexPath) else {return}
             
-            deleteButton.frame = CGRect(x: cell.frame.minX, y: cell.frame.minY, width: cell.frame.width, height: cell.frame.height/2 - 5)
-            deleteButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
-            deleteButton.backgroundColor = UIColor.white.withAlphaComponent(0.22)
-            deleteButton.layer.cornerRadius = 5
-            deleteButton.clipsToBounds = true
-            deleteButton.setImage(#imageLiteral(resourceName: "rubbish-bin").withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: UIControlState.normal)
-            deleteButton.imageView?.contentMode = .scaleAspectFit
-            deleteButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
-            deleteButton.tag = 1
-            deleteButton.addTarget(self, action: #selector(cellButtonsTapped(Button:)), for: UIControlEvents.touchUpInside)
             
-            cancelButton.frame = CGRect(x: cell.frame.minX, y: cell.frame.midY + 5, width: cell.frame.width, height: cell.frame.height/2 - 5)
-            cancelButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
-            cancelButton.backgroundColor = UIColor.white.withAlphaComponent(0.22)
-            cancelButton.layer.cornerRadius = 5
-            cancelButton.clipsToBounds = true
-            cancelButton.setImage(#imageLiteral(resourceName: "close").withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: UIControlState.normal)
-            cancelButton.imageView?.contentMode = .scaleAspectFit
-            cancelButton.imageEdgeInsets = UIEdgeInsets(top: 25, left: 30, bottom: 25, right: 30)
-            cancelButton.tag = 2
-            cancelButton.addTarget(self, action: #selector(cellButtonsTapped(Button:)), for: UIControlEvents.touchUpInside)
-            
-            recentlyPlayedCV.addSubview(deleteButton)
-            recentlyPlayedCV.addSubview(cancelButton)
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                cell.alpha = 0.0
-            }) { (_) in
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                    self.deleteButton.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-                    self.cancelButton.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-                }, completion: nil)
-            }
             
             // do stuff with the cell
         } else {
@@ -282,7 +253,7 @@ class HomeViewController : BaseViewControllerNormal {
     let padding : CGFloat = 7
     var downloadedMusics : [MusicTrack] = []
     var recentlyPlayedCV : UICollectionView!
-    
+    var lastIndex : IndexPath?
     let deleteButton = UIButton(type: UIButtonType.system)
     let cancelButton = UIButton(type: UIButtonType.system)
     
