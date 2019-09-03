@@ -164,6 +164,18 @@ class Helper  {
         
     }
     
+    func deleteDownloadedMusics(music : MusicTrack , success : (Bool)->()) {
+        do {
+            let downloadedMusics = try Disk.retrieve(Consts.shared.downloadedMusicsKey, from: .documents, as: [MusicTrack].self)
+            let filtered = downloadedMusics.filter {$0.track.id != music.track.id}
+            try Disk.save(filtered, to: Disk.Directory.documents, as: Consts.shared.downloadedMusicsKey)
+            success(true)
+        } catch {
+            success(false)
+            print(error)
+        }
+    }
+    
     //MARK:- path finder
     
     func pathFor(name: String, fileType: String) -> String {

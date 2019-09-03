@@ -44,7 +44,7 @@ class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
         titleBackground.addSubview(titleLabel)
         titleBackground.addSubview(artistLabel)
         
-        layer.cornerRadius = 5
+        layer.cornerRadius = 3
         clipsToBounds = true
         
     }

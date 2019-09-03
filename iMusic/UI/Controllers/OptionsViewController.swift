@@ -8,30 +8,35 @@
 
 import UIKit
 
+protocol OptionsDelegate {
+    func deleted()
+}
+
 extension OptionsViewController {
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        setDefaults()
         
-        if music != nil {
-            if let imgData = music!.cover {
-                if let image = UIImage(data: imgData) {
-                    musicImage.image = image
-                } else {
-                    musicImage.sd_setImage(with: URL(string: music!.track.cover) , completed: nil)
-                }
-            } else {
-                musicImage.sd_setImage(with: URL(string: music!.track.cover) , completed: nil)
+    }
+    
+    @objc private func buttonTapped(sender : UIButton) {
+        switch sender.tag {
+        case 1:
+            
+            helper.deleteDownloadedMusics(music: music!) { (success) in
+                dismiss(animated: true, completion: {
+                    self.delegate?.deleted()
+                })
             }
             
-            musicName.text = music!.track.title
-            musicArtist.text = music!.track.artistName
+        default:
+            break
         }
-        
-        
-        
     }
     
 }
@@ -62,11 +67,29 @@ extension OptionsViewController {
         musicArtist.frame = CGRect(x: padding*2, y: musicName.frame.maxY + padding/2, width: view.frame.width - padding*4, height: 25)
     }
     
+    fileprivate func setDefaults() {
+        if music != nil {
+            if let imgData = music!.cover {
+                if let image = UIImage(data: imgData) {
+                    musicImage.image = image
+                } else {
+                    musicImage.sd_setImage(with: URL(string: music!.track.cover) , completed: nil)
+                }
+            } else {
+                musicImage.sd_setImage(with: URL(string: music!.track.cover) , completed: nil)
+            }
+            
+            musicName.text = music!.track.title
+            musicArtist.text = music!.track.artistName
+        }
+    }
+    
 }
 
 class OptionsViewController : BaseViewControllerPresented {
     
     var music : MusicTrack?
+    var delegate : OptionsDelegate?
     
     init(initialY: CGFloat , track : MusicTrack) {
         self.music = track
@@ -80,6 +103,8 @@ class OptionsViewController : BaseViewControllerPresented {
     let deleteButton : UIButton = {
         let button = UIButton(type: UIButtonType.system)
         button.setImage(#imageLiteral(resourceName: "DeleteTrack"), for: UIControlState.normal)
+        button.tag = 1
+        button.addTarget(self, action: #selector(buttonTapped(sender:)), for: UIControlEvents.touchUpInside)
         return button
     }()
     

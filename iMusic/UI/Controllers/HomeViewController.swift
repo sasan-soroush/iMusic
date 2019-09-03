@@ -38,7 +38,7 @@ extension HomeViewController {
     
 }
 
-extension HomeViewController {
+extension HomeViewController : OptionsDelegate {
     
     @objc private func cellButtonsTapped(button : UIButton) {
         
@@ -64,14 +64,19 @@ extension HomeViewController {
         if let indexPath = self.recentlyPlayedCV.indexPathForItem(at: p) {
             
             let vc = OptionsViewController(initialY: view.frame.height/3, track: self.downloadedMusics[indexPath.item])
+            vc.delegate = self
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(nav, animated: true, completion: nil)
             
-            // do stuff with the cell
+            
         } else {
             print("couldn't find index path")
         }
+    }
+    
+    func deleted() {
+        getDowloadedMusic()
     }
 }
 
@@ -95,8 +100,6 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         return cell
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
         let customTransitionLayout = TransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
