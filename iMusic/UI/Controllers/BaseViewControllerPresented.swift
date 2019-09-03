@@ -59,6 +59,16 @@ extension BaseViewControllerPresented {
 class BaseViewControllerPresented: BaseViewController {
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
+    var initial_Y : CGFloat = 25
+    
+    init(initialY : CGFloat) {
+        self.initial_Y = initialY
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func setupBlurredView() {
         
@@ -66,20 +76,20 @@ class BaseViewControllerPresented: BaseViewController {
         
         let blurEffect = UIBlurEffect(style: .dark)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        blurredEffectView.frame = CGRect(x: 0, y: 25, width: view.frame.width, height: view.frame.height)
+        blurredEffectView.frame = CGRect(x: 0, y: initial_Y, width: view.frame.width, height: view.frame.height - initial_Y)
         blurredEffectView.layer.cornerRadius = 10
         blurredEffectView.clipsToBounds = true
         view.addSubview(blurredEffectView)
         view.addSubview(topView)
         
         let topViewHeight : CGFloat = 3
-        let topView_y = Helper.shared.getMiddleYAxisPoint(up_y: 25, down_y: 20 + view.frame.height/16 - 15, height: topViewHeight)
+        let topView_y = blurredEffectView.frame.minY+15
         
         topView.frame = CGRect(x: view.frame.width/5*2-5, y: topView_y, width: view.frame.width/5+10, height: topViewHeight)
-        self.view.bringSubview(toFront: logo)
-        
+        self.logo.isHidden = true
     }
     
+    /*
     private func setupView() {
         
         self.view.backgroundColor = UIColor.clear
@@ -97,6 +107,7 @@ class BaseViewControllerPresented: BaseViewController {
         self.view.bringSubview(toFront: logo)
         
     }
+    */
     
     let presentedView : UIView = {
         let view = UIView()

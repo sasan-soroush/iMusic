@@ -63,7 +63,10 @@ extension HomeViewController {
         
         if let indexPath = self.recentlyPlayedCV.indexPathForItem(at: p) {
             
-            
+            let vc = OptionsViewController(initialY: view.frame.height/3, track: self.downloadedMusics[indexPath.item])
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .overCurrentContext
+            self.navigationController?.present(nav, animated: true, completion: nil)
             
             // do stuff with the cell
         } else {
