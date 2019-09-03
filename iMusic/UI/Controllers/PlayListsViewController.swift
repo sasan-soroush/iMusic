@@ -73,12 +73,13 @@ extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
             return cell
         case 1 :
             let cell = tableView.dequeueReusableCell(withIdentifier: YourPlaylistCell.id, for: indexPath) as! YourPlaylistCell
-            cell.playlists = [Playlist() , Playlist()]
+            cell.playlists = []
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: FollowedPlaylistCell.id, for: indexPath) as! FollowedPlaylistCell
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            cell.playlists = []
             return cell
         }
         

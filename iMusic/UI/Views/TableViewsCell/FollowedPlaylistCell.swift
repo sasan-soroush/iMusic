@@ -11,7 +11,12 @@ import UIKit
 class FollowedPlaylistCell : UITableViewCell {
     
     static let id = "FollowedPlaylistCell"
-    var playlists = [Playlist]()
+    var addMode = false
+    var playlists : [Playlist] = [] {
+        didSet {
+            addMode = (playlists.count == 0)
+        }
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String? ) {
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: ProfileTableViewCell.id)
@@ -21,6 +26,7 @@ class FollowedPlaylistCell : UITableViewCell {
         playlistsCV.delegate = self
         playlistsCV.dataSource = self
         playlistsCV.register(PlaylistCollectionViewCell.self, forCellWithReuseIdentifier: PlaylistCollectionViewCell.id)
+        playlistsCV.register(AddPlaylistCell.self, forCellWithReuseIdentifier: AddPlaylistCell.id)
         playlistsCV.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
     }
@@ -42,18 +48,31 @@ class FollowedPlaylistCell : UITableViewCell {
 extension FollowedPlaylistCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return playlists.count
+        return addMode ? 1 : playlists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.id, for: indexPath) as! PlaylistCollectionViewCell
-        return cell
+        if addMode {
+            return handleAddMode(collectionView, indexPath)
+        } else {
+            return handleNormalMode(collectionView, indexPath)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (frame.height), height: (frame.height))
     }
+    
+    fileprivate func handleAddMode(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPlaylistCell.id, for: indexPath) as! AddPlaylistCell
+        let padding : CGFloat = cell.frame.width/3
+        cell.plusImage.frame = CGRect(x: padding, y: padding, width: cell.frame.width - padding*2, height: cell.frame.height - padding*2)
+        return cell
+    }
+    
+    fileprivate func handleNormalMode(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistCollectionViewCell.id, for: indexPath) as! PlaylistCollectionViewCell
+        return cell
+    }
 }
-
-
-

@@ -18,6 +18,7 @@
 		B23AF068231E5D5B000EEE07 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF067231E5D5B000EEE07 /* OptionsViewController.swift */; };
 		B23AF06C231E96DE000EEE07 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF06B231E96DE000EEE07 /* Playlist.swift */; };
 		B23AF06E231E987F000EEE07 /* FollowedPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF06D231E987F000EEE07 /* FollowedPlaylistCell.swift */; };
+		B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF06F231EA598000EEE07 /* AddPlaylistCell.swift */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
 		B241B68721D78F8300D53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B241B68621D78F8300D53711 /* Assets.xcassets */; };
@@ -175,6 +176,7 @@
 		B23AF067231E5D5B000EEE07 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		B23AF06B231E96DE000EEE07 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B23AF06D231E987F000EEE07 /* FollowedPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowedPlaylistCell.swift; sourceTree = "<group>"; };
+		B23AF06F231EA598000EEE07 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B241B68121D78F8000D53711 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				B22C3D04220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift */,
 				B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */,
 				B215778E231A995800E67AB9 /* PlaylistCollectionViewCell.swift */,
+				B23AF06F231EA598000EEE07 /* AddPlaylistCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				B2BB46AF22217FB200D97FA8 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */,
 				B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */,
+				B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B2BB46C422217FB300D97FA8 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
