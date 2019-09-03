@@ -176,6 +176,25 @@ class Helper  {
         }
     }
     
+    func setProfileImage(image : UIImage) {
+        do {
+            try Disk.save(image, to: Disk.Directory.documents, as: Consts.shared.profileImage)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getProfilePicture() -> UIImage {
+        var image = #imageLiteral(resourceName: "default_background")
+        do {
+            let img = try Disk.retrieve(Consts.shared.profileImage, from: Disk.Directory.documents, as: UIImage.self)
+            image = img
+        } catch {
+            print(error)
+        }
+        return image
+    }
+    
     //MARK:- path finder
     
     func pathFor(name: String, fileType: String) -> String {

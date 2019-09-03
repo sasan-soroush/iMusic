@@ -9,11 +9,12 @@
 import UIKit
 
 
-class PlaylistRowCell : UITableViewCell {
+class YourPlaylistCell : UITableViewCell {
     
     static let id = "PlaylistRowCell"
+    var playlists = [Playlist]()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String? ) {
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: ProfileTableViewCell.id)
         backgroundColor = .clear
         addSubview(playlistsCV)
@@ -22,6 +23,7 @@ class PlaylistRowCell : UITableViewCell {
         playlistsCV.dataSource = self
         playlistsCV.register(PlaylistCollectionViewCell.self, forCellWithReuseIdentifier: PlaylistCollectionViewCell.id)
         playlistsCV.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,9 +40,10 @@ class PlaylistRowCell : UITableViewCell {
     }()
 }
 
-extension PlaylistRowCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+extension YourPlaylistCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return playlists.count 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

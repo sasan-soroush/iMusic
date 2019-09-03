@@ -33,8 +33,9 @@ extension PlayListViewController {
         self.logo.isHidden = true
         playlistsTableView.delegate = self
         playlistsTableView.dataSource = self
-        playlistsTableView.register(PlaylistRowCell.self, forCellReuseIdentifier: PlaylistRowCell.id)
+        playlistsTableView.register(YourPlaylistCell.self, forCellReuseIdentifier: YourPlaylistCell.id)
         playlistsTableView.register(OfferedPlaylistsCell.self, forCellReuseIdentifier: OfferedPlaylistsCell.id)
+        playlistsTableView.register(FollowedPlaylistCell.self, forCellReuseIdentifier: FollowedPlaylistCell.id)
     }
     
     @objc private func showAllButtonTapped(button : UIButton) {
@@ -71,11 +72,12 @@ extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
             cell.offersCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width , height: cell.frame.height )
             return cell
         case 1 :
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistRowCell.id, for: indexPath) as! PlaylistRowCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: YourPlaylistCell.id, for: indexPath) as! YourPlaylistCell
+            cell.playlists = [Playlist() , Playlist()]
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistRowCell.id, for: indexPath) as! PlaylistRowCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: FollowedPlaylistCell.id, for: indexPath) as! FollowedPlaylistCell
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             return cell
         }

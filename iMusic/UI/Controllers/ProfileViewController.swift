@@ -259,6 +259,7 @@ class ProfileViewController: BaseViewControllerNormal {
         scrollView.delegate = self
         scrollView.dataSource = self
         scrollView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.id)
+        imageView.image = helper.getProfilePicture()
     }
     
     override func viewDidLoad() {
@@ -344,9 +345,9 @@ extension ProfileViewController : UIImagePickerControllerDelegate , UINavigation
         
         let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         self.imageView.image = selectedImage
+        self.helper.setProfileImage(image: selectedImage)
         self.dismiss(animated: true, completion: nil)
         
-       
         
     }
 }
