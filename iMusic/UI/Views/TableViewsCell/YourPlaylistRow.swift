@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol YourPlaylistCellDelegate {
+    func addPlaylistButtonTapped()
+}
 
 class YourPlaylistCell : UITableViewCell {
     
     static let id = "PlaylistRowCell"
+    var delegate : YourPlaylistCellDelegate?
+    
     var addMode = false
     var playlists : [Playlist] = [] {
         didSet {
@@ -59,6 +64,12 @@ extension YourPlaylistCell : UICollectionViewDelegate , UICollectionViewDataSour
             return handleNormalMode(collectionView, indexPath)
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if addMode {
+            delegate?.addPlaylistButtonTapped()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

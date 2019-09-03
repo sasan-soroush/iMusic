@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol FollowedPlaylistsCellDelegate {
+    func followPlaylistButtonTapped()
+}
+
 class FollowedPlaylistCell : UITableViewCell {
     
     static let id = "FollowedPlaylistCell"
     var addMode = false
+    var delegate : FollowedPlaylistsCellDelegate?
     var playlists : [Playlist] = [] {
         didSet {
             addMode = (playlists.count == 0)
@@ -58,6 +63,12 @@ extension FollowedPlaylistCell : UICollectionViewDelegate , UICollectionViewData
             return handleNormalMode(collectionView, indexPath)
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if addMode {
+            delegate?.followPlaylistButtonTapped()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

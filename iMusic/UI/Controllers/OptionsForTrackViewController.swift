@@ -12,7 +12,7 @@ protocol OptionsDelegate {
     func deleted()
 }
 
-extension OptionsViewController {
+extension OptionsForTrackViewController {
     
     
     
@@ -41,7 +41,7 @@ extension OptionsViewController {
     
 }
 
-extension OptionsViewController {
+extension OptionsForTrackViewController {
     
     private func setupView() {
         
@@ -86,7 +86,7 @@ extension OptionsViewController {
     
 }
 
-class OptionsViewController : BaseViewControllerPresented {
+class OptionsForTrackViewController : BaseViewControllerPresented {
     
     var music : MusicTrack?
     var delegate : OptionsDelegate?

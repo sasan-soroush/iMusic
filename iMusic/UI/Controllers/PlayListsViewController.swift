@@ -54,6 +54,22 @@ extension PlayListViewController {
     
 }
 
+extension PlayListViewController : YourPlaylistCellDelegate , FollowedPlaylistsCellDelegate {
+    
+    func addPlaylistButtonTapped() {
+        let vc = AddPlaylistViewController(initialY: view.frame.midY)
+        vc.modalPresentationStyle = .overCurrentContext
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func followPlaylistButtonTapped() {
+        let vc = AddPlaylistViewController(initialY: view.frame.midY)
+        vc.modalPresentationStyle = .overCurrentContext
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+}
+
 extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,12 +89,14 @@ extension PlayListViewController : UITableViewDelegate , UITableViewDataSource {
             return cell
         case 1 :
             let cell = tableView.dequeueReusableCell(withIdentifier: YourPlaylistCell.id, for: indexPath) as! YourPlaylistCell
+            cell.delegate = self
             cell.playlists = []
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: FollowedPlaylistCell.id, for: indexPath) as! FollowedPlaylistCell
             cell.playlistsCV.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            cell.delegate = self
             cell.playlists = []
             return cell
         }

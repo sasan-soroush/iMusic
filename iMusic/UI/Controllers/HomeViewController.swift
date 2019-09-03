@@ -63,7 +63,7 @@ extension HomeViewController : OptionsDelegate {
         
         if let indexPath = self.recentlyPlayedCV.indexPathForItem(at: p) {
             
-            let vc = OptionsViewController(initialY: view.frame.height/3, track: self.downloadedMusics[indexPath.item])
+            let vc = OptionsForTrackViewController(initialY: view.frame.height/3, track: self.downloadedMusics[indexPath.item])
             vc.delegate = self
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .overCurrentContext
