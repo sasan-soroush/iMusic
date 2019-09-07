@@ -21,6 +21,7 @@
 		B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF06F231EA598000EEE07 /* AddPlaylistCell.swift */; };
 		B23AF072231EAFFA000EEE07 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF071231EAFFA000EEE07 /* PlaylistViewController.swift */; };
 		B23AF074231EB056000EEE07 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF073231EB056000EEE07 /* AddPlaylistViewController.swift */; };
+		B23AF07A2323E254000EEE07 /* PlaylistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF0792323E254000EEE07 /* PlaylistManager.swift */; };
 		B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B67F21D78F8000D53711 /* AppDelegate.swift */; };
 		B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B68121D78F8000D53711 /* SignUpViewController.swift */; };
 		B241B68721D78F8300D53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B241B68621D78F8300D53711 /* Assets.xcassets */; };
@@ -181,6 +182,7 @@
 		B23AF06F231EA598000EEE07 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
 		B23AF071231EAFFA000EEE07 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		B23AF073231EB056000EEE07 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
+		B23AF0792323E254000EEE07 /* PlaylistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistManager.swift; sourceTree = "<group>"; };
 		B241B67C21D78F8000D53711 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B241B67F21D78F8000D53711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B241B68121D78F8000D53711 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A2585721E0B3C100CF3738 /* API.swift */,
+				B23AF0792323E254000EEE07 /* PlaylistManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
+				B23AF07A2323E254000EEE07 /* PlaylistManager.swift in Sources */,
 				B2BB46C422217FB300D97FA8 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B2BB469F22217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,

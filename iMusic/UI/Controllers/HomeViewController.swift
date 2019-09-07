@@ -21,6 +21,7 @@ extension HomeViewController {
         
         setupView()
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,20 +40,6 @@ extension HomeViewController {
 }
 
 extension HomeViewController : OptionsDelegate {
-    
-    @objc private func cellButtonsTapped(button : UIButton) {
-        
-        let indicator = "\(button.tag)".first!
-        let indexString = "\(button.tag)".dropFirst()
-        let index = Int(indexString)
-        
-        if indicator == "1" {
-            
-        } else if indicator == "2" {
-            
-        }
-        
-    }
     
     @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
         if gesture.state != .began {
