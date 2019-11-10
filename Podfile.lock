@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.8.2)
-  - AudioKit (4.7.2):
-    - AudioKit/Core (= 4.7.2)
-    - AudioKit/UI (= 4.7.2)
-  - AudioKit/Core (4.7.2)
-  - AudioKit/UI (4.7.2):
+  - AudioKit (4.9.2):
+    - AudioKit/Core (= 4.9.2)
+    - AudioKit/UI (= 4.9.2)
+  - AudioKit/Core (4.9.2)
+  - AudioKit/UI (4.9.2):
     - AudioKit/Core
   - Disk (0.4.0)
   - DisplaySwitcher (1.0.1)
@@ -28,7 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AudioKit (~> 4.7.2)
+  - AudioKit (~> 4.9.2)
   - Disk (~> 0.4.0)
   - DisplaySwitcher
   - GoogleSignIn
@@ -49,7 +49,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AudioKit: ee4ab79e2fffe42e52b8fd8d214eaaea968c368e
+  AudioKit: ee388f0c9ad4e90b6106c14caaf809cd7ca220da
   Disk: ef2956657d5bb56034b38b29b352170165226440
   DisplaySwitcher: 5f725284c28cdf22ea7ba2eee8e8f7e7cb9cdf87
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -58,6 +58,6 @@ SPEC CHECKSUMS:
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: d13358454d2b54f228cf63ab9d52a99b1579e86a
+PODFILE CHECKSUM: 325589aec860cbdaeedd6ede091c8fa72ec31f74
 
 COCOAPODS: 1.5.3

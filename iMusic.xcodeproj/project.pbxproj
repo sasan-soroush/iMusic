@@ -1303,7 +1303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K5P8N9338A;
+				DEVELOPMENT_TEAM = E95XC5F5LJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1316,7 +1316,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -1330,7 +1330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K5P8N9338A;
+				DEVELOPMENT_TEAM = E95XC5F5LJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1343,7 +1343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iranappcenter.imoozik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iMusic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

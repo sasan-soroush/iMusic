@@ -23,7 +23,9 @@ extension AppDelegate : GIDSignInDelegate{
             let familyName = user.profile.familyName
             let email = user.profile.email
             
-            UIApplication.topViewController()?.present(mainTabBarController, animated: true, completion: nil)
+            let vc = mainTabBarController
+            vc.modalPresentationStyle = .fullScreen
+            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
 
         }
     }

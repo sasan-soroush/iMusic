@@ -94,10 +94,10 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let track = self.downloadedMusics[indexPath.row]
-        let id  = track.track.id
-        let filePath = helper.getSaveFileUrl(musicId: id)
-        helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
+//        let track = self.downloadedMusics[indexPath.row]
+//        let id  = track.track.id
+//        let filePath = helper.getSaveFileUrl(musicId: id)
+//        helper.pandoraPlay(fromTabBar: true, target: self, filePath: filePath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

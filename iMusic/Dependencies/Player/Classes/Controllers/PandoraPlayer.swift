@@ -526,6 +526,7 @@ open class PandoraPlayer: UIViewController {
     
     func updateCommandCenter() {
         let commandCenter = MPRemoteCommandCenter.shared()
+
         commandCenter.changePlaybackPositionCommand.isEnabled = true
         commandCenter.changePlaybackPositionCommand.addTarget(self, action:#selector(changePlaybackPositionCommand(_:)))
         commandCenter.togglePlayPauseCommand.addTarget(self, action:   #selector(onPlay))
