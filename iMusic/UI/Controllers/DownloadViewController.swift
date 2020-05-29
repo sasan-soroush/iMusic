@@ -346,17 +346,22 @@ class DownloadViewController : BaseViewControllerNormal {
         
         let cancelButtonAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: UIColor.white]
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
-        
-        let txtSearchField = searchBar.searchTextField
-        txtSearchField.borderStyle = .none
-        txtSearchField.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.25)
-        txtSearchField.layer.cornerRadius = 8
-        txtSearchField.clipsToBounds = true
-        txtSearchField.keyboardAppearance = .dark
-        txtSearchField.layer.borderColor = UIColor.MyTheme.gradientForBGColor.cgColor
-        txtSearchField.layer.borderWidth = 0.5
+        var txtSearchField : UITextField?
+        if #available(iOS 13.0, *) {
+            txtSearchField = searchBar.searchTextField
+        } else {
+            // Fallback on earlier versions
+            txtSearchField = searchBar.value(forKey: "_searchField") as? UITextField
+        }
+        txtSearchField?.borderStyle = .none
+        txtSearchField?.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.25)
+        txtSearchField?.layer.cornerRadius = 8
+        txtSearchField?.clipsToBounds = true
+        txtSearchField?.keyboardAppearance = .dark
+        txtSearchField?.layer.borderColor = UIColor.MyTheme.gradientForBGColor.cgColor
+        txtSearchField?.layer.borderWidth = 0.5
         let attributedString = NSAttributedString(string: "موزیک مورد نظر را جستجو کنید", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray , NSAttributedStringKey.font : Font.IranYekanLight(size: 18) ])
-        txtSearchField.attributedPlaceholder = attributedString
+        txtSearchField?.attributedPlaceholder = attributedString
         
         if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInsideSearchBar.textColor = UIColor.MyTheme.textFieldTextColor
