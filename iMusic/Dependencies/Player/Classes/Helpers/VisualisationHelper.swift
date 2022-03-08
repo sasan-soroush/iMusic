@@ -8,7 +8,7 @@
 
 import Foundation
 import AudioKit
-import AudioKitUI
+
 
 class VisualisationHelper {
     
