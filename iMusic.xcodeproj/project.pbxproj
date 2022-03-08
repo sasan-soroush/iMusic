@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,7 +57,6 @@
 		B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */; };
 		B27979D222770F9B006CB84B /* PopBounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979CE22770F9B006CB84B /* PopBounceButton.swift */; };
 		B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979CF22770F9B006CB84B /* ButtonAnimator.swift */; };
-		B27979D422770F9B006CB84B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = B27979D122770F9B006CB84B /* .gitkeep */; };
 		B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E521E9FF4200192393 /* BaseViewController.swift */; };
 		B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */; };
 		B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */; };
@@ -147,6 +146,26 @@
 		E27A70792211F92A001751BC /* VisualisationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A705C2211F92A001751BC /* VisualisationHelper.swift */; };
 		E27A707A2211F92A001751BC /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27A705F2211F92A001751BC /* PandoraPlayer.storyboard */; };
 		E27A707B2211F92A001751BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27A70612211F92A001751BC /* Assets.xcassets */; };
+		E2B369FE27D7BFCB002B7C44 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E2B369FD27D7BFCB002B7C44 /* AudioKit */; };
+		E2B36A0C27D7C075002B7C44 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0027D7C075002B7C44 /* Disk.swift */; };
+		E2B36A0D27D7C075002B7C44 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0127D7C075002B7C44 /* Disk+InternalHelpers.swift */; };
+		E2B36A0E27D7C075002B7C44 /* Disk+[Data].swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0227D7C075002B7C44 /* Disk+[Data].swift */; };
+		E2B36A0F27D7C075002B7C44 /* Disk+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0327D7C075002B7C44 /* Disk+Data.swift */; };
+		E2B36A1027D7C075002B7C44 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0427D7C075002B7C44 /* Disk+Errors.swift */; };
+		E2B36A1127D7C075002B7C44 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0627D7C075002B7C44 /* Disk+Helpers.swift */; };
+		E2B36A1227D7C075002B7C44 /* Disk+VolumeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0727D7C075002B7C44 /* Disk+VolumeInformation.swift */; };
+		E2B36A1327D7C075002B7C44 /* Disk+[UIImage].swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0827D7C075002B7C44 /* Disk+[UIImage].swift */; };
+		E2B36A1427D7C075002B7C44 /* Disk+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0927D7C075002B7C44 /* Disk+UIImage.swift */; };
+		E2B36A1527D7C075002B7C44 /* Disk+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0A27D7C075002B7C44 /* Disk+Codable.swift */; };
+		E2B36A1927D7C122002B7C44 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = E2B36A1827D7C122002B7C44 /* AudioKitUI */; };
+		E2B36A1C27D7C1EB002B7C44 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E2B36A1B27D7C1EB002B7C44 /* SDWebImage */; };
+		E2B36A1F27D7C2BD002B7C44 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E2B36A1E27D7C2BD002B7C44 /* Alamofire */; };
+		E2B36A2227D7C380002B7C44 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E2B36A2127D7C380002B7C44 /* SwiftyJSON */; };
+		E2B36A3027D7C4EA002B7C44 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A2627D7C4EA002B7C44 /* TransitionManager.swift */; };
+		E2B36A3227D7C4EA002B7C44 /* DisplaySwitchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A2927D7C4EA002B7C44 /* DisplaySwitchLayout.swift */; };
+		E2B36A3327D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A2A27D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift */; };
+		E2B36A3427D7C4EA002B7C44 /* SwitchLayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A2C27D7C4EA002B7C44 /* SwitchLayoutButton.swift */; };
+		E2B36A3527D7C4EA002B7C44 /* TransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A2E27D7C4EA002B7C44 /* TransitionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -220,7 +239,6 @@
 		B27979932275D78A006CB84B /* PaymentPlansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPlansTableViewCell.swift; sourceTree = "<group>"; };
 		B27979CE22770F9B006CB84B /* PopBounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopBounceButton.swift; sourceTree = "<group>"; };
 		B27979CF22770F9B006CB84B /* ButtonAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimator.swift; sourceTree = "<group>"; };
-		B27979D122770F9B006CB84B /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		B29AA2E521E9FF4200192393 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B29AA2E721EA128700192393 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		B2A2584F21E08A8E00CF3738 /* IRANYekanRegularMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANYekanRegularMobile(FaNum).ttf"; sourceTree = "<group>"; };
@@ -315,6 +333,23 @@
 		E27A70612211F92A001751BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27A70622211F92A001751BC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		E27A70632211F92A001751BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2B36A0027D7C075002B7C44 /* Disk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
+		E2B36A0127D7C075002B7C44 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
+		E2B36A0227D7C075002B7C44 /* Disk+[Data].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[Data].swift"; sourceTree = "<group>"; };
+		E2B36A0327D7C075002B7C44 /* Disk+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Data.swift"; sourceTree = "<group>"; };
+		E2B36A0427D7C075002B7C44 /* Disk+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Errors.swift"; sourceTree = "<group>"; };
+		E2B36A0527D7C075002B7C44 /* Disk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Disk.h; sourceTree = "<group>"; };
+		E2B36A0627D7C075002B7C44 /* Disk+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Helpers.swift"; sourceTree = "<group>"; };
+		E2B36A0727D7C075002B7C44 /* Disk+VolumeInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+VolumeInformation.swift"; sourceTree = "<group>"; };
+		E2B36A0827D7C075002B7C44 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[UIImage].swift"; sourceTree = "<group>"; };
+		E2B36A0927D7C075002B7C44 /* Disk+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+UIImage.swift"; sourceTree = "<group>"; };
+		E2B36A0A27D7C075002B7C44 /* Disk+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Codable.swift"; sourceTree = "<group>"; };
+		E2B36A2627D7C4EA002B7C44 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		E2B36A2927D7C4EA002B7C44 /* DisplaySwitchLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySwitchLayout.swift; sourceTree = "<group>"; };
+		E2B36A2A27D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySwitchLayoutAttributes.swift; sourceTree = "<group>"; };
+		E2B36A2C27D7C4EA002B7C44 /* SwitchLayoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchLayoutButton.swift; sourceTree = "<group>"; };
+		E2B36A2E27D7C4EA002B7C44 /* TransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionLayout.swift; sourceTree = "<group>"; };
+		E2B36A2F27D7C4EA002B7C44 /* DisplaySwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplaySwitcher.h; sourceTree = "<group>"; };
 		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -323,8 +358,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B369FE27D7BFCB002B7C44 /* AudioKit in Frameworks */,
+				E2B36A2227D7C380002B7C44 /* SwiftyJSON in Frameworks */,
 				B241B6BA21D7AFF600D53711 /* pop.framework in Frameworks */,
+				E2B36A1927D7C122002B7C44 /* AudioKitUI in Frameworks */,
+				E2B36A1F27D7C2BD002B7C44 /* Alamofire in Frameworks */,
 				01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */,
+				E2B36A1C27D7C1EB002B7C44 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +502,8 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E2B36A2327D7C4EA002B7C44 /* DisplaySwitch */,
+				E2B369FF27D7C075002B7C44 /* Disk */,
 				B2AA08A722DB797A00681BC7 /* TextFieldEffects */,
 				B27979CC22770F9B006CB84B /* PopBounceButton */,
 				B27979882275D4FB006CB84B /* HSCycleGalleryView */,
@@ -615,7 +657,6 @@
 		B27979D022770F9B006CB84B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				B27979D122770F9B006CB84B /* .gitkeep */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -873,6 +914,77 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		E2B369FF27D7C075002B7C44 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A0027D7C075002B7C44 /* Disk.swift */,
+				E2B36A0127D7C075002B7C44 /* Disk+InternalHelpers.swift */,
+				E2B36A0227D7C075002B7C44 /* Disk+[Data].swift */,
+				E2B36A0327D7C075002B7C44 /* Disk+Data.swift */,
+				E2B36A0427D7C075002B7C44 /* Disk+Errors.swift */,
+				E2B36A0527D7C075002B7C44 /* Disk.h */,
+				E2B36A0627D7C075002B7C44 /* Disk+Helpers.swift */,
+				E2B36A0727D7C075002B7C44 /* Disk+VolumeInformation.swift */,
+				E2B36A0827D7C075002B7C44 /* Disk+[UIImage].swift */,
+				E2B36A0927D7C075002B7C44 /* Disk+UIImage.swift */,
+				E2B36A0A27D7C075002B7C44 /* Disk+Codable.swift */,
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		E2B36A2327D7C4EA002B7C44 /* DisplaySwitch */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2427D7C4EA002B7C44 /* Classes */,
+				E2B36A2F27D7C4EA002B7C44 /* DisplaySwitcher.h */,
+			);
+			path = DisplaySwitch;
+			sourceTree = "<group>";
+		};
+		E2B36A2427D7C4EA002B7C44 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2527D7C4EA002B7C44 /* TransitionManager */,
+				E2B36A2827D7C4EA002B7C44 /* Layouts */,
+				E2B36A2B27D7C4EA002B7C44 /* Views */,
+				E2B36A2D27D7C4EA002B7C44 /* TransitionLayout */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E2B36A2527D7C4EA002B7C44 /* TransitionManager */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2627D7C4EA002B7C44 /* TransitionManager.swift */,
+			);
+			path = TransitionManager;
+			sourceTree = "<group>";
+		};
+		E2B36A2827D7C4EA002B7C44 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2927D7C4EA002B7C44 /* DisplaySwitchLayout.swift */,
+				E2B36A2A27D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		E2B36A2B27D7C4EA002B7C44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2C27D7C4EA002B7C44 /* SwitchLayoutButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E2B36A2D27D7C4EA002B7C44 /* TransitionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E2B36A2E27D7C4EA002B7C44 /* TransitionLayout.swift */,
+			);
+			path = TransitionLayout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -893,6 +1005,13 @@
 			dependencies = (
 			);
 			name = iMusic;
+			packageProductDependencies = (
+				E2B369FD27D7BFCB002B7C44 /* AudioKit */,
+				E2B36A1827D7C122002B7C44 /* AudioKitUI */,
+				E2B36A1B27D7C1EB002B7C44 /* SDWebImage */,
+				E2B36A1E27D7C2BD002B7C44 /* Alamofire */,
+				E2B36A2127D7C380002B7C44 /* SwiftyJSON */,
+			);
 			productName = iMusic;
 			productReference = B241B67C21D78F8000D53711 /* iMusic.app */;
 			productType = "com.apple.product-type.application";
@@ -926,6 +1045,13 @@
 				Base,
 			);
 			mainGroup = B241B67321D78F8000D53711;
+			packageReferences = (
+				E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				E2B36A1A27D7C1EB002B7C44 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = B241B67D21D78F8000D53711 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -957,7 +1083,6 @@
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
 				B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */,
-				B27979D422770F9B006CB84B /* .gitkeep in Resources */,
 				B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */,
 				B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */,
 				B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */,
@@ -1030,6 +1155,7 @@
 			files = (
 				B2BB46BB22217FB200D97FA8 /* NVActivityIndicatorAnimationLineScale.swift in Sources */,
 				B241B69421D791D100D53711 /* Extentions.swift in Sources */,
+				E2B36A3227D7C4EA002B7C44 /* DisplaySwitchLayout.swift in Sources */,
 				B2BB46B222217FB200D97FA8 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
 				B279798E2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift in Sources */,
@@ -1040,14 +1166,18 @@
 				B257F4722274867300CB062A /* ProfileViewController.swift in Sources */,
 				E27A706C2211F92A001751BC /* PandoraPlayer.swift in Sources */,
 				B2BB46C122217FB300D97FA8 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
+				E2B36A1327D7C075002B7C44 /* Disk+[UIImage].swift in Sources */,
 				B2BB46BA22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				E27A70742211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift in Sources */,
+				E2B36A1027D7C075002B7C44 /* Disk+Errors.swift in Sources */,
 				B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */,
 				B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */,
 				B2BB46C022217FB200D97FA8 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				B2BB46A322217FB200D97FA8 /* NVActivityIndicatorView.swift in Sources */,
 				B2C5B6ED21EF75F700E32554 /* Const.swift in Sources */,
 				B241B6AF21D7AE8200D53711 /* ESTabBarItemContentView.swift in Sources */,
+				E2B36A0E27D7C075002B7C44 /* Disk+[Data].swift in Sources */,
+				E2B36A3327D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift in Sources */,
 				B2BB46A222217FB200D97FA8 /* NVActivityIndicatorShape.swift in Sources */,
 				B23AF068231E5D5B000EEE07 /* OptionsForTrackViewController.swift in Sources */,
 				B2BB46A622217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
@@ -1063,6 +1193,7 @@
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				E27A70702211F92A001751BC /* WaveVisualizer.swift in Sources */,
+				E2B36A1427D7C075002B7C44 /* Disk+UIImage.swift in Sources */,
 				B2BB46B422217FB200D97FA8 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
 				B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */,
@@ -1072,6 +1203,7 @@
 				B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */,
 				B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
+				E2B36A1127D7C075002B7C44 /* Disk+Helpers.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B23AF07A2323E254000EEE07 /* PlaylistManager.swift in Sources */,
 				B2BB46C422217FB300D97FA8 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
@@ -1079,21 +1211,26 @@
 				B2BB469F22217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
 				E27A70722211F92A001751BC /* PlayerControls.swift in Sources */,
+				E2B36A0C27D7C075002B7C44 /* Disk.swift in Sources */,
 				B2BB46C222217FB300D97FA8 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				B2BB46A522217FB200D97FA8 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				E27A706A2211F92A001751BC /* Array.swift in Sources */,
 				B2BB46B322217FB200D97FA8 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
+				E2B36A1227D7C075002B7C44 /* Disk+VolumeInformation.swift in Sources */,
 				B2BB46B722217FB200D97FA8 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */,
 				B241B6D421D8AC7900D53711 /* CustomLabel.swift in Sources */,
+				E2B36A3027D7C4EA002B7C44 /* TransitionManager.swift in Sources */,
 				B2BB46BF22217FB200D97FA8 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
+				E2B36A3527D7C4EA002B7C44 /* TransitionLayout.swift in Sources */,
 				B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
 				B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */,
 				B2BB46AC22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				E27A70662211F92A001751BC /* Constants.swift in Sources */,
 				B215778D231A819900E67AB9 /* OfferedPlaylistsCell.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
+				E2B36A1527D7C075002B7C44 /* Disk+Codable.swift in Sources */,
 				B2A2585821E0B3C100CF3738 /* API.swift in Sources */,
 				B241B69621D791D800D53711 /* Helper.swift in Sources */,
 				B241B6B321D7AE8200D53711 /* ESTabBarItemContainer.swift in Sources */,
@@ -1112,6 +1249,7 @@
 				B23AF06C231E96DE000EEE07 /* Playlist.swift in Sources */,
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
 				B2AA08AC22DB797A00681BC7 /* HoshiTextField.swift in Sources */,
+				E2B36A3427D7C4EA002B7C44 /* SwitchLayoutButton.swift in Sources */,
 				B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */,
 				B2BB46AB22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				B215778B231A77A800E67AB9 /* YourPlaylistRow.swift in Sources */,
@@ -1122,6 +1260,7 @@
 				B27979D222770F9B006CB84B /* PopBounceButton.swift in Sources */,
 				E27A70642211F92A001751BC /* UIImageColors.swift in Sources */,
 				B224C17622259AFE003BFE22 /* iCarousel.m in Sources */,
+				E2B36A0D27D7C075002B7C44 /* Disk+InternalHelpers.swift in Sources */,
 				E27A70712211F92A001751BC /* ViewWithXib.swift in Sources */,
 				B2BB46A822217FB200D97FA8 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				E27A706B2211F92A001751BC /* NSObjectExtensions.swift in Sources */,
@@ -1131,6 +1270,7 @@
 				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
 				B215778923154B5B00E67AB9 /* SearchSuggestionCell.swift in Sources */,
 				E27A70672211F92A001751BC /* MetaData.swift in Sources */,
+				E2B36A0F27D7C075002B7C44 /* Disk+Data.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
 				B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */,
 				B2BB46AA22217FB200D97FA8 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
@@ -1220,7 +1360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1276,7 +1416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1366,6 +1506,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.3.3;
+			};
+		};
+		E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.5;
+			};
+		};
+		E2B36A1A27D7C1EB002B7C44 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.5;
+			};
+		};
+		E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.8.2;
+			};
+		};
+		E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2B369FD27D7BFCB002B7C44 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		E2B36A1827D7C122002B7C44 /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+		E2B36A1B27D7C1EB002B7C44 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B36A1A27D7C1EB002B7C44 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E2B36A1E27D7C2BD002B7C44 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E2B36A2127D7C380002B7C44 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B241B67421D78F8000D53711 /* Project object */;
 }

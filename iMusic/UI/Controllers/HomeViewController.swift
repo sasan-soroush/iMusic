@@ -8,11 +8,11 @@
 
 import UIKit
 import AVFoundation
-import Disk
+//import Disk
 import AudioKit
 import AVKit
 import MediaPlayer
-import DisplaySwitcher
+//import DisplaySwitcher
 
 extension HomeViewController {
 

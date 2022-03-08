@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import DisplaySwitcher
 
 class RecentlyPlayedCollectionViewCell : UICollectionViewCell {
     

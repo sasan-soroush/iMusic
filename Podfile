@@ -8,17 +8,17 @@ target 'iMusic' do
   # Pods for iMusic
 
 	pod 'GoogleSignIn'
-    pod 'Alamofire'
-    pod 'SwiftyJSON', '~> 4.2'
-    pod 'SDWebImage'
+#    pod 'Alamofire'
+#    pod 'SwiftyJSON', '~> 4.2'
+#    pod 'SDWebImage'
 #    pod 'PandoraPlayer'
 #    pod 'AudioKit', '~> 5.1'
     #    pod 'ID3TagEditor', '~> 2.0'
     #   pod 'OutcastID3', '~> 0.5'
     #   pod 'ID3Edit'
-    pod 'Disk', '~> 0.4.0'
+#    pod 'Disk', '~> 0.4.0'
     #pod 'SwiftLint', '~> 0.31'
-    pod ‘DisplaySwitcher’, '~> 2.0'
+    pod 'DisplaySwitcher', '~> 2.0'
 end
 
 post_install do |installer|

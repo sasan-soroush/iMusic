@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-import Disk
 import AVFoundation
 
 class Helper  {
