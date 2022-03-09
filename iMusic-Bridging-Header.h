@@ -10,5 +10,6 @@
 #define iMusic_Bridging_Header_h
 
 #import "iCarousel.h"
+#import "EZAudio.h"
 
 #endif /* iMusic_Bridging_Header_h */
