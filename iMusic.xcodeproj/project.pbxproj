@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */; };
 		B215778923154B5B00E67AB9 /* SearchSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215778823154B5B00E67AB9 /* SearchSuggestionCell.swift */; };
 		B215778B231A77A800E67AB9 /* YourPlaylistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215778A231A77A800E67AB9 /* YourPlaylistRow.swift */; };
 		B215778D231A819900E67AB9 /* OfferedPlaylistsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215778C231A819900E67AB9 /* OfferedPlaylistsCell.swift */; };
@@ -67,6 +66,31 @@
 		B266E0BE27D89EF100A3AEB5 /* EZAudioDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B266E0AB27D89EF100A3AEB5 /* EZAudioDisplayLink.m */; };
 		B266E0BF27D89EF100A3AEB5 /* EZAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B266E0AC27D89EF100A3AEB5 /* EZAudioFile.m */; };
 		B266E0C027D89EF100A3AEB5 /* EZAudioPlotGL.m in Sources */ = {isa = PBXBuildFile; fileRef = B266E0AD27D89EF100A3AEB5 /* EZAudioPlotGL.m */; };
+		B266E0EE27D8A11B00A3AEB5 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0C527D8A11B00A3AEB5 /* UIImageColors.swift */; };
+		B266E0EF27D8A11B00A3AEB5 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0C627D8A11B00A3AEB5 /* UIImageEffects.swift */; };
+		B266E0F027D8A11B00A3AEB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0C827D8A11B00A3AEB5 /* Constants.swift */; };
+		B266E0F127D8A11B00A3AEB5 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0CA27D8A11B00A3AEB5 /* MetaData.swift */; };
+		B266E0F227D8A11B00A3AEB5 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0CB27D8A11B00A3AEB5 /* Song.swift */; };
+		B266E0F327D8A11B00A3AEB5 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0CD27D8A11B00A3AEB5 /* CommonExtensions.swift */; };
+		B266E0F427D8A11B00A3AEB5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0CE27D8A11B00A3AEB5 /* Array.swift */; };
+		B266E0F527D8A11B00A3AEB5 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0CF27D8A11B00A3AEB5 /* NSObjectExtensions.swift */; };
+		B266E0F627D8A11B00A3AEB5 /* PandoraPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0D127D8A11B00A3AEB5 /* PandoraPlayer.swift */; };
+		B266E0F727D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B266E0D527D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.xib */; };
+		B266E0F827D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0D627D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.swift */; };
+		B266E0F927D8A11B00A3AEB5 /* WaveVisualizer.xib in Resources */ = {isa = PBXBuildFile; fileRef = B266E0D827D8A11B00A3AEB5 /* WaveVisualizer.xib */; };
+		B266E0FA27D8A11B00A3AEB5 /* WaveVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0D927D8A11B00A3AEB5 /* WaveVisualizer.swift */; };
+		B266E0FB27D8A11B00A3AEB5 /* ViewWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0DA27D8A11B00A3AEB5 /* ViewWithXib.swift */; };
+		B266E0FC27D8A11B00A3AEB5 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0DC27D8A11B00A3AEB5 /* PlayerControls.swift */; };
+		B266E0FD27D8A11B00A3AEB5 /* PlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = B266E0DD27D8A11B00A3AEB5 /* PlayerControls.xib */; };
+		B266E0FE27D8A11B00A3AEB5 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0DF27D8A11B00A3AEB5 /* CenterCellCollectionViewFlowLayout.swift */; };
+		B266E0FF27D8A11B00A3AEB5 /* PlayerSongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0E027D8A11B00A3AEB5 /* PlayerSongList.swift */; };
+		B266E10027D8A11B00A3AEB5 /* PlayerSongList.xib in Resources */ = {isa = PBXBuildFile; fileRef = B266E0E127D8A11B00A3AEB5 /* PlayerSongList.xib */; };
+		B266E10127D8A11B00A3AEB5 /* PlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0E327D8A11B00A3AEB5 /* PlayerSlider.swift */; };
+		B266E10227D8A11B00A3AEB5 /* PlayerSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = B266E0E427D8A11B00A3AEB5 /* PlayerSlider.xib */; };
+		B266E10327D8A11B00A3AEB5 /* VisualisationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266E0E627D8A11B00A3AEB5 /* VisualisationHelper.swift */; };
+		B266E10427D8A11B00A3AEB5 /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B266E0E927D8A11B00A3AEB5 /* PandoraPlayer.storyboard */; };
+		B266E10527D8A11B00A3AEB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B266E0EB27D8A11B00A3AEB5 /* Assets.xcassets */; };
+		B266E10F27D8CB7A00A3AEB5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B266E10E27D8CB7A00A3AEB5 /* GoogleSignIn */; };
 		B279798E2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279798A2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift */; };
 		B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */; };
 		B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27979912275D590006CB84B /* PaymentPlansCollectionViewCell.swift */; };
@@ -138,30 +162,6 @@
 		B2FFE9E921D9FC7300FE0C0F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */; };
 		E26A408A21F08C5C00E71D39 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408921F08C5C00E71D39 /* Player.swift */; };
 		E26A408C21F09BF300E71D39 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26A408B21F09BF300E71D39 /* ProgressBar.swift */; };
-		E27A70642211F92A001751BC /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A703B2211F92A001751BC /* UIImageColors.swift */; };
-		E27A70652211F92A001751BC /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A703C2211F92A001751BC /* UIImageEffects.swift */; };
-		E27A70662211F92A001751BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A703E2211F92A001751BC /* Constants.swift */; };
-		E27A70672211F92A001751BC /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70402211F92A001751BC /* MetaData.swift */; };
-		E27A70682211F92A001751BC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70412211F92A001751BC /* Song.swift */; };
-		E27A70692211F92A001751BC /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70432211F92A001751BC /* CommonExtensions.swift */; };
-		E27A706A2211F92A001751BC /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70442211F92A001751BC /* Array.swift */; };
-		E27A706B2211F92A001751BC /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70452211F92A001751BC /* NSObjectExtensions.swift */; };
-		E27A706C2211F92A001751BC /* PandoraPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70472211F92A001751BC /* PandoraPlayer.swift */; };
-		E27A706D2211F92A001751BC /* RoundedPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27A704B2211F92A001751BC /* RoundedPictureCollectionViewCell.xib */; };
-		E27A706E2211F92A001751BC /* RoundedPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A704C2211F92A001751BC /* RoundedPictureCollectionViewCell.swift */; };
-		E27A706F2211F92A001751BC /* WaveVisualizer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27A704E2211F92A001751BC /* WaveVisualizer.xib */; };
-		E27A70702211F92A001751BC /* WaveVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A704F2211F92A001751BC /* WaveVisualizer.swift */; };
-		E27A70712211F92A001751BC /* ViewWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70502211F92A001751BC /* ViewWithXib.swift */; };
-		E27A70722211F92A001751BC /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70522211F92A001751BC /* PlayerControls.swift */; };
-		E27A70732211F92A001751BC /* PlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27A70532211F92A001751BC /* PlayerControls.xib */; };
-		E27A70742211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70552211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift */; };
-		E27A70752211F92A001751BC /* PlayerSongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70562211F92A001751BC /* PlayerSongList.swift */; };
-		E27A70762211F92A001751BC /* PlayerSongList.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27A70572211F92A001751BC /* PlayerSongList.xib */; };
-		E27A70772211F92A001751BC /* PlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A70592211F92A001751BC /* PlayerSlider.swift */; };
-		E27A70782211F92A001751BC /* PlayerSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27A705A2211F92A001751BC /* PlayerSlider.xib */; };
-		E27A70792211F92A001751BC /* VisualisationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A705C2211F92A001751BC /* VisualisationHelper.swift */; };
-		E27A707A2211F92A001751BC /* PandoraPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27A705F2211F92A001751BC /* PandoraPlayer.storyboard */; };
-		E27A707B2211F92A001751BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27A70612211F92A001751BC /* Assets.xcassets */; };
 		E2B369FE27D7BFCB002B7C44 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E2B369FD27D7BFCB002B7C44 /* AudioKit */; };
 		E2B36A0C27D7C075002B7C44 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0027D7C075002B7C44 /* Disk.swift */; };
 		E2B36A0D27D7C075002B7C44 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B36A0127D7C075002B7C44 /* Disk+InternalHelpers.swift */; };
@@ -199,8 +199,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
-		9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2075E5F222BFE4A000D87A4 /* iMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		B215778823154B5B00E67AB9 /* SearchSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionCell.swift; sourceTree = "<group>"; };
 		B215778A231A77A800E67AB9 /* YourPlaylistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPlaylistRow.swift; sourceTree = "<group>"; };
@@ -282,6 +280,31 @@
 		B266E0AD27D89EF100A3AEB5 /* EZAudioPlotGL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZAudioPlotGL.m; sourceTree = "<group>"; };
 		B266E0AE27D89EF100A3AEB5 /* EZAudioFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAudioFFT.h; sourceTree = "<group>"; };
 		B266E0B027D89EF100A3AEB5 /* EZAudioiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAudioiOS.h; sourceTree = "<group>"; };
+		B266E0C527D8A11B00A3AEB5 /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
+		B266E0C627D8A11B00A3AEB5 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		B266E0C827D8A11B00A3AEB5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B266E0CA27D8A11B00A3AEB5 /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
+		B266E0CB27D8A11B00A3AEB5 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		B266E0CD27D8A11B00A3AEB5 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
+		B266E0CE27D8A11B00A3AEB5 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		B266E0CF27D8A11B00A3AEB5 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		B266E0D127D8A11B00A3AEB5 /* PandoraPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PandoraPlayer.swift; sourceTree = "<group>"; };
+		B266E0D527D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundedPictureCollectionViewCell.xib; sourceTree = "<group>"; };
+		B266E0D627D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedPictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		B266E0D827D8A11B00A3AEB5 /* WaveVisualizer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveVisualizer.xib; sourceTree = "<group>"; };
+		B266E0D927D8A11B00A3AEB5 /* WaveVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveVisualizer.swift; sourceTree = "<group>"; };
+		B266E0DA27D8A11B00A3AEB5 /* ViewWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithXib.swift; sourceTree = "<group>"; };
+		B266E0DC27D8A11B00A3AEB5 /* PlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
+		B266E0DD27D8A11B00A3AEB5 /* PlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerControls.xib; sourceTree = "<group>"; };
+		B266E0DF27D8A11B00A3AEB5 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		B266E0E027D8A11B00A3AEB5 /* PlayerSongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSongList.swift; sourceTree = "<group>"; };
+		B266E0E127D8A11B00A3AEB5 /* PlayerSongList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerSongList.xib; sourceTree = "<group>"; };
+		B266E0E327D8A11B00A3AEB5 /* PlayerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSlider.swift; sourceTree = "<group>"; };
+		B266E0E427D8A11B00A3AEB5 /* PlayerSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerSlider.xib; sourceTree = "<group>"; };
+		B266E0E627D8A11B00A3AEB5 /* VisualisationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualisationHelper.swift; sourceTree = "<group>"; };
+		B266E0EA27D8A11B00A3AEB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PandoraPlayer.storyboard; sourceTree = "<group>"; };
+		B266E0EB27D8A11B00A3AEB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B266E0EC27D8A11B00A3AEB5 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B279798A2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCycleGalleryViewLayout.swift; sourceTree = "<group>"; };
 		B279798B2275D4FB006CB84B /* HSCycleGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSCycleGalleryView.swift; sourceTree = "<group>"; };
 		B279798D2275D4FB006CB84B /* HSCycleGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCycleGalleryView.h; sourceTree = "<group>"; };
@@ -357,32 +380,6 @@
 		B2FFE9E821D9FC7300FE0C0F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E26A408921F08C5C00E71D39 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E26A408B21F09BF300E71D39 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		E27A703B2211F92A001751BC /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
-		E27A703C2211F92A001751BC /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
-		E27A703E2211F92A001751BC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E27A70402211F92A001751BC /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
-		E27A70412211F92A001751BC /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		E27A70432211F92A001751BC /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
-		E27A70442211F92A001751BC /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		E27A70452211F92A001751BC /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
-		E27A70472211F92A001751BC /* PandoraPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PandoraPlayer.swift; sourceTree = "<group>"; };
-		E27A704B2211F92A001751BC /* RoundedPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundedPictureCollectionViewCell.xib; sourceTree = "<group>"; };
-		E27A704C2211F92A001751BC /* RoundedPictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedPictureCollectionViewCell.swift; sourceTree = "<group>"; };
-		E27A704E2211F92A001751BC /* WaveVisualizer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveVisualizer.xib; sourceTree = "<group>"; };
-		E27A704F2211F92A001751BC /* WaveVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveVisualizer.swift; sourceTree = "<group>"; };
-		E27A70502211F92A001751BC /* ViewWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithXib.swift; sourceTree = "<group>"; };
-		E27A70522211F92A001751BC /* PlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
-		E27A70532211F92A001751BC /* PlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerControls.xib; sourceTree = "<group>"; };
-		E27A70552211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		E27A70562211F92A001751BC /* PlayerSongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSongList.swift; sourceTree = "<group>"; };
-		E27A70572211F92A001751BC /* PlayerSongList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerSongList.xib; sourceTree = "<group>"; };
-		E27A70592211F92A001751BC /* PlayerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSlider.swift; sourceTree = "<group>"; };
-		E27A705A2211F92A001751BC /* PlayerSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerSlider.xib; sourceTree = "<group>"; };
-		E27A705C2211F92A001751BC /* VisualisationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualisationHelper.swift; sourceTree = "<group>"; };
-		E27A70602211F92A001751BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PandoraPlayer.storyboard; sourceTree = "<group>"; };
-		E27A70612211F92A001751BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E27A70622211F92A001751BC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		E27A70632211F92A001751BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B36A0027D7C075002B7C44 /* Disk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
 		E2B36A0127D7C075002B7C44 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
 		E2B36A0227D7C075002B7C44 /* Disk+[Data].swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+[Data].swift"; sourceTree = "<group>"; };
@@ -400,7 +397,6 @@
 		E2B36A2C27D7C4EA002B7C44 /* SwitchLayoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchLayoutButton.swift; sourceTree = "<group>"; };
 		E2B36A2E27D7C4EA002B7C44 /* TransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionLayout.swift; sourceTree = "<group>"; };
 		E2B36A2F27D7C4EA002B7C44 /* DisplaySwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplaySwitcher.h; sourceTree = "<group>"; };
-		F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,11 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B369FE27D7BFCB002B7C44 /* AudioKit in Frameworks */,
+				B266E10F27D8CB7A00A3AEB5 /* GoogleSignIn in Frameworks */,
 				E2B36A2227D7C380002B7C44 /* SwiftyJSON in Frameworks */,
 				B241B6BA21D7AFF600D53711 /* pop.framework in Frameworks */,
 				E2B36A1927D7C122002B7C44 /* AudioKitUI in Frameworks */,
 				E2B36A1F27D7C2BD002B7C44 /* Alamofire in Frameworks */,
-				01548C1F6315A49678BBD909 /* Pods_iMusic.framework in Frameworks */,
 				E2B36A1C27D7C1EB002B7C44 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,23 +417,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		068C82448ACA1FDDEA3FE08A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */,
-				F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3AD6AD20BBDB4E31341D165E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9AF474DA192215479CA74CC4 /* Pods_iMusic.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B224C17222259AFD003BFE22 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,8 +459,6 @@
 				B241B6B921D7AFF600D53711 /* pop.framework */,
 				B241B67E21D78F8000D53711 /* iMusic */,
 				B241B67D21D78F8000D53711 /* Products */,
-				068C82448ACA1FDDEA3FE08A /* Pods */,
-				3AD6AD20BBDB4E31341D165E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -552,6 +529,7 @@
 		B241B69B21D7924600D53711 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				B266E0C227D8A11B00A3AEB5 /* PandoraPlayer */,
 				B266E08D27D89EF100A3AEB5 /* EZAudio */,
 				E2B36A2327D7C4EA002B7C44 /* DisplaySwitch */,
 				E2B369FF27D7C075002B7C44 /* Disk */,
@@ -560,7 +538,6 @@
 				B27979882275D4FB006CB84B /* HSCycleGalleryView */,
 				B2BB467522217FB200D97FA8 /* NVActivityIndicatorView */,
 				B224C17222259AFD003BFE22 /* iCarousel */,
-				E27A70382211F92A001751BC /* Player */,
 				B241B6A021D7AE8200D53711 /* ESTabBarController-swift */,
 				B2FBB38521E1F8FE00778B81 /* GhostTyper */,
 				E26A408B21F09BF300E71D39 /* ProgressBar.swift */,
@@ -710,6 +687,167 @@
 			path = EZAudio;
 			sourceTree = "<group>";
 		};
+		B266E0C227D8A11B00A3AEB5 /* PandoraPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0C327D8A11B00A3AEB5 /* Classes */,
+				B266E0E727D8A11B00A3AEB5 /* Resources */,
+			);
+			name = PandoraPlayer;
+			path = "../../../../../../Downloads/PandoraPlayer-master/PandoraPlayer";
+			sourceTree = "<group>";
+		};
+		B266E0C327D8A11B00A3AEB5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0C427D8A11B00A3AEB5 /* Vendors */,
+				B266E0C727D8A11B00A3AEB5 /* Constants */,
+				B266E0C927D8A11B00A3AEB5 /* Models */,
+				B266E0CC27D8A11B00A3AEB5 /* Extensions */,
+				B266E0D027D8A11B00A3AEB5 /* Controllers */,
+				B266E0D227D8A11B00A3AEB5 /* Views */,
+				B266E0E527D8A11B00A3AEB5 /* Helpers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B266E0C427D8A11B00A3AEB5 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0C527D8A11B00A3AEB5 /* UIImageColors.swift */,
+				B266E0C627D8A11B00A3AEB5 /* UIImageEffects.swift */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		B266E0C727D8A11B00A3AEB5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0C827D8A11B00A3AEB5 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B266E0C927D8A11B00A3AEB5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0CA27D8A11B00A3AEB5 /* MetaData.swift */,
+				B266E0CB27D8A11B00A3AEB5 /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B266E0CC27D8A11B00A3AEB5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0CD27D8A11B00A3AEB5 /* CommonExtensions.swift */,
+				B266E0CE27D8A11B00A3AEB5 /* Array.swift */,
+				B266E0CF27D8A11B00A3AEB5 /* NSObjectExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B266E0D027D8A11B00A3AEB5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0D127D8A11B00A3AEB5 /* PandoraPlayer.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B266E0D227D8A11B00A3AEB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0D327D8A11B00A3AEB5 /* Cells */,
+				B266E0D727D8A11B00A3AEB5 /* WaveVisualizer */,
+				B266E0DA27D8A11B00A3AEB5 /* ViewWithXib.swift */,
+				B266E0DB27D8A11B00A3AEB5 /* PlayerControls */,
+				B266E0DE27D8A11B00A3AEB5 /* PlayerSongList */,
+				B266E0E227D8A11B00A3AEB5 /* PlayerSlider */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B266E0D327D8A11B00A3AEB5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0D427D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B266E0D427D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0D527D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.xib */,
+				B266E0D627D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.swift */,
+			);
+			path = RoundedPictureCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		B266E0D727D8A11B00A3AEB5 /* WaveVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0D827D8A11B00A3AEB5 /* WaveVisualizer.xib */,
+				B266E0D927D8A11B00A3AEB5 /* WaveVisualizer.swift */,
+			);
+			path = WaveVisualizer;
+			sourceTree = "<group>";
+		};
+		B266E0DB27D8A11B00A3AEB5 /* PlayerControls */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0DC27D8A11B00A3AEB5 /* PlayerControls.swift */,
+				B266E0DD27D8A11B00A3AEB5 /* PlayerControls.xib */,
+			);
+			path = PlayerControls;
+			sourceTree = "<group>";
+		};
+		B266E0DE27D8A11B00A3AEB5 /* PlayerSongList */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0DF27D8A11B00A3AEB5 /* CenterCellCollectionViewFlowLayout.swift */,
+				B266E0E027D8A11B00A3AEB5 /* PlayerSongList.swift */,
+				B266E0E127D8A11B00A3AEB5 /* PlayerSongList.xib */,
+			);
+			path = PlayerSongList;
+			sourceTree = "<group>";
+		};
+		B266E0E227D8A11B00A3AEB5 /* PlayerSlider */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0E327D8A11B00A3AEB5 /* PlayerSlider.swift */,
+				B266E0E427D8A11B00A3AEB5 /* PlayerSlider.xib */,
+			);
+			path = PlayerSlider;
+			sourceTree = "<group>";
+		};
+		B266E0E527D8A11B00A3AEB5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0E627D8A11B00A3AEB5 /* VisualisationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B266E0E727D8A11B00A3AEB5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0E827D8A11B00A3AEB5 /* Storyboards */,
+				B266E0EB27D8A11B00A3AEB5 /* Assets.xcassets */,
+				B266E0EC27D8A11B00A3AEB5 /* Player.h */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B266E0E827D8A11B00A3AEB5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B266E0E927D8A11B00A3AEB5 /* PandoraPlayer.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		B27979882275D4FB006CB84B /* HSCycleGalleryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,167 +983,6 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		E27A70382211F92A001751BC /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70392211F92A001751BC /* Classes */,
-				E27A705D2211F92A001751BC /* Resources */,
-			);
-			path = Player;
-			sourceTree = "<group>";
-		};
-		E27A70392211F92A001751BC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				E27A703A2211F92A001751BC /* Vendors */,
-				E27A703D2211F92A001751BC /* Constants */,
-				E27A703F2211F92A001751BC /* Models */,
-				E27A70422211F92A001751BC /* Extensions */,
-				E27A70462211F92A001751BC /* Controllers */,
-				E27A70482211F92A001751BC /* Views */,
-				E27A705B2211F92A001751BC /* Helpers */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		E27A703A2211F92A001751BC /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-				E27A703B2211F92A001751BC /* UIImageColors.swift */,
-				E27A703C2211F92A001751BC /* UIImageEffects.swift */,
-			);
-			path = Vendors;
-			sourceTree = "<group>";
-		};
-		E27A703D2211F92A001751BC /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				E27A703E2211F92A001751BC /* Constants.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		E27A703F2211F92A001751BC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70402211F92A001751BC /* MetaData.swift */,
-				E27A70412211F92A001751BC /* Song.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E27A70422211F92A001751BC /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70432211F92A001751BC /* CommonExtensions.swift */,
-				E27A70442211F92A001751BC /* Array.swift */,
-				E27A70452211F92A001751BC /* NSObjectExtensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E27A70462211F92A001751BC /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70472211F92A001751BC /* PandoraPlayer.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E27A70482211F92A001751BC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70492211F92A001751BC /* Cells */,
-				E27A704D2211F92A001751BC /* WaveVisualizer */,
-				E27A70502211F92A001751BC /* ViewWithXib.swift */,
-				E27A70512211F92A001751BC /* PlayerControls */,
-				E27A70542211F92A001751BC /* PlayerSongList */,
-				E27A70582211F92A001751BC /* PlayerSlider */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E27A70492211F92A001751BC /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				E27A704A2211F92A001751BC /* RoundedPictureCollectionViewCell */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		E27A704A2211F92A001751BC /* RoundedPictureCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				E27A704B2211F92A001751BC /* RoundedPictureCollectionViewCell.xib */,
-				E27A704C2211F92A001751BC /* RoundedPictureCollectionViewCell.swift */,
-			);
-			path = RoundedPictureCollectionViewCell;
-			sourceTree = "<group>";
-		};
-		E27A704D2211F92A001751BC /* WaveVisualizer */ = {
-			isa = PBXGroup;
-			children = (
-				E27A704E2211F92A001751BC /* WaveVisualizer.xib */,
-				E27A704F2211F92A001751BC /* WaveVisualizer.swift */,
-			);
-			path = WaveVisualizer;
-			sourceTree = "<group>";
-		};
-		E27A70512211F92A001751BC /* PlayerControls */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70522211F92A001751BC /* PlayerControls.swift */,
-				E27A70532211F92A001751BC /* PlayerControls.xib */,
-			);
-			path = PlayerControls;
-			sourceTree = "<group>";
-		};
-		E27A70542211F92A001751BC /* PlayerSongList */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70552211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift */,
-				E27A70562211F92A001751BC /* PlayerSongList.swift */,
-				E27A70572211F92A001751BC /* PlayerSongList.xib */,
-			);
-			path = PlayerSongList;
-			sourceTree = "<group>";
-		};
-		E27A70582211F92A001751BC /* PlayerSlider */ = {
-			isa = PBXGroup;
-			children = (
-				E27A70592211F92A001751BC /* PlayerSlider.swift */,
-				E27A705A2211F92A001751BC /* PlayerSlider.xib */,
-			);
-			path = PlayerSlider;
-			sourceTree = "<group>";
-		};
-		E27A705B2211F92A001751BC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E27A705C2211F92A001751BC /* VisualisationHelper.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		E27A705D2211F92A001751BC /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E27A705E2211F92A001751BC /* Storyboards */,
-				E27A70612211F92A001751BC /* Assets.xcassets */,
-				E27A70622211F92A001751BC /* Player.h */,
-				E27A70632211F92A001751BC /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E27A705E2211F92A001751BC /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				E27A705F2211F92A001751BC /* PandoraPlayer.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		E2B369FF27D7C075002B7C44 /* Disk */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,13 +1061,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B241B68E21D78F8300D53711 /* Build configuration list for PBXNativeTarget "iMusic" */;
 			buildPhases = (
-				7CD57FDD8572B25F14B3A4C1 /* [CP] Check Pods Manifest.lock */,
 				B241B67821D78F8000D53711 /* Sources */,
 				B241B67921D78F8000D53711 /* Frameworks */,
 				B241B67A21D78F8000D53711 /* Resources */,
 				B241B6BF21D7B08A00D53711 /* Embed Frameworks */,
-				8CD40B0113FD06F08F2C99BA /* [CP] Embed Pods Frameworks */,
-				91AC49A487B691DA51A7C737 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1103,6 +1077,7 @@
 				E2B36A1B27D7C1EB002B7C44 /* SDWebImage */,
 				E2B36A1E27D7C2BD002B7C44 /* Alamofire */,
 				E2B36A2127D7C380002B7C44 /* SwiftyJSON */,
+				B266E10E27D8CB7A00A3AEB5 /* GoogleSignIn */,
 			);
 			productName = iMusic;
 			productReference = B241B67C21D78F8000D53711 /* iMusic.app */;
@@ -1138,11 +1113,12 @@
 			);
 			mainGroup = B241B67321D78F8000D53711;
 			packageReferences = (
-				E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */,
-				E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit.git" */,
+				E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI.git" */,
 				E2B36A1A27D7C1EB002B7C44 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */,
+				B266E10D27D8CB7A00A3AEB5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = B241B67D21D78F8000D53711 /* Products */;
 			projectDirPath = "";
@@ -1158,87 +1134,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B266E0FD27D8A11B00A3AEB5 /* PlayerControls.xib in Resources */,
 				B241B6AB21D7AE8200D53711 /* LICENSE in Resources */,
-				E27A70762211F92A001751BC /* PlayerSongList.xib in Resources */,
+				B266E10527D8A11B00A3AEB5 /* Assets.xcassets in Resources */,
 				B241B6D021D8A71500D53711 /* D-DIN.otf in Resources */,
+				B266E10027D8A11B00A3AEB5 /* PlayerSongList.xib in Resources */,
 				B241B68A21D78F8300D53711 /* LaunchScreen.storyboard in Resources */,
-				E27A706D2211F92A001751BC /* RoundedPictureCollectionViewCell.xib in Resources */,
 				B241B6AC21D7AE8200D53711 /* README.md in Resources */,
 				B241B6CB21D8A71500D53711 /* D-DINCondensed.otf in Resources */,
 				B2A2585421E08A8F00CF3738 /* IRANYekanMobileBold(FaNum).ttf in Resources */,
 				B2FFE9E721D9070500FE0C0F /* credentials.plist in Resources */,
-				E27A70732211F92A001751BC /* PlayerControls.xib in Resources */,
 				B241B6CC21D8A71500D53711 /* D-DIN-Bold.otf in Resources */,
-				E27A707A2211F92A001751BC /* PandoraPlayer.storyboard in Resources */,
 				B2A2585221E08A8F00CF3738 /* IRANYekanRegularMobile(FaNum).ttf in Resources */,
-				E27A70782211F92A001751BC /* PlayerSlider.xib in Resources */,
+				B266E0F927D8A11B00A3AEB5 /* WaveVisualizer.xib in Resources */,
+				B266E0F727D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.xib in Resources */,
+				B266E10227D8A11B00A3AEB5 /* PlayerSlider.xib in Resources */,
 				B241B6D121D8A71500D53711 /* D-DINCondensed-Bold.otf in Resources */,
+				B266E10427D8A11B00A3AEB5 /* PandoraPlayer.storyboard in Resources */,
 				B241B68721D78F8300D53711 /* Assets.xcassets in Resources */,
 				B2A2585321E08A8F00CF3738 /* IRANYekanLightMobile(FaNum).ttf in Resources */,
 				B241B6CF21D8A71500D53711 /* D-DINExp.otf in Resources */,
 				B241B6CD21D8A71500D53711 /* D-DINExp-Bold.otf in Resources */,
 				B2FBB38221E1F56200778B81 /* B Koodak Bold_0.ttf in Resources */,
-				E27A707B2211F92A001751BC /* Assets.xcassets in Resources */,
-				E27A706F2211F92A001751BC /* WaveVisualizer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7CD57FDD8572B25F14B3A4C1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iMusic-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8CD40B0113FD06F08F2C99BA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		91AC49A487B691DA51A7C737 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iMusic/Pods-iMusic-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B241B67821D78F8000D53711 /* Sources */ = {
@@ -1253,17 +1174,17 @@
 				B2BB46B222217FB200D97FA8 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				B241B6B221D7AE8200D53711 /* ESTabBar.swift in Sources */,
 				B279798E2275D4FB006CB84B /* HSCycleGalleryViewLayout.swift in Sources */,
-				E27A70792211F92A001751BC /* VisualisationHelper.swift in Sources */,
 				B266E0BF27D89EF100A3AEB5 /* EZAudioFile.m in Sources */,
+				B266E0F827D8A11B00A3AEB5 /* RoundedPictureCollectionViewCell.swift in Sources */,
 				B2BB46BD22217FB200D97FA8 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				B2BB46A722217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				B2BB46AD22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				B257F4722274867300CB062A /* ProfileViewController.swift in Sources */,
-				E27A706C2211F92A001751BC /* PandoraPlayer.swift in Sources */,
 				B2BB46C122217FB300D97FA8 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
+				B266E0F227D8A11B00A3AEB5 /* Song.swift in Sources */,
 				E2B36A1327D7C075002B7C44 /* Disk+[UIImage].swift in Sources */,
 				B2BB46BA22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
-				E27A70742211F92A001751BC /* CenterCellCollectionViewFlowLayout.swift in Sources */,
+				B266E10327D8A11B00A3AEB5 /* VisualisationHelper.swift in Sources */,
 				E2B36A1027D7C075002B7C44 /* Disk+Errors.swift in Sources */,
 				B266E0B427D89EF100A3AEB5 /* EZPlot.m in Sources */,
 				B2FBB38721E1F9C800778B81 /* CustomTyperLabel.swift in Sources */,
@@ -1275,34 +1196,37 @@
 				E2B36A0E27D7C075002B7C44 /* Disk+[Data].swift in Sources */,
 				E2B36A3327D7C4EA002B7C44 /* DisplaySwitchLayoutAttributes.swift in Sources */,
 				B2BB46A222217FB200D97FA8 /* NVActivityIndicatorShape.swift in Sources */,
+				B266E10127D8A11B00A3AEB5 /* PlayerSlider.swift in Sources */,
 				B23AF068231E5D5B000EEE07 /* OptionsForTrackViewController.swift in Sources */,
 				B2BB46A622217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				B266E0B727D89EF100A3AEB5 /* TPCircularBuffer.c in Sources */,
 				B266E0BA27D89EF100A3AEB5 /* EZRecorder.m in Sources */,
-				E27A70682211F92A001751BC /* Song.swift in Sources */,
 				B2BB46A422217FB200D97FA8 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				B29AA2E621E9FF4200192393 /* BaseViewController.swift in Sources */,
 				B2BB46B122217FB200D97FA8 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
+				B266E0F527D8A11B00A3AEB5 /* NSObjectExtensions.swift in Sources */,
 				B2AA08AD22DB797A00681BC7 /* TextFieldEffects.swift in Sources */,
+				B266E0F427D8A11B00A3AEB5 /* Array.swift in Sources */,
 				B2BB46A122217FB200D97FA8 /* NVActivityIndicatorViewable.swift in Sources */,
-				E27A706E2211F92A001751BC /* RoundedPictureCollectionViewCell.swift in Sources */,
 				B2C5B6F121EF7E3400E32554 /* CustomImageView.swift in Sources */,
-				E27A70752211F92A001751BC /* PlayerSongList.swift in Sources */,
 				B2A2585621E0B1FB00CF3738 /* CustomTextField.swift in Sources */,
+				B266E0FB27D8A11B00A3AEB5 /* ViewWithXib.swift in Sources */,
 				B266E0B827D89EF100A3AEB5 /* EZAudio.m in Sources */,
 				B241B6AE21D7AE8200D53711 /* ESTabBarController.swift in Sources */,
 				B266E0B627D89EF100A3AEB5 /* EZAudioPlayer.m in Sources */,
-				E27A70702211F92A001751BC /* WaveVisualizer.swift in Sources */,
 				E2B36A1427D7C075002B7C44 /* Disk+UIImage.swift in Sources */,
 				B2BB46B422217FB200D97FA8 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				B241B6B121D7AE8200D53711 /* ESTabBarItemBadgeView.swift in Sources */,
 				B2A2585C21E0B3DA00CF3738 /* MusicTrack.swift in Sources */,
+				B266E0FC27D8A11B00A3AEB5 /* PlayerControls.swift in Sources */,
 				B2BB46A022217FB200D97FA8 /* NVActivityIndicatorPresenter.swift in Sources */,
 				B2BB46AF22217FB200D97FA8 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				B27979922275D590006CB84B /* PaymentPlansCollectionViewCell.swift in Sources */,
 				B27979942275D78A006CB84B /* PaymentPlansTableViewCell.swift in Sources */,
+				B266E0F627D8A11B00A3AEB5 /* PandoraPlayer.swift in Sources */,
 				B23AF070231EA598000EEE07 /* AddPlaylistCell.swift in Sources */,
 				B2C5B6EF21EF764700E32554 /* Urls.swift in Sources */,
+				B266E0EE27D8A11B00A3AEB5 /* UIImageColors.swift in Sources */,
 				E2B36A1127D7C075002B7C44 /* Disk+Helpers.swift in Sources */,
 				B2FFE9E521D9052800FE0C0F /* AppDelegateGoogleSignIn.swift in Sources */,
 				B23AF07A2323E254000EEE07 /* PlaylistManager.swift in Sources */,
@@ -1310,11 +1234,11 @@
 				B241B68221D78F8000D53711 /* SignUpViewController.swift in Sources */,
 				B2BB469F22217FB200D97FA8 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				B241B6B821D7AEE000D53711 /* ExampleIrregularityContentView.swift in Sources */,
-				E27A70722211F92A001751BC /* PlayerControls.swift in Sources */,
+				B266E0F027D8A11B00A3AEB5 /* Constants.swift in Sources */,
 				E2B36A0C27D7C075002B7C44 /* Disk.swift in Sources */,
+				B266E0EF27D8A11B00A3AEB5 /* UIImageEffects.swift in Sources */,
 				B2BB46C222217FB300D97FA8 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				B2BB46A522217FB200D97FA8 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
-				E27A706A2211F92A001751BC /* Array.swift in Sources */,
 				B2BB46B322217FB200D97FA8 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				B266E0BE27D89EF100A3AEB5 /* EZAudioDisplayLink.m in Sources */,
 				B241B6B721D7AEE000D53711 /* ExampleBouncesContentView.swift in Sources */,
@@ -1328,16 +1252,16 @@
 				B22C3D05220753CA003BBFD1 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
 				B279798F2275D4FB006CB84B /* HSCycleGalleryView.swift in Sources */,
 				B2BB46AC22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
-				E27A70662211F92A001751BC /* Constants.swift in Sources */,
 				B215778D231A819900E67AB9 /* OfferedPlaylistsCell.swift in Sources */,
 				B241B6AD21D7AE8200D53711 /* ESTabBarItemMoreContentView.swift in Sources */,
 				E2B36A1527D7C075002B7C44 /* Disk+Codable.swift in Sources */,
+				B266E0FF27D8A11B00A3AEB5 /* PlayerSongList.swift in Sources */,
 				B2A2585821E0B3C100CF3738 /* API.swift in Sources */,
 				B241B69621D791D800D53711 /* Helper.swift in Sources */,
 				B241B6B321D7AE8200D53711 /* ESTabBarItemContainer.swift in Sources */,
-				E27A70772211F92A001751BC /* PlayerSlider.swift in Sources */,
 				B2BB46BC22217FB200D97FA8 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				B2BB46B922217FB200D97FA8 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
+				B266E0FA27D8A11B00A3AEB5 /* WaveVisualizer.swift in Sources */,
 				B215778F231A995800E67AB9 /* PlaylistCollectionViewCell.swift in Sources */,
 				B23AF072231EAFFA000EEE07 /* PlaylistViewController.swift in Sources */,
 				B2BB46BE22217FB200D97FA8 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
@@ -1347,13 +1271,14 @@
 				B2BB46A922217FB200D97FA8 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				B241B68021D78F8000D53711 /* AppDelegate.swift in Sources */,
 				B23AF06E231E987F000EEE07 /* FollowedPlaylistCell.swift in Sources */,
-				E27A70652211F92A001751BC /* UIImageEffects.swift in Sources */,
 				B23AF06C231E96DE000EEE07 /* Playlist.swift in Sources */,
+				B266E0F327D8A11B00A3AEB5 /* CommonExtensions.swift in Sources */,
 				B2BB511F21E5DD8800A35D36 /* DownloadViewController.swift in Sources */,
 				B266E0BD27D89EF100A3AEB5 /* EZAudioDevice.m in Sources */,
 				B2AA08AC22DB797A00681BC7 /* HoshiTextField.swift in Sources */,
 				E2B36A3427D7C4EA002B7C44 /* SwitchLayoutButton.swift in Sources */,
 				B2C5B6EB21EF6FE800E32554 /* SearchResult.swift in Sources */,
+				B266E0FE27D8A11B00A3AEB5 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				B2BB46AB22217FB200D97FA8 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				B266E0C027D89EF100A3AEB5 /* EZAudioPlotGL.m in Sources */,
 				B215778B231A77A800E67AB9 /* YourPlaylistRow.swift in Sources */,
@@ -1362,25 +1287,21 @@
 				B241B6B021D7AE8200D53711 /* ESTabBarItem.swift in Sources */,
 				B2FBB38421E1F8F600778B81 /* GhostTyper.swift in Sources */,
 				B27979D222770F9B006CB84B /* PopBounceButton.swift in Sources */,
-				E27A70642211F92A001751BC /* UIImageColors.swift in Sources */,
 				B224C17622259AFE003BFE22 /* iCarousel.m in Sources */,
 				E2B36A0D27D7C075002B7C44 /* Disk+InternalHelpers.swift in Sources */,
 				B266E0B327D89EF100A3AEB5 /* EZAudioFFT.m in Sources */,
-				E27A70712211F92A001751BC /* ViewWithXib.swift in Sources */,
 				B2BB46A822217FB200D97FA8 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
-				E27A706B2211F92A001751BC /* NSObjectExtensions.swift in Sources */,
 				B2BB46B622217FB200D97FA8 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,
-				E27A70692211F92A001751BC /* CommonExtensions.swift in Sources */,
 				B2BB46AE22217FB200D97FA8 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				B29AA2E821EA128700192393 /* SearchResultTableViewCell.swift in Sources */,
 				B215778923154B5B00E67AB9 /* SearchSuggestionCell.swift in Sources */,
-				E27A70672211F92A001751BC /* MetaData.swift in Sources */,
 				E2B36A0F27D7C075002B7C44 /* Disk+Data.swift in Sources */,
 				B2FFE9E321D9042B00FE0C0F /* AppDelegateTabBar.swift in Sources */,
 				B27979D322770F9B006CB84B /* ButtonAnimator.swift in Sources */,
 				B2BB46AA22217FB200D97FA8 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				B2A2585A21E0B3CE00CF3738 /* MusicViewModel.swift in Sources */,
 				B2BB512321E5E1BF00A35D36 /* BaseViewControllerPresented.swift in Sources */,
+				B266E0F127D8A11B00A3AEB5 /* MetaData.swift in Sources */,
 				B2BB46B822217FB200D97FA8 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				B266E0B927D89EF100A3AEB5 /* EZAudioUtilities.m in Sources */,
 				B2BB46B522217FB200D97FA8 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
@@ -1404,10 +1325,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		E27A705F2211F92A001751BC /* PandoraPlayer.storyboard */ = {
+		B266E0E927D8A11B00A3AEB5 /* PandoraPlayer.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E27A70602211F92A001751BC /* Base */,
+				B266E0EA27D8A11B00A3AEB5 /* Base */,
 			);
 			name = PandoraPlayer.storyboard;
 			sourceTree = "<group>";
@@ -1535,7 +1456,6 @@
 		};
 		B241B68F21D78F8300D53711 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 218FB137313D0A24198C8E6B /* Pods-iMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1564,7 +1484,6 @@
 		};
 		B241B69021D78F8300D53711 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4DCD553AFC4235F88B470F4 /* Pods-iMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1616,7 +1535,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+		B266E10D27D8CB7A00A3AEB5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.0;
+			};
+		};
+		E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
 			requirement = {
@@ -1624,7 +1551,7 @@
 				version = 5.3.3;
 			};
 		};
-		E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+		E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
 			requirement = {
@@ -1640,7 +1567,7 @@
 				version = 5.9.5;
 			};
 		};
-		E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1648,7 +1575,7 @@
 				version = 4.8.2;
 			};
 		};
-		E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -1659,14 +1586,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B266E10E27D8CB7A00A3AEB5 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B266E10D27D8CB7A00A3AEB5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
 		E2B369FD27D7BFCB002B7C44 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			package = E2B369FC27D7BFCB002B7C44 /* XCRemoteSwiftPackageReference "AudioKit.git" */;
 			productName = AudioKit;
 		};
 		E2B36A1827D7C122002B7C44 /* AudioKitUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			package = E2B36A1727D7C122002B7C44 /* XCRemoteSwiftPackageReference "AudioKitUI.git" */;
 			productName = AudioKitUI;
 		};
 		E2B36A1B27D7C1EB002B7C44 /* SDWebImage */ = {
@@ -1676,12 +1608,12 @@
 		};
 		E2B36A1E27D7C2BD002B7C44 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = E2B36A1D27D7C2BD002B7C44 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 		E2B36A2127D7C380002B7C44 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = E2B36A2027D7C380002B7C44 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

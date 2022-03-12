@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-extension SignUpViewController : GIDSignInUIDelegate {
+extension SignUpViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ extension SignUpViewController : GIDSignInUIDelegate {
     }
     
     @objc private func googleButtonTapped() {
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        //GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().signIn()
     }
     
     

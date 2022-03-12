@@ -60,7 +60,7 @@ extension AppDelegate{
         
         let navigationController_signedOut = UINavigationController(rootViewController: SignUpViewController())
         
-        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
              self.window?.rootViewController = navigationController_signedIn
         } else {
              self.window?.rootViewController = navigationController_signedOut
